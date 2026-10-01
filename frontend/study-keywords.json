@@ -1,0 +1,762 @@
+{
+  "r-programming": [
+    "R",
+    "dplyr",
+    "ggplot2",
+    "Análise de dados",
+    "Estatística",
+    "Quarto"
+  ],
+  "seo": [
+    "SEO técnico",
+    "Pesquisa de palavras-chave",
+    "Search Console",
+    "Dados estruturados",
+    "Core Web Vitals",
+    "Otimização de conteúdo"
+  ],
+  "frontend": [
+    "HTML semântico",
+    "CSS responsivo",
+    "JavaScript",
+    "Consumo de APIs",
+    "Acessibilidade web",
+    "Testes de interface"
+  ],
+  "backend": [
+    "APIs REST",
+    "HTTP",
+    "SQL",
+    "Autenticação e autorização",
+    "Testes de integração",
+    "Segurança de APIs"
+  ],
+  "full-stack": [
+    "JavaScript",
+    "Desenvolvimento frontend",
+    "Desenvolvimento backend",
+    "APIs REST",
+    "Banco de dados",
+    "Testes de ponta a ponta"
+  ],
+  "android": [
+    "Kotlin",
+    "Jetpack Compose",
+    "Room",
+    "APIs REST",
+    "Testes Android",
+    "Acessibilidade móvel"
+  ],
+  "devops": [
+    "Linux",
+    "Docker",
+    "CI/CD",
+    "Infraestrutura como código",
+    "Kubernetes",
+    "Observabilidade"
+  ],
+  "devsecops": [
+    "Modelagem de ameaças",
+    "SAST",
+    "DAST",
+    "Segurança de contêineres",
+    "Gestão de segredos",
+    "Segurança em CI/CD"
+  ],
+  "data-analyst": [
+    "SQL",
+    "Análise de dados",
+    "Estatística descritiva",
+    "Dashboards",
+    "Visualização de dados",
+    "Testes A/B"
+  ],
+  "ai-engineer": [
+    "Python",
+    "Modelos de linguagem",
+    "Embeddings",
+    "RAG",
+    "Avaliação de IA",
+    "Agentes de IA"
+  ],
+  "ai-data-scientist": [
+    "Python",
+    "Aprendizado de máquina",
+    "Estatística",
+    "Redes neurais",
+    "Análise exploratória",
+    "MLOps"
+  ],
+  "data-engineer": [
+    "SQL",
+    "Python",
+    "ETL/ELT",
+    "Data warehouse",
+    "Pipelines de dados",
+    "Qualidade de dados"
+  ],
+  "machine-learning": [
+    "Python",
+    "Aprendizado supervisionado",
+    "Classificação",
+    "Regressão",
+    "Validação de modelos",
+    "Pipelines de ML"
+  ],
+  "postgresql-dba": [
+    "PostgreSQL",
+    "SQL",
+    "Índices",
+    "Backup e restauração",
+    "Replicação",
+    "Otimização de consultas"
+  ],
+  "ios": [
+    "Swift",
+    "SwiftUI",
+    "Persistência local",
+    "Integração com APIs",
+    "Testes iOS",
+    "Acessibilidade móvel"
+  ],
+  "blockchain": [
+    "Criptografia",
+    "Contratos inteligentes",
+    "Solidity",
+    "Tokens",
+    "Web3",
+    "Testes de contratos"
+  ],
+  "qa": [
+    "Teste exploratório",
+    "Testes de API",
+    "Testes de integração",
+    "Automação de testes",
+    "Casos de teste",
+    "Testes de interface"
+  ],
+  "software-architect": [
+    "Arquitetura de software",
+    "Modelagem de domínio",
+    "Sistemas distribuídos",
+    "Escalabilidade",
+    "Observabilidade",
+    "Decisões arquiteturais"
+  ],
+  "api-design": [
+    "Design de APIs",
+    "REST",
+    "OpenAPI",
+    "Versionamento de APIs",
+    "Testes de contrato",
+    "Autenticação de APIs"
+  ],
+  "cyber-security": [
+    "Segurança de aplicações",
+    "Criptografia",
+    "Gestão de riscos",
+    "Análise de vulnerabilidades",
+    "Resposta a incidentes",
+    "Hardening"
+  ],
+  "ux-design": [
+    "Pesquisa com usuários",
+    "Jornada do usuário",
+    "Wireframes",
+    "Prototipação",
+    "Testes de usabilidade",
+    "Acessibilidade"
+  ],
+  "technical-writer": [
+    "Documentação técnica",
+    "Referência de APIs",
+    "Markdown",
+    "Docs as code",
+    "Tutoriais",
+    "Revisão editorial"
+  ],
+  "game-developer": [
+    "Desenvolvimento de jogos",
+    "Engines de jogos",
+    "Física de jogos",
+    "Animação",
+    "IA de personagens",
+    "Otimização de jogos"
+  ],
+  "server-side-game-developer": [
+    "Servidores de jogos",
+    "Redes em tempo real",
+    "Matchmaking",
+    "Sincronização de estado",
+    "Teste de carga",
+    "Anticheat"
+  ],
+  "mlops": [
+    "MLOps",
+    "Pipelines de treinamento",
+    "Versionamento de modelos",
+    "Registro de modelos",
+    "Monitoramento de deriva",
+    "Deploy de modelos"
+  ],
+  "product-manager": [
+    "Gestão de produto",
+    "Descoberta de produto",
+    "Priorização",
+    "Métricas de produto",
+    "Testes A/B",
+    "Roadmap de produto"
+  ],
+  "engineering-manager": [
+    "Gestão de engenharia",
+    "Liderança técnica",
+    "Feedback",
+    "Gestão de incidentes",
+    "Planejamento de capacidade",
+    "Desenvolvimento de equipe"
+  ],
+  "devrel": [
+    "Developer Relations",
+    "Comunidade de desenvolvedores",
+    "Documentação técnica",
+    "Conteúdo técnico",
+    "Eventos de tecnologia",
+    "Adoção de produto"
+  ],
+  "bi-analyst": [
+    "Business Intelligence",
+    "SQL",
+    "Modelagem dimensional",
+    "Dashboards",
+    "DAX",
+    "Governança de métricas"
+  ],
+  "ai-red-teaming": [
+    "Avaliação de segurança de IA",
+    "Prompt injection",
+    "Testes adversariais",
+    "Modelagem de riscos",
+    "Vazamento de dados",
+    "Mitigação de falhas"
+  ],
+  "network-engineer": [
+    "TCP/IP",
+    "Roteamento",
+    "Switching",
+    "DNS",
+    "VPN",
+    "Segurança de redes"
+  ],
+  "forward-deployed-engineer": [
+    "Integração de sistemas",
+    "APIs",
+    "Implantação no cliente",
+    "Observabilidade",
+    "Prototipação",
+    "Suporte técnico"
+  ],
+  "claude-code": [
+    "Claude Code",
+    "Desenvolvimento assistido por IA",
+    "Revisão de código",
+    "Testes automatizados",
+    "Git",
+    "Depuração"
+  ],
+  "python-data-analysis": [
+    "Python",
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "Análise exploratória",
+    "Limpeza de dados"
+  ],
+  "vibe-coding": [
+    "Prototipação com IA",
+    "Engenharia de prompts",
+    "Revisão de código",
+    "Testes de software",
+    "Depuração",
+    "Controle de versões"
+  ],
+  "power-bi": [
+    "Power BI",
+    "Power Query",
+    "DAX",
+    "Modelagem de dados",
+    "Dashboards",
+    "Segurança por linha"
+  ],
+  "leetcode": [
+    "Estruturas de dados",
+    "Algoritmos",
+    "Complexidade de algoritmos",
+    "Árvores e grafos",
+    "Programação dinâmica",
+    "Resolução de problemas"
+  ],
+  "python": [
+    "Python",
+    "Orientação a objetos",
+    "pytest",
+    "APIs com Python",
+    "Asyncio",
+    "Tipagem em Python"
+  ],
+  "computer-science": [
+    "Estruturas de dados",
+    "Algoritmos",
+    "Sistemas operacionais",
+    "Redes de computadores",
+    "Bancos de dados",
+    "Sistemas distribuídos"
+  ],
+  "sql": [
+    "SQL",
+    "JOINs",
+    "CTEs",
+    "Funções de janela",
+    "Modelagem relacional",
+    "Otimização de consultas"
+  ],
+  "openclaw": [
+    "OpenClaw",
+    "Integração de modelos de IA",
+    "Automações",
+    "Ferramentas de agentes",
+    "Gestão de contexto",
+    "Operação segura"
+  ],
+  "react": [
+    "React",
+    "JSX",
+    "Hooks",
+    "Gerenciamento de estado",
+    "Testes de componentes",
+    "Acessibilidade web"
+  ],
+  "vue": [
+    "Vue.js",
+    "Reatividade",
+    "Vue Router",
+    "Composables",
+    "Gerenciamento de estado",
+    "Testes de componentes"
+  ],
+  "angular": [
+    "Angular",
+    "TypeScript",
+    "Injeção de dependência",
+    "Signals",
+    "Roteamento Angular",
+    "Testes de componentes"
+  ],
+  "javascript": [
+    "JavaScript",
+    "DOM",
+    "Promises",
+    "Async/await",
+    "Fetch API",
+    "Módulos JavaScript"
+  ],
+  "typescript": [
+    "TypeScript",
+    "Generics",
+    "Interfaces",
+    "Narrowing",
+    "Tipagem de APIs",
+    "Tipos utilitários"
+  ],
+  "nodejs": [
+    "Node.js",
+    "npm",
+    "APIs HTTP",
+    "Programação assíncrona",
+    "Autenticação",
+    "Testes Node.js"
+  ],
+  "system-design": [
+    "Design de sistemas",
+    "Cache",
+    "Filas de mensagens",
+    "Escalabilidade",
+    "Consistência de dados",
+    "Observabilidade"
+  ],
+  "java": [
+    "Java",
+    "Orientação a objetos",
+    "Streams",
+    "Concorrência",
+    "JUnit",
+    "Maven"
+  ],
+  "aspnet-core": [
+    "C#",
+    "ASP.NET Core",
+    "Entity Framework Core",
+    "Minimal APIs",
+    "Injeção de dependência",
+    "Testes de API"
+  ],
+  "spring-boot": [
+    "Java",
+    "Spring Boot",
+    "Spring Security",
+    "Spring Data JPA",
+    "APIs REST",
+    "Testes Spring"
+  ],
+  "flutter": [
+    "Dart",
+    "Flutter",
+    "Widgets",
+    "Gerenciamento de estado",
+    "Testes de widgets",
+    "Desenvolvimento móvel"
+  ],
+  "c": [
+    "C",
+    "Ponteiros",
+    "Gerenciamento de memória",
+    "Structs",
+    "Depuração",
+    "Compilação"
+  ],
+  "cpp": [
+    "C++",
+    "STL",
+    "Templates",
+    "RAII",
+    "CMake",
+    "Profiling"
+  ],
+  "rust": [
+    "Rust",
+    "Ownership",
+    "Borrowing",
+    "Traits",
+    "Cargo",
+    "Concorrência segura"
+  ],
+  "golang": [
+    "Go",
+    "Goroutines",
+    "Canais",
+    "APIs HTTP",
+    "Testes Go",
+    "Context"
+  ],
+  "ai-product-builder": [
+    "Produtos com IA",
+    "Prototipação",
+    "Integração de modelos",
+    "Avaliação de IA",
+    "Métricas de produto",
+    "Privacidade de dados"
+  ],
+  "software-design-architecture": [
+    "Design de software",
+    "Padrões de projeto",
+    "Arquitetura em camadas",
+    "Modelagem de domínio",
+    "Refatoração",
+    "Testabilidade"
+  ],
+  "react-native": [
+    "React Native",
+    "JavaScript",
+    "Navegação móvel",
+    "Integração com APIs",
+    "Testes móveis",
+    "Publicação de aplicativos"
+  ],
+  "design-system": [
+    "Design systems",
+    "Design tokens",
+    "Componentes de interface",
+    "Acessibilidade",
+    "Documentação de componentes",
+    "Testes visuais"
+  ],
+  "prompt-engineering": [
+    "Engenharia de prompts",
+    "Avaliação de prompts",
+    "Uso de ferramentas",
+    "Contexto de modelos",
+    "Prompt injection",
+    "Automação com IA"
+  ],
+  "mongodb": [
+    "MongoDB",
+    "Modelagem de documentos",
+    "Agregações",
+    "Índices",
+    "Replicação",
+    "Sharding"
+  ],
+  "linux": [
+    "Linux",
+    "Shell",
+    "Administração de sistemas",
+    "SSH",
+    "Permissões",
+    "Monitoramento de servidores"
+  ],
+  "kubernetes": [
+    "Kubernetes",
+    "Pods",
+    "Deployments",
+    "Services",
+    "Helm",
+    "RBAC"
+  ],
+  "docker": [
+    "Docker",
+    "Dockerfile",
+    "Docker Compose",
+    "Imagens de contêiner",
+    "Redes Docker",
+    "Segurança de contêineres"
+  ],
+  "aws": [
+    "AWS",
+    "IAM",
+    "VPC",
+    "EC2",
+    "S3",
+    "Lambda"
+  ],
+  "terraform": [
+    "Terraform",
+    "HCL",
+    "Módulos Terraform",
+    "Estado remoto",
+    "Infraestrutura como código",
+    "CI para infraestrutura"
+  ],
+  "datastructures-and-algorithms": [
+    "Estruturas de dados",
+    "Algoritmos",
+    "Árvores",
+    "Grafos",
+    "Programação dinâmica",
+    "Análise de complexidade"
+  ],
+  "redis": [
+    "Redis",
+    "Cache",
+    "Pub/Sub",
+    "Streams",
+    "Replicação Redis",
+    "Otimização de cache"
+  ],
+  "git-github": [
+    "Git",
+    "GitHub",
+    "Branches",
+    "Pull requests",
+    "Code review",
+    "GitHub Actions"
+  ],
+  "php": [
+    "PHP",
+    "Composer",
+    "PDO",
+    "Orientação a objetos",
+    "APIs PHP",
+    "Testes PHP"
+  ],
+  "cloudflare": [
+    "Cloudflare",
+    "CDN",
+    "DNS",
+    "Workers",
+    "WAF",
+    "Cache de borda"
+  ],
+  "ai-agents": [
+    "Agentes de IA",
+    "Ferramentas de IA",
+    "RAG",
+    "Memória de agentes",
+    "Avaliação de agentes",
+    "Segurança de agentes"
+  ],
+  "nextjs": [
+    "Next.js",
+    "React",
+    "Server Components",
+    "Roteamento Next.js",
+    "Renderização web",
+    "Server Actions"
+  ],
+  "kotlin": [
+    "Kotlin",
+    "Coroutines",
+    "Flows",
+    "Null safety",
+    "Gradle",
+    "Testes Kotlin"
+  ],
+  "html": [
+    "HTML",
+    "HTML semântico",
+    "Formulários HTML",
+    "Acessibilidade web",
+    "Metadados",
+    "SEO básico"
+  ],
+  "css": [
+    "CSS",
+    "Flexbox",
+    "CSS Grid",
+    "Design responsivo",
+    "Variáveis CSS",
+    "Animações CSS"
+  ],
+  "swift-ui": [
+    "Swift",
+    "SwiftUI",
+    "State e Binding",
+    "Navegação iOS",
+    "Concorrência Swift",
+    "Testes de interface"
+  ],
+  "shell-bash": [
+    "Bash",
+    "Shell scripting",
+    "Pipes",
+    "Automação de tarefas",
+    "Processos Linux",
+    "Scripts portáveis"
+  ],
+  "laravel": [
+    "Laravel",
+    "PHP",
+    "Eloquent ORM",
+    "Migrations",
+    "Filas Laravel",
+    "Testes Laravel"
+  ],
+  "elasticsearch": [
+    "Elasticsearch",
+    "Busca full-text",
+    "Agregações",
+    "Mapeamento de índices",
+    "Relevância de busca",
+    "Shards"
+  ],
+  "wordpress": [
+    "WordPress",
+    "Temas WordPress",
+    "Plugins WordPress",
+    "Editor de blocos",
+    "SEO",
+    "Segurança WordPress"
+  ],
+  "django": [
+    "Django",
+    "Python",
+    "Django ORM",
+    "Django REST Framework",
+    "Autenticação Django",
+    "Testes Django"
+  ],
+  "ruby": [
+    "Ruby",
+    "Orientação a objetos",
+    "Gems",
+    "Bundler",
+    "Testes Ruby",
+    "Blocos Ruby"
+  ],
+  "ruby-on-rails": [
+    "Ruby on Rails",
+    "Active Record",
+    "MVC",
+    "Hotwire",
+    "Jobs Rails",
+    "Testes Rails"
+  ],
+  "scala": [
+    "Scala",
+    "Programação funcional",
+    "Coleções Scala",
+    "Pattern matching",
+    "Futures",
+    "sbt"
+  ],
+  "frontend-beginner": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "DOM",
+    "Git",
+    "Acessibilidade web"
+  ],
+  "backend-beginner": [
+    "Programação backend",
+    "HTTP",
+    "APIs REST",
+    "JSON",
+    "SQL",
+    "Testes de API"
+  ],
+  "devops-beginner": [
+    "Linux",
+    "Git",
+    "Docker",
+    "CI/CD",
+    "Deploy",
+    "Monitoramento"
+  ],
+  "git-github-beginner": [
+    "Git",
+    "GitHub",
+    "Commits",
+    "Branches",
+    "Pull requests",
+    "README"
+  ],
+  "aws-best-practices": [
+    "AWS Well-Architected",
+    "IAM",
+    "Criptografia",
+    "Backups",
+    "Alta disponibilidade",
+    "Controle de custos"
+  ],
+  "api-security-best-practices": [
+    "Segurança de APIs",
+    "Autenticação",
+    "Autorização",
+    "Rate limiting",
+    "Validação de entrada",
+    "Gestão de segredos"
+  ],
+  "backend-performance-best-practices": [
+    "Performance backend",
+    "Profiling",
+    "Otimização SQL",
+    "Cache",
+    "Teste de carga",
+    "Pooling de conexões"
+  ],
+  "frontend-performance-best-practices": [
+    "Core Web Vitals",
+    "Otimização de imagens",
+    "Code splitting",
+    "Lazy loading",
+    "Cache web",
+    "Medição de desempenho"
+  ],
+  "code-review-best-practices": [
+    "Code review",
+    "Revisão de segurança",
+    "Legibilidade de código",
+    "Testabilidade",
+    "Feedback técnico",
+    "Qualidade de software"
+  ]
+}

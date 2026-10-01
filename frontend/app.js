@@ -128,6 +128,29 @@ function currentDraft() {
   return Object.fromEntries(fields.map(([key]) => [key, $(`draft-${key}`).value]));
 }
 
+function applyPendingRoadmapKeywords() {
+  const pending = AlinhaRoadmapKeywords.readPending();
+  if (!pending || !$('draft-skills')) return false;
+  try {
+    const field = $('draft-skills');
+    const merged = AlinhaRoadmapKeywords.mergeSkills(field.value, pending.terms, field.maxLength);
+    field.value = merged.value;
+    const text = merged.added.length
+      ? `${merged.added.length} ${merged.added.length === 1 ? "palavra-chave adicionada" : "palavras-chave adicionadas"} ao campo Habilidades a partir da rota ${pending.title}. Revise o conteúdo, atualize a prévia e salve uma nova versão.`
+      : `As palavras-chave da rota ${pending.title} já estavam no campo Habilidades. Revise o currículo antes de salvar.`;
+    $('roadmap-keywords-notice').textContent = text;
+    $('roadmap-keywords-notice').hidden = false;
+    $('tailor-status').textContent = text;
+    AlinhaRoadmapKeywords.clearPending();
+    AlinhaRoadmapKeywords.clearWorking();
+    return true;
+  } catch (error) {
+    $('roadmap-keywords-notice').textContent = error.message;
+    $('roadmap-keywords-notice').hidden = false;
+    return false;
+  }
+}
+
 function showAnalysis(data, scrollToResults = true) {
   if (!data || !Number.isInteger(data.percentage) || !data.draft || !Array.isArray(data.improvements) || !Array.isArray(data.matches) || !Array.isArray(data.gaps)) {
     throw new Error("A análise retornou dados incompletos.");
@@ -152,10 +175,12 @@ function showAnalysis(data, scrollToResults = true) {
   else for (const match of data.matches) appendTextItem(matches, match.requirement, `“${match.excerpt}”`);
   fillList("gaps-list", data.gaps, "Nenhum requisito ausente foi identificado.");
   buildEditor();
+  const importedKeywords = applyPendingRoadmapKeywords();
   updateJobsProfile();
   $("results").hidden = false;
   $("details").hidden = false;
-  if (scrollToResults) $("results").scrollIntoView({ behavior: "smooth", block: "start" });
+  if (importedKeywords) document.querySelector(".editor-heading").scrollIntoView({ behavior: "smooth", block: "start" });
+  else if (scrollToResults) $("results").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function updatePdf(base64, previewPages) {
@@ -346,15 +371,34 @@ document.querySelector(".latex-heading p").textContent = "Código gerado a parti
 document.querySelector(".guide-steps>div:last-child p").textContent = "Edite, visualize e baixe o currículo em PDF ou LaTeX.";
 showHistory();
 updateJobsProfile();
+function restorePendingRoadmapKeywords() {
+  const pending = AlinhaRoadmapKeywords.readPending();
+  if (!pending) return;
+  const working = AlinhaRoadmapKeywords.readWorking();
+  const latest = readHistory()[0];
+  for (const candidate of [working, latest && { analysis: latest.analysis, jobDescription: latest.jobDescription }]) {
+    if (!candidate?.analysis?.draft) continue;
+    try {
+      jobInput.value = candidate.jobDescription || "";
+      $("job-count").textContent = `${jobInput.value.length.toLocaleString("pt-BR")} / 20.000`;
+      showAnalysis(candidate.analysis, false);
+      return;
+    } catch { /* Try the next available version. */ }
+  }
+  $('roadmap-keywords-notice').textContent = `As palavras-chave da rota ${pending.title} estão prontas. Envie seu currículo e faça uma análise para adicioná-las ao campo Habilidades.`;
+  $('roadmap-keywords-notice').hidden = false;
+}
 AlinhaStorage.readyVersions().then((versions) => {
-  if (versions === null) return;
+  if (versions === null) { restorePendingRoadmapKeywords(); return; }
   showHistory(); updateJobsProfile();
   $("save-version").textContent = "Salvar versão";
   document.querySelector("#history-section .section-kicker").textContent = "SALVO NO SERVIDOR";
   document.querySelector("#history-section .section-heading p").textContent = "Recupere versões anteriores ou compare duas análises. Os dados ficam no PostgreSQL deste servidor.";
   document.querySelector(".editor-card .privacy-note").textContent = "A IA usa informações com evidência. Revise o texto antes de se candidatar; filtros ATS não garantem aprovação. As versões salvas ficam no PostgreSQL deste servidor. Guarde o acesso a este navegador.";
+  restorePendingRoadmapKeywords();
 }).catch((error) => {
   document.querySelector("#history-section .section-heading p").textContent = `Não foi possível sincronizar o PostgreSQL: ${error.message}. As versões anteriores continuam neste navegador.`;
+  restorePendingRoadmapKeywords();
 });
 function jobsDraft() {
   if (analysis && $("draft-name")) return currentDraft();
@@ -456,6 +500,13 @@ function updateNavigation() {
 window.addEventListener("hashchange", updateNavigation);
 updateNavigation();
 if (location.hash === "#rotas-estudo") location.replace("/rotas-estudo");
+for (const link of document.querySelectorAll('a[href="/rotas-estudo"]')) {
+  link.addEventListener("click", () => {
+    if (!analysis || !$('draft-skills')) return;
+    try { AlinhaRoadmapKeywords.saveWorking({ analysis: { ...analysis, draft: currentDraft() }, jobDescription: jobInput.value }); }
+    catch { /* The last saved version remains available if session storage is full. */ }
+  });
+}
 for (const link of document.querySelectorAll('a[href="/certificacoes"]')) {
   link.addEventListener("click", () => {
     if (!analysis || !$("draft-skills")) return;

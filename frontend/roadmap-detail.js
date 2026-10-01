@@ -10,9 +10,18 @@ const detail = {
   original: document.getElementById("study-original"),
   message: document.getElementById("study-message"),
   sections: document.getElementById("study-sections"),
+  keywordsPanel: document.getElementById("study-keywords-panel"),
+  keywordsList: document.getElementById("study-keywords-list"),
+  keywordsAdd: document.getElementById("study-keywords-add"),
+  keywordsMessage: document.getElementById("study-keywords-message"),
 };
+let roadmapStatus = "";
+let routeTitle = "";
+let currentRouteData = null;
+let currentTopicProgress = {};
 
 function updateProgress(data, progress) {
+  currentTopicProgress = progress;
   const selected = new Set(progress[roadmapId] || []);
   const ids = data.sections.flatMap((section) => section.topics.map((topic) => topic.id));
   const done = ids.filter((id) => selected.has(id)).length;
@@ -22,7 +31,39 @@ function updateProgress(data, progress) {
   detail.progress.setAttribute("aria-valuenow", String(percent));
   detail.fill.style.width = `${percent}%`;
   detail.message.textContent = done === ids.length ? "Rota concluída! Continue praticando para consolidar o aprendizado." : done ? "Progresso salvo. Continue de onde parou." : "Comece pelo primeiro assunto e avance no seu ritmo.";
+  detail.keywordsPanel.hidden = done !== ids.length && roadmapStatus !== "completed";
 }
+
+function renderKeywordChoices(terms) {
+  const choices = terms.map((term) => {
+    const label = document.createElement("label");
+    label.className = "study-keyword-choice";
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.value = term;
+    checkbox.addEventListener("change", () => {
+      detail.keywordsAdd.disabled = !detail.keywordsList.querySelector("input:checked");
+    });
+    const text = document.createElement("span");
+    text.textContent = term;
+    label.append(checkbox, text);
+    return label;
+  });
+  detail.keywordsList.replaceChildren(...choices);
+}
+
+detail.keywordsAdd.addEventListener("click", () => {
+  const ids = currentRouteData?.sections.flatMap((section) => section.topics.map((topic) => topic.id)) || [];
+  const selectedTopics = new Set(currentTopicProgress[roadmapId] || []);
+  if (roadmapStatus !== "completed" && (!ids.length || !ids.every((id) => selectedTopics.has(id)))) return;
+  const terms = [...detail.keywordsList.querySelectorAll("input:checked")].map((input) => input.value);
+  try {
+    AlinhaRoadmapKeywords.savePending(roadmapId, routeTitle, terms);
+    location.href = "/#nova-analise";
+  } catch (error) {
+    detail.keywordsMessage.textContent = `Não foi possível preparar as palavras-chave: ${error.message}`;
+  }
+});
 
 function renderSections(data, progress) {
   const selected = new Set(progress[roadmapId] || []);
@@ -71,18 +112,28 @@ function renderSections(data, progress) {
 }
 
 Promise.all([
-  fetch("/assets/roadmaps.json").then((response) => response.json()),
-  fetch("/assets/study-topics.json").then((response) => response.json()),
+  fetch("/assets/roadmaps.json").then((response) => { if (!response.ok) throw new Error("Catálogo indisponível."); return response.json(); }),
+  fetch("/assets/study-topics.json").then((response) => { if (!response.ok) throw new Error("Assuntos indisponíveis."); return response.json(); }),
+  fetch("/assets/study-keywords.json").then((response) => { if (!response.ok) throw new Error("Palavras-chave indisponíveis."); return response.json(); }),
   AlinhaStorage.readyTopics(),
-]).then(([catalog, content, progress]) => {
+  AlinhaStorage.readyRoadmaps(),
+]).then(([catalog, content, keywords, progress, statuses]) => {
   const roadmap = catalog.roadmaps.find((item) => item.id === roadmapId);
   const data = content.roadmaps[roadmapId];
-  if (!roadmap || !data) throw new Error("Esta rota não foi encontrada.");
+  if (!roadmap || !data || !Array.isArray(keywords[roadmapId])) throw new Error("Esta rota não foi encontrada.");
+  if (statuses === null) {
+    try { statuses = JSON.parse(localStorage.getItem("alinha-roadmaps-v1") || "{}"); }
+    catch { statuses = {}; }
+  }
+  roadmapStatus = statuses[roadmapId] || "";
+  routeTitle = roadmap.title;
+  currentRouteData = data;
   document.title = `${roadmap.title} — Rotas de estudo | Alinha`;
   detail.title.textContent = roadmap.title;
   detail.breadcrumb.textContent = roadmap.title;
   detail.category.textContent = roadmap.category.toUpperCase();
   detail.original.href = roadmap.url;
+  renderKeywordChoices(keywords[roadmapId]);
   renderSections(data, progress);
 }).catch((error) => {
   detail.title.textContent = "Não foi possível carregar a rota";

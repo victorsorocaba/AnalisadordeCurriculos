@@ -6,9 +6,10 @@
     <meta name="theme-color" content="#101827" />
     <meta name="description" content="Acompanhe os assuntos da sua rota de estudo com um checklist de progresso." />
     <title>Minha rota de estudo — Alinha</title>
-    <link rel="stylesheet" href="/assets/styles.css?v=study-topics-1" />
-    <script src="/assets/storage.js?v=study-topics-1" defer></script>
-    <script src="/assets/roadmap-detail.js?v=study-topics-1" defer></script>
+    <link rel="stylesheet" href="/assets/styles.css?v=study-keywords-1" />
+    <script src="/assets/storage.js?v=study-keywords-1" defer></script>
+    <script src="/assets/roadmap-keywords.js?v=study-keywords-1" defer></script>
+    <script src="/assets/roadmap-detail.js?v=study-keywords-1" defer></script>
   </head>
   <body>
     <div class="app-shell">
@@ -37,6 +38,14 @@
             <a id="study-original" href="https://roadmap.sh/roadmaps/" target="_blank" rel="noopener noreferrer">Consultar mapa e recursos no roadmap.sh ↗</a>
           </section>
           <p id="study-message" class="study-message" role="status" aria-live="polite">Carregando assuntos...</p>
+          <section id="study-keywords-panel" class="study-keywords-panel" aria-labelledby="study-keywords-title" hidden>
+            <div class="section-kicker">PRÓXIMO PASSO</div>
+            <h2 id="study-keywords-title">Leve o que aprendeu para o currículo</h2>
+            <p>Selecione somente habilidades que você realmente domina. Elas serão adicionadas ao campo Habilidades para sua revisão; concluir uma rota não comprova experiência profissional.</p>
+            <div id="study-keywords-list" class="study-keywords-list"></div>
+            <button id="study-keywords-add" class="primary-button" type="button" disabled>Adicionar selecionadas ao currículo →</button>
+            <p id="study-keywords-message" class="study-keywords-message" role="status" aria-live="polite"></p>
+          </section>
           <div id="study-sections" class="study-sections"></div>
           <p class="roadmaps-credit">Este checklist foi criado pelo Alinha para organizar seus estudos. Consulte o mapa original para aprofundar cada assunto e encontrar recursos atualizados.</p>
         </div>

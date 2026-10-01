@@ -58,7 +58,7 @@ python -m uvicorn backend.main:app --reload --port 8000
 5. Revise as experiências escritas com o método STAR (contexto, tarefa, ação e resultado). Em **Ajuste sua versão**, use **Deixar currículo pronto pra vaga** para adaptar o texto à vaga com palavras-chave sustentadas pelo currículo, ou edite os campos manualmente. Atualize a prévia e baixe o PDF compilado ou o arquivo `.tex`.
 6. Se quiser, salve uma versão. Com PostgreSQL configurado, ela fica no banco; caso contrário, permanece no navegador. É possível recuperar e comparar duas versões salvas.
 7. Em **Vagas para você**, busque oportunidades usando a versão atual ou a última versão salva. Filtre por palavra-chave, região e modalidade; abra cada anúncio na plataforma de origem.
-8. Abra **Rotas de estudo** em `/rotas-estudo`, escolha uma das 95 rotas e entre na página individual dela. Marque cada assunto aprendido no checklist; o cartão mostra quantos assuntos foram concluídos e a página da rota mostra o progresso em porcentagem. Você pode desmarcar um assunto a qualquer momento.
+8. Abra **Rotas de estudo** em `/rotas-estudo`, escolha uma das 95 rotas e entre na página individual dela. Marque cada assunto aprendido no checklist; o cartão mostra quantos assuntos foram concluídos e a página da rota mostra o progresso em porcentagem. Você pode desmarcar um assunto a qualquer momento. Quando a rota estiver concluída no planejamento ou todos os assuntos estiverem marcados, selecione as palavras-chave que domina e use **Adicionar selecionadas ao currículo**. Elas entram no campo Habilidades da versão editável para revisão.
 9. Abra **Certificações** em `/certificacoes` para ver credenciais relacionadas às habilidades da análise atual ou da última versão salva. Você também pode enviar um PDF/TXT e informar um objetivo profissional.
 
 O currículo e a descrição da vaga são enviados ao provedor de IA configurado. A resposta detalhada usa um esquema estruturado; trechos apresentados como evidência são conferidos contra o texto extraído do currículo. As experiências seguem STAR apenas com fatos fornecidos: quando faltar um resultado comprovável, o sistema sugere acrescentá-lo em vez de inventar um. Revise todas as informações geradas antes de usar o documento. O LaTeX é montado pelo servidor a partir dos campos editáveis e compilado para produzir o PDF.
@@ -79,7 +79,7 @@ O botão **Buscar no LinkedIn** abre a busca de vagas do próprio LinkedIn com o
 
 ## Rotas de estudo
 
-O catálogo local em `frontend/roadmaps.json` contém as 95 rotas listadas em [roadmap.sh/roadmaps](https://roadmap.sh/roadmaps/) em 29/09/2026: 31 de carreiras, 55 de habilidades, 4 para iniciantes e 5 de boas práticas. Cada rota tem uma página própria em `/rotas-estudo/{id}` e um checklist original de 12 assuntos, distribuídos em três etapas. Os assuntos editáveis estão em `frontend/study-topics-source.txt`; execute `python scripts/build_study_topics.py` para atualizar o JSON servido ao navegador. A página oferece um link para o mapa oficial e seus recursos. O Alinha não replica os mapas completos nem importa progresso da conta roadmap.sh. O planejamento e os checkboxes são salvos por perfil no PostgreSQL quando configurado, com cópia local no navegador.
+O catálogo local em `frontend/roadmaps.json` contém as 95 rotas listadas em [roadmap.sh/roadmaps](https://roadmap.sh/roadmaps/) em 29/09/2026: 31 de carreiras, 55 de habilidades, 4 para iniciantes e 5 de boas práticas. Cada rota tem uma página própria em `/rotas-estudo/{id}` e um checklist original de 12 assuntos, distribuídos em três etapas. Os assuntos editáveis estão em `frontend/study-topics-source.txt`; execute `python scripts/build_study_topics.py` para atualizar o JSON servido ao navegador. As sugestões para currículo estão em `frontend/study-keywords-source.txt`; gere o JSON com `python scripts/build_study_keywords.py`. A página oferece um link para o mapa oficial e seus recursos. O Alinha não replica os mapas completos nem importa progresso da conta roadmap.sh. O planejamento e os checkboxes são salvos por perfil no PostgreSQL quando configurado, com cópia local no navegador. As palavras selecionadas são levadas ao editor por esta aba do navegador; o usuário deve atualizar a prévia e salvar uma nova versão após revisar.
 
 ## Certificações
 
@@ -107,6 +107,7 @@ frontend/index.html            estrutura da interface
 frontend/roadmaps.html         página independente de rotas de estudo
 frontend/roadmap-detail.html   página individual com checklist de assuntos
 frontend/study-topics-source.txt  assuntos originais de todas as rotas
+frontend/study-keywords-source.txt  termos sugeridos para o currículo
 frontend/certifications.html   página independente de certificações
 frontend/styles.css            visual responsivo
 frontend/app.js                edição, prévia, histórico e chamadas à API

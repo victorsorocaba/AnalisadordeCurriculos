@@ -109,10 +109,16 @@ def test_topic_progress_is_scoped_and_rejects_unknown_topics(monkeypatch):
 
 
 def test_every_roadmap_has_an_individual_page_and_unique_checklist():
+    import json
+    from pathlib import Path
+
     from scripts.build_study_topics import build
+    from scripts.build_study_keywords import build as build_keywords
 
     data = build()["roadmaps"]
     assert len(data) == 95
+    assert set(build_keywords()) == set(data)
+    assert json.loads((Path(__file__).resolve().parents[2] / "frontend" / "study-keywords.json").read_text(encoding="utf-8")) == build_keywords()
     assert all(len({topic["id"] for section in route["sections"] for topic in section["topics"]}) == 12 for route in data.values())
     assert client.get("/rotas-estudo/backend").status_code == 200
     assert client.get("/rotas-estudo/unknown-route").status_code == 404

@@ -97,6 +97,7 @@ function roadmapCard(roadmap) {
   const topicIds = roadmapTopics[roadmap.id] || [];
   const completed = new Set(topicProgress[roadmap.id] || []);
   const done = topicIds.filter((id) => completed.has(id)).length;
+  const allTopicsDone = topicIds.length > 0 && done === topicIds.length;
   const topicSummary = document.createElement("div");
   topicSummary.className = "roadmap-topic-summary";
   topicSummary.textContent = topicIds.length ? `${done} de ${topicIds.length} assuntos aprendidos` : "Abra a rota para começar";
@@ -109,7 +110,7 @@ function roadmapCard(roadmap) {
   footer.className = "roadmap-card-footer";
   const link = document.createElement("a");
   link.href = `/rotas-estudo/${encodeURIComponent(roadmap.id)}`;
-  link.textContent = "Ver assuntos →";
+  link.textContent = roadmapProgress[roadmap.id] === "completed" || allTopicsDone ? "Adicionar ao currículo →" : "Ver assuntos →";
 
   const label = document.createElement("label");
   label.className = "roadmap-status-label";
@@ -145,6 +146,7 @@ function roadmapCard(roadmap) {
       return;
     }
     card.dataset.status = select.value;
+    link.textContent = select.value === "completed" || allTopicsDone ? "Adicionar ao currículo →" : "Ver assuntos →";
     if (roadmapElements.progressFilter.value !== "all") renderRoadmaps();
     else updateRoadmapSummary(Math.min(roadmapVisibleCount, filteredRoadmaps().length), filteredRoadmaps().length);
   });
