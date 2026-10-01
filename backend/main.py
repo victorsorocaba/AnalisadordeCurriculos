@@ -28,10 +28,25 @@ and uncontrolled cost.
 
 from __future__ import annotations
 
+import os
+import secrets
+import threading
+import time
 from dotenv import load_dotenv
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
+from starlette.concurrency import run_in_threadpool
 
 from backend.models.schemas import AnalysisResult
+from backend.storage import router as storage_router
+from backend.models.detailed import DetailedAnalysis, RenderedResume, ResumeDraft, TailorRequest
+from backend.models.jobs import JobSearchRequest, JobSearchResult
+from backend.services.detailed_service import analyze_detailed
+from backend.services.resume_renderer import RenderError, render_resume
+from backend.services.job_search import search_jobs
+from backend.services.certifications import CATALOG as CERTIFICATION_CATALOG, recommend_certifications
 from backend.services.ai_service import (
     AICallError,
     AIKeyMissingError,
@@ -50,6 +65,7 @@ load_dotenv()
 
 #: Maximum allowed job description length in characters (Requirements 1.2, 1.7).
 MAX_JOB_DESCRIPTION_CHARS = 20_000
+MAX_PROJECTS_CHARS = 20_000
 
 #: Maximum allowed resume file size in bytes: 10 megabytes (Requirement 2.4).
 MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024
@@ -59,6 +75,98 @@ SUPPORTED_CONTENT_TYPES = ("application/pdf", "text/plain")
 
 
 app = FastAPI(title="Resume Analyzer + LaTeX Generator")
+app.include_router(storage_router)
+FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
+app.mount("/assets", StaticFiles(directory=FRONTEND_DIR), name="assets")
+_rate_lock = threading.Lock()
+_rate_events: dict[tuple[str, str], list[float]] = {}
+
+
+@app.middleware("http")
+async def protect_paid_endpoints(request: Request, call_next):
+    if request.method == "POST" and request.url.path in {"/api/analyze", "/api/analyze/detailed", "/api/tailor", "/api/render", "/api/jobs/search", "/api/certifications/recommend"}:
+        access_token = os.getenv("APP_ACCESS_TOKEN", "").strip()
+        if access_token:
+            supplied = request.headers.get("X-Access-Token", "")
+            if not secrets.compare_digest(supplied, access_token):
+                return JSONResponse({"detail": "Código de acesso inválido ou ausente."}, status_code=401)
+            kind = "certs" if request.url.path == "/api/certifications/recommend" else "jobs" if request.url.path == "/api/jobs/search" else "render" if request.url.path == "/api/render" else "analysis"
+            limit = {"analysis": 10, "render": 60, "jobs": 30, "certs": 30}[kind]
+            key = (request.client.host if request.client else "unknown", kind)
+            now = time.monotonic()
+            with _rate_lock:
+                recent = [stamp for stamp in _rate_events.get(key, []) if now - stamp < 3600]
+                if len(recent) >= limit:
+                    return JSONResponse({"detail": "Limite de uso atingido. Tente novamente em até uma hora."}, status_code=429)
+                recent.append(now)
+                _rate_events[key] = recent
+    return await call_next(request)
+
+
+@app.get("/api/config", include_in_schema=False)
+async def public_config() -> dict[str, bool]:
+    return {"auth_required": bool(os.getenv("APP_ACCESS_TOKEN", "").strip())}
+
+
+@app.get("/", include_in_schema=False)
+async def index() -> FileResponse:
+    return FileResponse(FRONTEND_DIR / "index.html")
+
+
+@app.get("/rotas-estudo", include_in_schema=False)
+async def study_roadmaps() -> FileResponse:
+    return FileResponse(FRONTEND_DIR / "roadmaps.html")
+
+
+@app.get("/rotas-estudo/{roadmap_id}", include_in_schema=False)
+async def study_roadmap_detail(roadmap_id: str) -> FileResponse:
+    from backend.storage import _valid_topics
+
+    if roadmap_id not in _valid_topics():
+        raise HTTPException(404, "Rota de estudo não encontrada.")
+    return FileResponse(FRONTEND_DIR / "roadmap-detail.html")
+
+
+@app.get("/certificacoes", include_in_schema=False)
+async def certifications_page() -> FileResponse:
+    return FileResponse(FRONTEND_DIR / "certifications.html")
+
+
+@app.post("/api/certifications/recommend")
+async def certification_recommendations(
+    resume: UploadFile | None = File(default=None),
+    profile_text: str = Form(default=""),
+    goal: str = Form(default=""),
+) -> dict:
+    if len(profile_text) > 12_000 or len(goal) > 200:
+        raise HTTPException(422, "O perfil ou objetivo é longo demais.")
+    source = "Perfil do currículo"
+    if resume is not None:
+        if resume.content_type not in SUPPORTED_CONTENT_TYPES:
+            raise HTTPException(415, "Envie um currículo em PDF ou TXT.")
+        data = await resume.read(MAX_FILE_SIZE_BYTES + 1)
+        if len(data) > MAX_FILE_SIZE_BYTES:
+            raise HTTPException(413, "O currículo deve ter no máximo 10 MB.")
+        if not data:
+            raise HTTPException(422, "O currículo está vazio.")
+        try:
+            extracted = await run_in_threadpool(extract_text, data, resume.content_type)
+        except ExtractionError as exc:
+            raise HTTPException(422, "Não foi possível ler o currículo.") from exc
+        if not extracted:
+            raise HTTPException(422, "O currículo não contém texto legível.")
+        profile_text = f"{profile_text}\n{extracted}"
+        source = "Currículo enviado"
+    elif not profile_text.strip():
+        source = "Objetivo profissional"
+    if not profile_text.strip() and not goal.strip():
+        raise HTTPException(422, "Envie um currículo ou informe seu objetivo profissional.")
+    recommendations = recommend_certifications(profile_text, goal)
+    return {
+        "source": source,
+        "catalog_size": len(CERTIFICATION_CATALOG),
+        "recommendations": recommendations,
+    }
 
 
 @app.post("/api/analyze", response_model=AnalysisResult)
@@ -105,6 +213,9 @@ async def analyze(
             ),
         )
 
+    if projects is not None and len(projects) > MAX_PROJECTS_CHARS:
+        raise HTTPException(status_code=422, detail="The projects field is too long.")
+
     # Step 4: Unsupported content type -> 415 (Requirement 2.2).
     # Validated before reading the bytes to honor the precedence order.
     if resume.content_type not in SUPPORTED_CONTENT_TYPES:
@@ -119,7 +230,7 @@ async def analyze(
 
     # Read the uploaded file bytes exactly once; size and emptiness checks below
     # operate on these bytes.
-    data = await resume.read()
+    data = await resume.read(MAX_FILE_SIZE_BYTES + 1)
 
     # Step 5: File exceeds the maximum size -> 413 (Requirement 2.4).
     if len(data) > MAX_FILE_SIZE_BYTES:
@@ -145,6 +256,12 @@ async def analyze(
             detail=f"Failed to extract text from the resume: {exc}",
         ) from exc
 
+    if not resume_text:
+        raise HTTPException(
+            status_code=422,
+            detail="The resume contains no readable text.",
+        )
+
     # Steps 8-10: orchestrate the AI call, mapping each typed AI service error to
     # its HTTP status code. AIKeyMissingError (500) is caught before the 502
     # errors because it is a more specific configuration failure.
@@ -168,3 +285,83 @@ async def analyze(
             status_code=502,
             detail=f"The AI model returned output that failed validation: {exc}",
         ) from exc
+
+
+@app.post("/api/analyze/detailed", response_model=DetailedAnalysis)
+async def analyze_detailed_endpoint(
+    resume: UploadFile | None = File(default=None),
+    job_description: str | None = Form(default=None),
+    projects: str | None = Form(default=None),
+) -> DetailedAnalysis:
+    if resume is None:
+        raise HTTPException(422, "Envie um currículo em PDF ou TXT.")
+    if not job_description or not job_description.strip():
+        raise HTTPException(422, "Informe a descrição da vaga.")
+    if len(job_description) > MAX_JOB_DESCRIPTION_CHARS or len(projects or "") > MAX_PROJECTS_CHARS:
+        raise HTTPException(422, "O texto informado ultrapassa 20.000 caracteres.")
+    if resume.content_type not in SUPPORTED_CONTENT_TYPES:
+        raise HTTPException(415, "O currículo deve ser PDF ou TXT.")
+    data = await resume.read(MAX_FILE_SIZE_BYTES + 1)
+    if len(data) > MAX_FILE_SIZE_BYTES:
+        raise HTTPException(413, "O currículo deve ter no máximo 10 MB.")
+    if not data:
+        raise HTTPException(422, "O currículo está vazio.")
+    try:
+        resume_text = extract_text(data, resume.content_type)
+    except ExtractionError as exc:
+        raise HTTPException(422, "Não foi possível ler o currículo.") from exc
+    if not resume_text:
+        raise HTTPException(422, "O currículo não contém texto legível.")
+    try:
+        return await analyze_detailed(resume_text, job_description, projects or "")
+    except AIKeyMissingError as exc:
+        raise HTTPException(500, "Configure a chave de API do provedor de IA.") from exc
+    except AICallError as exc:
+        raise HTTPException(502, "O provedor de IA não concluiu a análise.") from exc
+    except AIValidationError as exc:
+        raise HTTPException(502, "A resposta da IA não passou na validação.") from exc
+
+
+@app.post("/api/render", response_model=RenderedResume)
+async def render_endpoint(draft: ResumeDraft) -> RenderedResume:
+    try:
+        return await run_in_threadpool(render_resume, draft)
+    except RenderError as exc:
+        raise HTTPException(422, str(exc)) from exc
+
+
+@app.post("/api/tailor", response_model=DetailedAnalysis)
+async def tailor_endpoint(request: TailorRequest) -> DetailedAnalysis:
+    if not request.job_description.strip():
+        raise HTTPException(422, "Informe a descrição da vaga.")
+    draft = request.draft
+    if not any((draft.summary.strip(), draft.experience.strip(), draft.projects.strip(), draft.skills.strip())):
+        raise HTTPException(422, "Preencha o currículo antes de prepará-lo para a vaga.")
+    source = "\n".join(
+        f"{label}: {getattr(draft, field)}"
+        for field, label in (
+            ("name", "Nome"), ("contact", "Contato"), ("headline", "Título"),
+            ("summary", "Resumo"), ("experience", "Experiência"),
+            ("education", "Formação"), ("skills", "Habilidades"),
+            ("projects", "Projetos"),
+        )
+    )
+    try:
+        result = await analyze_detailed(source, request.job_description, tailor_mode=True)
+    except AIKeyMissingError as exc:
+        raise HTTPException(500, "Configure a chave de API do provedor de IA.") from exc
+    except AICallError as exc:
+        raise HTTPException(502, "O provedor de IA não concluiu a preparação.") from exc
+    except AIValidationError as exc:
+        raise HTTPException(502, "A resposta da IA não passou na validação.") from exc
+    for field in ("name", "contact", "education", "skills"):
+        setattr(result.draft, field, getattr(draft, field))
+    for field in ("experience", "projects"):
+        if not getattr(draft, field).strip():
+            setattr(result.draft, field, "")
+    return result
+
+
+@app.post("/api/jobs/search", response_model=JobSearchResult)
+async def jobs_search_endpoint(request: JobSearchRequest) -> JobSearchResult:
+    return await search_jobs(request)

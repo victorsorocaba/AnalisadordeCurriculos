@@ -1,0 +1,576 @@
+{
+  "source": "https://roadmap.sh/roadmaps/",
+  "checked_at": "2026-09-29",
+  "roadmaps": [
+    {
+      "id": "r-programming",
+      "title": "R Programming",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/r-programming"
+    },
+    {
+      "id": "seo",
+      "title": "SEO",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/seo"
+    },
+    {
+      "id": "frontend",
+      "title": "Frontend",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/frontend"
+    },
+    {
+      "id": "backend",
+      "title": "Backend",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/backend"
+    },
+    {
+      "id": "full-stack",
+      "title": "Full Stack",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/full-stack"
+    },
+    {
+      "id": "android",
+      "title": "Android",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/android"
+    },
+    {
+      "id": "devops",
+      "title": "DevOps",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/devops"
+    },
+    {
+      "id": "devsecops",
+      "title": "DevSecOps",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/devsecops"
+    },
+    {
+      "id": "data-analyst",
+      "title": "Data Analyst",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/data-analyst"
+    },
+    {
+      "id": "ai-engineer",
+      "title": "AI Engineer",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/ai-engineer"
+    },
+    {
+      "id": "ai-data-scientist",
+      "title": "AI and Data Scientist",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/ai-data-scientist"
+    },
+    {
+      "id": "data-engineer",
+      "title": "Data Engineer",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/data-engineer"
+    },
+    {
+      "id": "machine-learning",
+      "title": "Machine Learning",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/machine-learning"
+    },
+    {
+      "id": "postgresql-dba",
+      "title": "PostgreSQL",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/postgresql-dba"
+    },
+    {
+      "id": "ios",
+      "title": "iOS",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/ios"
+    },
+    {
+      "id": "blockchain",
+      "title": "Blockchain",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/blockchain"
+    },
+    {
+      "id": "qa",
+      "title": "QA",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/qa"
+    },
+    {
+      "id": "software-architect",
+      "title": "Software Architect",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/software-architect"
+    },
+    {
+      "id": "api-design",
+      "title": "API Design",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/api-design"
+    },
+    {
+      "id": "cyber-security",
+      "title": "Cyber Security",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/cyber-security"
+    },
+    {
+      "id": "ux-design",
+      "title": "UX Design",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/ux-design"
+    },
+    {
+      "id": "technical-writer",
+      "title": "Technical Writer",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/technical-writer"
+    },
+    {
+      "id": "game-developer",
+      "title": "Game Developer",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/game-developer"
+    },
+    {
+      "id": "server-side-game-developer",
+      "title": "Server Side Game Developer",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/server-side-game-developer"
+    },
+    {
+      "id": "mlops",
+      "title": "MLOps",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/mlops"
+    },
+    {
+      "id": "product-manager",
+      "title": "Product Manager",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/product-manager"
+    },
+    {
+      "id": "engineering-manager",
+      "title": "Engineering Manager",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/engineering-manager"
+    },
+    {
+      "id": "devrel",
+      "title": "Developer Relations",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/devrel"
+    },
+    {
+      "id": "bi-analyst",
+      "title": "BI Analyst",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/bi-analyst"
+    },
+    {
+      "id": "ai-red-teaming",
+      "title": "AI Red Teaming",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/ai-red-teaming"
+    },
+    {
+      "id": "network-engineer",
+      "title": "Network Engineer",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/network-engineer"
+    },
+    {
+      "id": "forward-deployed-engineer",
+      "title": "Forward Deployed Engineer",
+      "category": "Carreiras",
+      "url": "https://roadmap.sh/forward-deployed-engineer"
+    },
+    {
+      "id": "claude-code",
+      "title": "Claude Code",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/claude-code"
+    },
+    {
+      "id": "python-data-analysis",
+      "title": "Python for Data Analysis",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/python-data-analysis"
+    },
+    {
+      "id": "vibe-coding",
+      "title": "Vibe Coding",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/vibe-coding"
+    },
+    {
+      "id": "power-bi",
+      "title": "Power BI",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/power-bi"
+    },
+    {
+      "id": "leetcode",
+      "title": "LeetCode",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/leetcode"
+    },
+    {
+      "id": "python",
+      "title": "Python",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/python"
+    },
+    {
+      "id": "computer-science",
+      "title": "Computer Science",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/computer-science"
+    },
+    {
+      "id": "sql",
+      "title": "SQL",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/sql"
+    },
+    {
+      "id": "openclaw",
+      "title": "OpenClaw",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/openclaw"
+    },
+    {
+      "id": "react",
+      "title": "React",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/react"
+    },
+    {
+      "id": "vue",
+      "title": "Vue",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/vue"
+    },
+    {
+      "id": "angular",
+      "title": "Angular",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/angular"
+    },
+    {
+      "id": "javascript",
+      "title": "JavaScript",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/javascript"
+    },
+    {
+      "id": "typescript",
+      "title": "TypeScript",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/typescript"
+    },
+    {
+      "id": "nodejs",
+      "title": "Node.js",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/nodejs"
+    },
+    {
+      "id": "system-design",
+      "title": "System Design",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/system-design"
+    },
+    {
+      "id": "java",
+      "title": "Java",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/java"
+    },
+    {
+      "id": "aspnet-core",
+      "title": "ASP.NET Core",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/aspnet-core"
+    },
+    {
+      "id": "spring-boot",
+      "title": "Spring Boot",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/spring-boot"
+    },
+    {
+      "id": "flutter",
+      "title": "Flutter",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/flutter"
+    },
+    {
+      "id": "c",
+      "title": "C Programming",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/c"
+    },
+    {
+      "id": "cpp",
+      "title": "C++",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/cpp"
+    },
+    {
+      "id": "rust",
+      "title": "Rust",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/rust"
+    },
+    {
+      "id": "golang",
+      "title": "Go",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/golang"
+    },
+    {
+      "id": "ai-product-builder",
+      "title": "AI Product Builders",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/ai-product-builder"
+    },
+    {
+      "id": "software-design-architecture",
+      "title": "Design Architecture",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/software-design-architecture"
+    },
+    {
+      "id": "react-native",
+      "title": "React Native",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/react-native"
+    },
+    {
+      "id": "design-system",
+      "title": "Design System",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/design-system"
+    },
+    {
+      "id": "prompt-engineering",
+      "title": "Prompt Engineering",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/prompt-engineering"
+    },
+    {
+      "id": "mongodb",
+      "title": "MongoDB",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/mongodb"
+    },
+    {
+      "id": "linux",
+      "title": "Linux",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/linux"
+    },
+    {
+      "id": "kubernetes",
+      "title": "Kubernetes",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/kubernetes"
+    },
+    {
+      "id": "docker",
+      "title": "Docker",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/docker"
+    },
+    {
+      "id": "aws",
+      "title": "AWS",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/aws"
+    },
+    {
+      "id": "terraform",
+      "title": "Terraform",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/terraform"
+    },
+    {
+      "id": "datastructures-and-algorithms",
+      "title": "Data Structures & Algorithms",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/datastructures-and-algorithms"
+    },
+    {
+      "id": "redis",
+      "title": "Redis",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/redis"
+    },
+    {
+      "id": "git-github",
+      "title": "Git and GitHub",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/git-github"
+    },
+    {
+      "id": "php",
+      "title": "PHP",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/php"
+    },
+    {
+      "id": "cloudflare",
+      "title": "Cloudflare",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/cloudflare"
+    },
+    {
+      "id": "ai-agents",
+      "title": "AI Agents",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/ai-agents"
+    },
+    {
+      "id": "nextjs",
+      "title": "Next.js",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/nextjs"
+    },
+    {
+      "id": "kotlin",
+      "title": "Kotlin",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/kotlin"
+    },
+    {
+      "id": "html",
+      "title": "HTML",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/html"
+    },
+    {
+      "id": "css",
+      "title": "CSS",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/css"
+    },
+    {
+      "id": "swift-ui",
+      "title": "Swift & Swift UI",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/swift-ui"
+    },
+    {
+      "id": "shell-bash",
+      "title": "Shell / Bash",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/shell-bash"
+    },
+    {
+      "id": "laravel",
+      "title": "Laravel",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/laravel"
+    },
+    {
+      "id": "elasticsearch",
+      "title": "Elasticsearch",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/elasticsearch"
+    },
+    {
+      "id": "wordpress",
+      "title": "WordPress",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/wordpress"
+    },
+    {
+      "id": "django",
+      "title": "Django",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/django"
+    },
+    {
+      "id": "ruby",
+      "title": "Ruby",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/ruby"
+    },
+    {
+      "id": "ruby-on-rails",
+      "title": "Ruby on Rails",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/ruby-on-rails"
+    },
+    {
+      "id": "scala",
+      "title": "Scala",
+      "category": "Habilidades",
+      "url": "https://roadmap.sh/scala"
+    },
+    {
+      "id": "frontend-beginner",
+      "title": "Frontend Beginner",
+      "category": "Iniciantes",
+      "url": "https://roadmap.sh/frontend-beginner"
+    },
+    {
+      "id": "backend-beginner",
+      "title": "Backend Beginner",
+      "category": "Iniciantes",
+      "url": "https://roadmap.sh/backend-beginner"
+    },
+    {
+      "id": "devops-beginner",
+      "title": "DevOps Beginner",
+      "category": "Iniciantes",
+      "url": "https://roadmap.sh/devops-beginner"
+    },
+    {
+      "id": "git-github-beginner",
+      "title": "Git and GitHub Beginner",
+      "category": "Iniciantes",
+      "url": "https://roadmap.sh/git-github-beginner"
+    },
+    {
+      "id": "aws-best-practices",
+      "title": "AWS",
+      "category": "Práticas",
+      "url": "https://roadmap.sh/aws-best-practices"
+    },
+    {
+      "id": "api-security-best-practices",
+      "title": "API Security",
+      "category": "Práticas",
+      "url": "https://roadmap.sh/api-security-best-practices"
+    },
+    {
+      "id": "backend-performance-best-practices",
+      "title": "Backend Performance",
+      "category": "Práticas",
+      "url": "https://roadmap.sh/backend-performance-best-practices"
+    },
+    {
+      "id": "frontend-performance-best-practices",
+      "title": "Frontend Performance",
+      "category": "Práticas",
+      "url": "https://roadmap.sh/frontend-performance-best-practices"
+    },
+    {
+      "id": "code-review-best-practices",
+      "title": "Code Review",
+      "category": "Práticas",
+      "url": "https://roadmap.sh/code-review-best-practices"
+    }
+  ]
+}

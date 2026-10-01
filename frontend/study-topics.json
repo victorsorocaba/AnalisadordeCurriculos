@@ -1,0 +1,6465 @@
+{
+  "note": "Checklists originais do Alinha; consulte o roadmap.sh para mapas e recursos oficiais.",
+  "roadmaps": {
+    "r-programming": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "a309f5e4681465cd",
+              "title": "Sintaxe e tipos de dados em R"
+            },
+            {
+              "id": "0b7ef97fa5797233",
+              "title": "Vetores, listas e data frames"
+            },
+            {
+              "id": "c131fb240b2e364f",
+              "title": "Importação de CSV e Excel"
+            },
+            {
+              "id": "7fd8c751db204b44",
+              "title": "Manipulação com dplyr"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "a98f508a0c315532",
+              "title": "Visualização com ggplot2"
+            },
+            {
+              "id": "6b976441440af8cd",
+              "title": "Estatística descritiva"
+            },
+            {
+              "id": "76a0571866a11c11",
+              "title": "Testes de hipótese"
+            },
+            {
+              "id": "cad1340deb0f2d65",
+              "title": "Modelagem com regressão"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "ae8a3c591211fe35",
+              "title": "Limpeza de dados reais"
+            },
+            {
+              "id": "22cc2f60c5ff9f2c",
+              "title": "Relatórios reproduzíveis com Quarto"
+            },
+            {
+              "id": "c0b9ca131dd16aa6",
+              "title": "Validação de análises"
+            },
+            {
+              "id": "f7b5a7fa474b0bd5",
+              "title": "Publicação de resultados"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "seo": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "be60f04053f255ba",
+              "title": "Como funcionam busca e indexação"
+            },
+            {
+              "id": "706237ceaca2bd20",
+              "title": "Intenção de busca e palavras-chave"
+            },
+            {
+              "id": "f6d8ec7723de7215",
+              "title": "Arquitetura de informação"
+            },
+            {
+              "id": "37a9f2d79f58b1bd",
+              "title": "HTML semântico para busca"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "c372653105d2fcd7",
+              "title": "Auditoria técnica de páginas"
+            },
+            {
+              "id": "1cfde36cfdbe60c1",
+              "title": "Conteúdo orientado ao usuário"
+            },
+            {
+              "id": "5cecb740c281f76f",
+              "title": "Links internos e externos"
+            },
+            {
+              "id": "ea93edb2bb6f2e9c",
+              "title": "Dados estruturados"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "405afb68505420b4",
+              "title": "Medição no Search Console"
+            },
+            {
+              "id": "91f7327af5c8deb3",
+              "title": "Core Web Vitals"
+            },
+            {
+              "id": "65e0aa0cebb12c30",
+              "title": "Experimentos de conteúdo"
+            },
+            {
+              "id": "0430753553f8e095",
+              "title": "Relatório de resultados orgânicos"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "frontend": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "ac1b6bbcaa5d8c19",
+              "title": "HTML semântico e acessibilidade"
+            },
+            {
+              "id": "5eaa914bc8654860",
+              "title": "CSS: layout e responsividade"
+            },
+            {
+              "id": "aa64ba2dd71b3205",
+              "title": "JavaScript e DOM"
+            },
+            {
+              "id": "c38209cdf8c52f94",
+              "title": "HTTP e consumo de APIs"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "6d97258217efe5a0",
+              "title": "Componentes e gerenciamento de estado"
+            },
+            {
+              "id": "871032bbfa3ac6e2",
+              "title": "Formulários e validação"
+            },
+            {
+              "id": "24c41a2353d12c02",
+              "title": "Roteamento e navegação"
+            },
+            {
+              "id": "bdf8ad534bf86fb7",
+              "title": "Build e publicação"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "105f74ed70f651d2",
+              "title": "Testes de interface"
+            },
+            {
+              "id": "85c034906056426b",
+              "title": "Desempenho e Core Web Vitals"
+            },
+            {
+              "id": "d856951eaf1d907d",
+              "title": "Segurança no navegador"
+            },
+            {
+              "id": "dd7ec5aa3301c047",
+              "title": "Projeto de aplicação completa"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "backend": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "af0bb1cb8a48f883",
+              "title": "Lógica, linguagem e ambiente"
+            },
+            {
+              "id": "fa027fc5dd6e8a13",
+              "title": "HTTP, REST e códigos de resposta"
+            },
+            {
+              "id": "d9f0d80cc7e0cf83",
+              "title": "Roteamento e controladores"
+            },
+            {
+              "id": "1dc266a69d135fff",
+              "title": "Modelagem de dados e SQL"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "fc3463d5e69b4ce9",
+              "title": "Autenticação e autorização"
+            },
+            {
+              "id": "5b1172d6399cd1b1",
+              "title": "Validação e tratamento de erros"
+            },
+            {
+              "id": "530a0b05f8ed4163",
+              "title": "Serviços, filas e tarefas assíncronas"
+            },
+            {
+              "id": "b7a7c4a1048e2464",
+              "title": "Cache e observabilidade"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "35cb046b2efe175f",
+              "title": "Testes de unidade e integração"
+            },
+            {
+              "id": "b6023d7585ea3866",
+              "title": "Segurança de APIs"
+            },
+            {
+              "id": "f1c8422b32ac61eb",
+              "title": "Desempenho e escala"
+            },
+            {
+              "id": "25d87a9843e28190",
+              "title": "Publicação e operação"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "full-stack": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "00cb845efffaf992",
+              "title": "HTML, CSS e JavaScript"
+            },
+            {
+              "id": "39621ac66251aee2",
+              "title": "HTTP e arquitetura cliente-servidor"
+            },
+            {
+              "id": "9a87913060e1c8e4",
+              "title": "Componentes de interface"
+            },
+            {
+              "id": "d48706279e2220be",
+              "title": "APIs e validação"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "d21bf422d3ea4d88",
+              "title": "Modelagem de dados"
+            },
+            {
+              "id": "efa2bc3678997d02",
+              "title": "Autenticação e sessões"
+            },
+            {
+              "id": "a03af40d25d8fd6d",
+              "title": "Integração frontend e backend"
+            },
+            {
+              "id": "b8c203594893b24b",
+              "title": "Deploy completo"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "f4fb9a56b0943dbe",
+              "title": "Testes de ponta a ponta"
+            },
+            {
+              "id": "b2c5a5035176f07b",
+              "title": "Segurança em camadas"
+            },
+            {
+              "id": "c6b5fd295894e638",
+              "title": "Medição de desempenho"
+            },
+            {
+              "id": "5faaf3ca501334d1",
+              "title": "Projeto completo em produção"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "android": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "e1d6337b73ec318f",
+              "title": "Kotlin e fundamentos da plataforma"
+            },
+            {
+              "id": "d738976446b52f57",
+              "title": "Ciclo de vida de atividades"
+            },
+            {
+              "id": "e410adc0c50e7edf",
+              "title": "Layouts com Jetpack Compose"
+            },
+            {
+              "id": "ee54a04478e13e5f",
+              "title": "Navegação e estado"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "7f90940dccc9a98b",
+              "title": "Persistência local com Room"
+            },
+            {
+              "id": "b6511a2bf9943cb4",
+              "title": "Requisições de rede"
+            },
+            {
+              "id": "6bc276570d90ffb4",
+              "title": "Permissões e privacidade"
+            },
+            {
+              "id": "d56336948e5a17a8",
+              "title": "Trabalho em segundo plano"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "2897b1041cff2c81",
+              "title": "Testes de interface"
+            },
+            {
+              "id": "07b8ce83d228ede4",
+              "title": "Acessibilidade móvel"
+            },
+            {
+              "id": "9a1682e5c8165306",
+              "title": "Desempenho e bateria"
+            },
+            {
+              "id": "6b8b782a31577af5",
+              "title": "Publicação na Play Store"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "devops": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "0259ea79309797e8",
+              "title": "Linux e linha de comando"
+            },
+            {
+              "id": "a55039587150b343",
+              "title": "Git e fluxo de branches"
+            },
+            {
+              "id": "1270e2a3145cc99c",
+              "title": "Redes e HTTP"
+            },
+            {
+              "id": "6ec13eec5a9ae06c",
+              "title": "Scripts e automação"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "96162f86129e69da",
+              "title": "Contêineres com Docker"
+            },
+            {
+              "id": "a23543249d48a6aa",
+              "title": "Integração e entrega contínua"
+            },
+            {
+              "id": "fad36c1373dbb455",
+              "title": "Infraestrutura como código"
+            },
+            {
+              "id": "7ff78b409848c0b2",
+              "title": "Orquestração com Kubernetes"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "dd36aa914d01f81b",
+              "title": "Monitoramento e logs"
+            },
+            {
+              "id": "b653154f42ff5b68",
+              "title": "Gestão de segredos"
+            },
+            {
+              "id": "69bc3e796cd47494",
+              "title": "Resiliência e incidentes"
+            },
+            {
+              "id": "e14270233117075d",
+              "title": "Deploy reproduzível"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "devsecops": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "14624dea1cdd0e16",
+              "title": "Fundamentos de segurança de aplicações"
+            },
+            {
+              "id": "6d3bcf7e3bead1e9",
+              "title": "Modelagem de ameaças"
+            },
+            {
+              "id": "d5baf806a2ae4bb8",
+              "title": "Gestão de dependências"
+            },
+            {
+              "id": "1fa6c3afd5a60d71",
+              "title": "Análise estática de código"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "07c0744b6ab12dc3",
+              "title": "Análise dinâmica de aplicações"
+            },
+            {
+              "id": "bacf239adddcbbf2",
+              "title": "Segredos no pipeline"
+            },
+            {
+              "id": "c029fcc0f1cff95f",
+              "title": "Segurança de contêineres"
+            },
+            {
+              "id": "bcd9cf91100aed46",
+              "title": "Políticas como código"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "9d01a87f75d35fd2",
+              "title": "Autenticação da infraestrutura"
+            },
+            {
+              "id": "bacb68e1e57a1b4e",
+              "title": "Monitoramento de vulnerabilidades"
+            },
+            {
+              "id": "5473f6e59a140642",
+              "title": "Resposta a incidentes"
+            },
+            {
+              "id": "59440d317c743bb6",
+              "title": "Pipeline seguro completo"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "data-analyst": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "73e13937d4bdcec2",
+              "title": "Perguntas de negócio e métricas"
+            },
+            {
+              "id": "5420137833d51f32",
+              "title": "Planilhas e limpeza de dados"
+            },
+            {
+              "id": "bb335547adb2cb73",
+              "title": "SQL para análise"
+            },
+            {
+              "id": "4ecbcf571c7058d5",
+              "title": "Estatística descritiva"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "67a74d85569cb24b",
+              "title": "Visualização de dados"
+            },
+            {
+              "id": "fea64939460e0bfb",
+              "title": "Modelagem dimensional básica"
+            },
+            {
+              "id": "7e0d16a6ddaafb0a",
+              "title": "Dashboards e storytelling"
+            },
+            {
+              "id": "bc7af9a045139ee8",
+              "title": "Experimentos e testes A/B"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "3e1be08a120e3bdc",
+              "title": "Qualidade e linhagem de dados"
+            },
+            {
+              "id": "59904eaa356a6128",
+              "title": "Análise de coortes"
+            },
+            {
+              "id": "040805fe2b0bb4ba",
+              "title": "Comunicação de limitações"
+            },
+            {
+              "id": "76fa8b20b7933ad2",
+              "title": "Projeto analítico publicado"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "ai-engineer": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "518cb9324cac02c0",
+              "title": "Python e APIs"
+            },
+            {
+              "id": "8c123bf1baa7e812",
+              "title": "Fundamentos de aprendizado de máquina"
+            },
+            {
+              "id": "20bb67745c6860ca",
+              "title": "Tokens, contexto e embeddings"
+            },
+            {
+              "id": "a168c4cafa5f9d4e",
+              "title": "Integração com modelos de linguagem"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "99e2fb79a3c6cbab",
+              "title": "Engenharia de prompts"
+            },
+            {
+              "id": "2269f81472b2b872",
+              "title": "Busca e geração aumentada"
+            },
+            {
+              "id": "2a9e09a83d184f82",
+              "title": "Ferramentas e agentes"
+            },
+            {
+              "id": "9bf3f325f73c50ad",
+              "title": "Avaliação de respostas"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "8da9a42c8a2a6c51",
+              "title": "Tratamento de dados sensíveis"
+            },
+            {
+              "id": "ab805dcbd2e89a15",
+              "title": "Custos, latência e cache"
+            },
+            {
+              "id": "c4c6b27345385e3c",
+              "title": "Observabilidade de aplicações de IA"
+            },
+            {
+              "id": "5a368e32d1cfe9ba",
+              "title": "Entrega de produto com IA"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "ai-data-scientist": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "b2c5a30ad93ae98c",
+              "title": "Python para dados"
+            },
+            {
+              "id": "0c2019e1226f3325",
+              "title": "Álgebra linear e probabilidade"
+            },
+            {
+              "id": "b6b8c804ab5f7374",
+              "title": "Preparação de dados"
+            },
+            {
+              "id": "53656b043ab300f8",
+              "title": "Análise exploratória"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "c671a2151dbc4f23",
+              "title": "Aprendizado supervisionado"
+            },
+            {
+              "id": "f7181d8a6a71a011",
+              "title": "Aprendizado não supervisionado"
+            },
+            {
+              "id": "5467f6184f3f8fc7",
+              "title": "Redes neurais"
+            },
+            {
+              "id": "94ab37d77bb94984",
+              "title": "Avaliação e validação"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "84eaa5338997fe64",
+              "title": "Prevenção de vazamento de dados"
+            },
+            {
+              "id": "c5605e00b5cd287a",
+              "title": "Interpretabilidade"
+            },
+            {
+              "id": "1a51774c08a03581",
+              "title": "Experimentos reproduzíveis"
+            },
+            {
+              "id": "1daad4d118e60bc7",
+              "title": "Deploy de modelo"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "data-engineer": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "44e231ef1b370bb2",
+              "title": "SQL avançado"
+            },
+            {
+              "id": "328d090a66b07aee",
+              "title": "Python para processamento"
+            },
+            {
+              "id": "c1f7553b0be5e2b0",
+              "title": "Modelagem de dados"
+            },
+            {
+              "id": "f2c0204bd317b2ac",
+              "title": "ETL e ELT"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "0d6e0513b9641e37",
+              "title": "Orquestração de pipelines"
+            },
+            {
+              "id": "b3a5a632fd82ea9d",
+              "title": "Armazenamento em data lake"
+            },
+            {
+              "id": "9b94bf8947c07636",
+              "title": "Data warehouse"
+            },
+            {
+              "id": "82692d612b29fc8d",
+              "title": "Processamento em lote e streaming"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "b3f6dd2105c15986",
+              "title": "Qualidade e contratos de dados"
+            },
+            {
+              "id": "f4a68c53d92bdbd3",
+              "title": "Catálogo e governança"
+            },
+            {
+              "id": "9fc2af27a971d369",
+              "title": "Monitoramento de pipelines"
+            },
+            {
+              "id": "b32c177545e6ce6e",
+              "title": "Projeto de plataforma de dados"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "machine-learning": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "49ca3510b93b7223",
+              "title": "Álgebra linear e estatística"
+            },
+            {
+              "id": "79dd5446697c11ef",
+              "title": "Python e bibliotecas numéricas"
+            },
+            {
+              "id": "f25271b54222a335",
+              "title": "Preparação e divisão de dados"
+            },
+            {
+              "id": "e686e905b89e8946",
+              "title": "Regressão e classificação"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "8b7354436db38db8",
+              "title": "Árvores e ensembles"
+            },
+            {
+              "id": "2a9355c86fec7a42",
+              "title": "Agrupamento e redução de dimensão"
+            },
+            {
+              "id": "3e9076342428faf6",
+              "title": "Métricas de avaliação"
+            },
+            {
+              "id": "7544b018eaf7fb4b",
+              "title": "Ajuste de hiperparâmetros"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "ea63bbfbc40ad0d7",
+              "title": "Evitar sobreajuste e vazamento"
+            },
+            {
+              "id": "666d555c896bc38d",
+              "title": "Interpretabilidade"
+            },
+            {
+              "id": "fb147b78ac279e4b",
+              "title": "Pipeline reproduzível"
+            },
+            {
+              "id": "2317cb2faf3bb92f",
+              "title": "Deploy e monitoramento"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "postgresql-dba": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "0ffbea85a64b80c4",
+              "title": "Instalação e configuração"
+            },
+            {
+              "id": "612104d2f40d591d",
+              "title": "Tabelas, tipos e constraints"
+            },
+            {
+              "id": "d451d20c6d36f115",
+              "title": "SQL e transações"
+            },
+            {
+              "id": "07977a138ec71e14",
+              "title": "Índices e planos de execução"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "715804d5bb8a6f17",
+              "title": "Papéis e permissões"
+            },
+            {
+              "id": "669ed6d51878af92",
+              "title": "Backups e restauração"
+            },
+            {
+              "id": "6da42c36b7ec733e",
+              "title": "Replicação"
+            },
+            {
+              "id": "848e3ee4877829bf",
+              "title": "Particionamento"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "f55807250b7de75b",
+              "title": "Monitoramento de consultas"
+            },
+            {
+              "id": "ca813c42177720b1",
+              "title": "Tuning de memória e conexão"
+            },
+            {
+              "id": "72816814e1979ff9",
+              "title": "Atualizações e migrações"
+            },
+            {
+              "id": "dc61a51f0ed6b674",
+              "title": "Plano de recuperação"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "ios": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "9a7ca2f87e04d9c2",
+              "title": "Swift e fundamentos de iOS"
+            },
+            {
+              "id": "7451750a76edc18a",
+              "title": "Ciclo de vida do aplicativo"
+            },
+            {
+              "id": "44e0cc1f325e859d",
+              "title": "Interfaces com SwiftUI"
+            },
+            {
+              "id": "4054b880b3dc8186",
+              "title": "Navegação e estado"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "54cbe5a62c924d3a",
+              "title": "Persistência de dados"
+            },
+            {
+              "id": "9e59ca20adad1981",
+              "title": "Comunicação com APIs"
+            },
+            {
+              "id": "ebc97c52507a9fa4",
+              "title": "Permissões e privacidade"
+            },
+            {
+              "id": "7db86a3a7401e835",
+              "title": "Notificações e tarefas"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "d5a2b13750f602d7",
+              "title": "Testes automatizados"
+            },
+            {
+              "id": "41304d341fdace38",
+              "title": "Acessibilidade"
+            },
+            {
+              "id": "791166ff2a981487",
+              "title": "Desempenho e energia"
+            },
+            {
+              "id": "7e2efe3e473c69b4",
+              "title": "Publicação na App Store"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "blockchain": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "27a6f1be4b8f7324",
+              "title": "Criptografia de chave pública"
+            },
+            {
+              "id": "4d6400c303a285e2",
+              "title": "Hashes e estruturas de dados"
+            },
+            {
+              "id": "ad6e20b21901bf96",
+              "title": "Consenso e redes distribuídas"
+            },
+            {
+              "id": "5dfba299cb101816",
+              "title": "Transações e carteiras"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "c80c19b251392bcd",
+              "title": "Máquinas virtuais de contratos"
+            },
+            {
+              "id": "654d7564c1dd0e74",
+              "title": "Solidity ou linguagem equivalente"
+            },
+            {
+              "id": "12104d2661e39e32",
+              "title": "Tokens e padrões"
+            },
+            {
+              "id": "04b9d406286cd5ab",
+              "title": "Integração com aplicações web"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "2503b780ef5e1d2e",
+              "title": "Testes de contratos"
+            },
+            {
+              "id": "6b0c7c146e0e13f8",
+              "title": "Auditoria de segurança"
+            },
+            {
+              "id": "17bb286d4567833f",
+              "title": "Custos de transação"
+            },
+            {
+              "id": "8578b5295498d246",
+              "title": "Deploy em rede de teste"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "qa": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "135f26252128ce3b",
+              "title": "Estratégia e tipos de teste"
+            },
+            {
+              "id": "898c3e61c180ea35",
+              "title": "Casos e critérios de aceitação"
+            },
+            {
+              "id": "7d7f99547a4f9350",
+              "title": "Teste exploratório"
+            },
+            {
+              "id": "cbe1fd5d29568ba2",
+              "title": "Testes de unidade"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "a64855665ad69d78",
+              "title": "Testes de integração"
+            },
+            {
+              "id": "cd67764edbd9fbae",
+              "title": "Automação de interface"
+            },
+            {
+              "id": "e9e0e7d0aa42063c",
+              "title": "Testes de API"
+            },
+            {
+              "id": "d4f80b0a5d859a32",
+              "title": "Dados e ambientes de teste"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "5443da02897d43ea",
+              "title": "Relato e triagem de bugs"
+            },
+            {
+              "id": "f39ff244c94bbd6d",
+              "title": "Acessibilidade e usabilidade"
+            },
+            {
+              "id": "af231c8ce6690434",
+              "title": "Métricas de qualidade"
+            },
+            {
+              "id": "b576bdfe98890d27",
+              "title": "Pipeline de testes"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "software-architect": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "bec49a8f80be6354",
+              "title": "Requisitos funcionais e atributos de qualidade"
+            },
+            {
+              "id": "9e3b890c1fef9b7c",
+              "title": "Padrões de arquitetura"
+            },
+            {
+              "id": "86b351ba1a7586fa",
+              "title": "Modelagem de domínios"
+            },
+            {
+              "id": "3375e6d582a5279f",
+              "title": "Limites de serviços"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "ef0b5f524b9f5c5c",
+              "title": "Comunicação síncrona e assíncrona"
+            },
+            {
+              "id": "306cf4bb034c10f8",
+              "title": "Persistência e consistência"
+            },
+            {
+              "id": "6d958fed3c5651ac",
+              "title": "Escalabilidade"
+            },
+            {
+              "id": "8dbabb124e1b57c3",
+              "title": "Segurança por projeto"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "9e43d0c57d540501",
+              "title": "Observabilidade"
+            },
+            {
+              "id": "ebbcccf0d84a7ac9",
+              "title": "Registro de decisões técnicas"
+            },
+            {
+              "id": "39677ccb85ca433a",
+              "title": "Avaliação de trade-offs"
+            },
+            {
+              "id": "6a329ede389cc02a",
+              "title": "Evolução de arquitetura"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "api-design": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "00232867e40acdf7",
+              "title": "Recursos e contratos HTTP"
+            },
+            {
+              "id": "9460eff0a4c88d1b",
+              "title": "Métodos, status e idempotência"
+            },
+            {
+              "id": "6fc24f9dd3901466",
+              "title": "Modelagem de URLs"
+            },
+            {
+              "id": "43810bcea9e60c1c",
+              "title": "Validação e erros"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "330bff397d7372e5",
+              "title": "Paginação e filtros"
+            },
+            {
+              "id": "8c763943059d882a",
+              "title": "Autenticação e autorização"
+            },
+            {
+              "id": "c7d62016e67a1e9f",
+              "title": "Versionamento"
+            },
+            {
+              "id": "0cb3cf35fe7ff4cf",
+              "title": "Documentação OpenAPI"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "a3ad1a32a33e58d4",
+              "title": "Limites e quotas"
+            },
+            {
+              "id": "f4ea0dac3461d03b",
+              "title": "Testes de contrato"
+            },
+            {
+              "id": "be65240274a46e11",
+              "title": "Compatibilidade de mudanças"
+            },
+            {
+              "id": "b67b44b84999f8e9",
+              "title": "Revisão de experiência do desenvolvedor"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "cyber-security": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "90b25b80b63bfa36",
+              "title": "Redes e sistemas operacionais"
+            },
+            {
+              "id": "791b0e614c393722",
+              "title": "Criptografia aplicada"
+            },
+            {
+              "id": "25ee8724ffdfd1d1",
+              "title": "Identidade e controle de acesso"
+            },
+            {
+              "id": "e3e396da607ee974",
+              "title": "Segurança de aplicações web"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "3fb73273173120d1",
+              "title": "Vulnerabilidades comuns"
+            },
+            {
+              "id": "c26d9e6359bf4d8d",
+              "title": "Análise de logs"
+            },
+            {
+              "id": "36822097054f768c",
+              "title": "Modelagem de ameaças"
+            },
+            {
+              "id": "50054863baba6dcf",
+              "title": "Gestão de riscos"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "c6fe110a24e7b181",
+              "title": "Testes autorizados de segurança"
+            },
+            {
+              "id": "9e104143215c8a37",
+              "title": "Resposta a incidentes"
+            },
+            {
+              "id": "b0354418b84c6bb5",
+              "title": "Hardening de ambientes"
+            },
+            {
+              "id": "2e3807eb952d0c0a",
+              "title": "Plano de defesa em profundidade"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "ux-design": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "0f84fb1a2ee0f0ed",
+              "title": "Pesquisa com usuários"
+            },
+            {
+              "id": "c71b9c09b7680b05",
+              "title": "Definição de problemas"
+            },
+            {
+              "id": "ae40e23579c04172",
+              "title": "Personas e jornadas"
+            },
+            {
+              "id": "83ea2a48b60e194d",
+              "title": "Arquitetura de informação"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "6e6442472f61aeae",
+              "title": "Fluxos de interação"
+            },
+            {
+              "id": "21a72e21c1f0f1a9",
+              "title": "Wireframes"
+            },
+            {
+              "id": "72c85194bb0faac8",
+              "title": "Protótipos"
+            },
+            {
+              "id": "2b3c80dc8cd904d6",
+              "title": "Design visual e consistência"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "6f2f19f725641339",
+              "title": "Testes de usabilidade"
+            },
+            {
+              "id": "0d2d079e1ae38751",
+              "title": "Acessibilidade"
+            },
+            {
+              "id": "3860780bffc000e5",
+              "title": "Métricas de produto"
+            },
+            {
+              "id": "45550253c99f6b70",
+              "title": "Iteração a partir de evidências"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "technical-writer": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "70343216d2cb5765",
+              "title": "Público e objetivos da documentação"
+            },
+            {
+              "id": "dbfc28c08c3cb590",
+              "title": "Estrutura e navegação"
+            },
+            {
+              "id": "7077f168db52a674",
+              "title": "Escrita clara e concisa"
+            },
+            {
+              "id": "71ac368e004511ba",
+              "title": "Tutoriais passo a passo"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "1e3b9a152648b4e8",
+              "title": "Referência de APIs"
+            },
+            {
+              "id": "06ebbb6cf176cc1d",
+              "title": "Exemplos executáveis"
+            },
+            {
+              "id": "5cf73ba7297daab0",
+              "title": "Markdown e docs as code"
+            },
+            {
+              "id": "fdc1da061e9dec4b",
+              "title": "Revisão editorial"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "004f87f32f71af34",
+              "title": "Acessibilidade do conteúdo"
+            },
+            {
+              "id": "9c8bf18d27e16648",
+              "title": "Versionamento da documentação"
+            },
+            {
+              "id": "d315733fb68cce16",
+              "title": "Feedback e métricas"
+            },
+            {
+              "id": "d0e6e8f6177d8732",
+              "title": "Publicação e manutenção"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "game-developer": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "cb547773631eba8d",
+              "title": "Lógica e matemática para jogos"
+            },
+            {
+              "id": "9bfaef56b947581b",
+              "title": "Loops e estados do jogo"
+            },
+            {
+              "id": "bb69638ded0dab18",
+              "title": "Engine e cenas"
+            },
+            {
+              "id": "615807ea09951b29",
+              "title": "Entrada e controles"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "beb8dfdd63485943",
+              "title": "Física e colisões"
+            },
+            {
+              "id": "502975ea37883e7b",
+              "title": "Animação e áudio"
+            },
+            {
+              "id": "d6df0a81c266a258",
+              "title": "IA de personagens"
+            },
+            {
+              "id": "8e3ee7215a4208f6",
+              "title": "Interface e menus"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "a4d5d879a9f39b19",
+              "title": "Salvar progresso"
+            },
+            {
+              "id": "8868df1e44b6bb22",
+              "title": "Otimização de frames"
+            },
+            {
+              "id": "879507428fe72f07",
+              "title": "Testes de jogabilidade"
+            },
+            {
+              "id": "c76861663b53f919",
+              "title": "Publicação de protótipo"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "server-side-game-developer": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "249f1e0178c66e37",
+              "title": "Redes e protocolos em tempo real"
+            },
+            {
+              "id": "4d4a5e4d4fb966a4",
+              "title": "Modelo cliente-servidor"
+            },
+            {
+              "id": "b959d8e1bb8e714f",
+              "title": "Sessões de jogadores"
+            },
+            {
+              "id": "3a10765996429682",
+              "title": "Sincronização de estado"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "28184de361ee4c42",
+              "title": "Latência e compensação"
+            },
+            {
+              "id": "3cbcc741ea4e40c7",
+              "title": "Matchmaking"
+            },
+            {
+              "id": "534c442d8df35d5b",
+              "title": "Persistência de contas"
+            },
+            {
+              "id": "4cfa806c27b6c0dc",
+              "title": "Prevenção de trapaças"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "eb367110c1c7cd0b",
+              "title": "Escala de salas"
+            },
+            {
+              "id": "6203bceb893170af",
+              "title": "Observabilidade"
+            },
+            {
+              "id": "0b65c8bab256f6ec",
+              "title": "Teste de carga"
+            },
+            {
+              "id": "a6849064cc6f31d9",
+              "title": "Operação de servidor de jogo"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "mlops": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "de60441951c0d826",
+              "title": "Versionamento de dados e modelos"
+            },
+            {
+              "id": "8ecb98c30ab24ae8",
+              "title": "Pipelines de treinamento"
+            },
+            {
+              "id": "c20404ec5c9b989e",
+              "title": "Rastreamento de experimentos"
+            },
+            {
+              "id": "61c1ffd73a19de95",
+              "title": "Registro de modelos"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "e8224cd6718db5b6",
+              "title": "Validação de dados"
+            },
+            {
+              "id": "2302c049a8ee13d0",
+              "title": "Testes de modelos"
+            },
+            {
+              "id": "c69c4bc7f2167d4d",
+              "title": "Entrega contínua de modelos"
+            },
+            {
+              "id": "800df55422fb5cc3",
+              "title": "Serviço de inferência"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "cacc70a5d9a969cc",
+              "title": "Monitoramento de deriva"
+            },
+            {
+              "id": "05e06e2fb5406c2b",
+              "title": "Re-treinamento"
+            },
+            {
+              "id": "f6a9c5fb5f8071ae",
+              "title": "Custos de infraestrutura"
+            },
+            {
+              "id": "be1be88a2723ab1c",
+              "title": "Resposta a falhas em produção"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "product-manager": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "4b35ad96b3b01b10",
+              "title": "Descoberta de problemas"
+            },
+            {
+              "id": "62a2ddad6cff0eeb",
+              "title": "Pesquisa de mercado e usuários"
+            },
+            {
+              "id": "5477167eb47b10d0",
+              "title": "Definição de proposta de valor"
+            },
+            {
+              "id": "b786a5ba26d13baf",
+              "title": "Priorização de oportunidades"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "3dce721fc92dbffb",
+              "title": "Escrita de requisitos"
+            },
+            {
+              "id": "60344cf5e9c451ee",
+              "title": "Métricas e funil"
+            },
+            {
+              "id": "7dba3f790737cebc",
+              "title": "Planejamento de roadmap"
+            },
+            {
+              "id": "4bfddb005547325b",
+              "title": "Experimentos de produto"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "e60619f645a7df52",
+              "title": "Alinhamento com engenharia e design"
+            },
+            {
+              "id": "1fe2310b9bcf0f5b",
+              "title": "Análise de resultados"
+            },
+            {
+              "id": "bb46919a9666e4f1",
+              "title": "Lançamentos e comunicação"
+            },
+            {
+              "id": "46d197919dcbbb1a",
+              "title": "Iteração de estratégia"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "engineering-manager": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "ee14c4640fb41fd5",
+              "title": "Gestão de pessoas e feedback"
+            },
+            {
+              "id": "648079a513003457",
+              "title": "Contratação e integração"
+            },
+            {
+              "id": "2cb5fa25f50f8d0a",
+              "title": "Planejamento de capacidade"
+            },
+            {
+              "id": "d26418af9898f8ff",
+              "title": "Priorização técnica"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "099e550521acb623",
+              "title": "Rituais de equipe"
+            },
+            {
+              "id": "4e55a7a249669957",
+              "title": "Qualidade de entrega"
+            },
+            {
+              "id": "cf3130440ed06efd",
+              "title": "Gestão de incidentes"
+            },
+            {
+              "id": "7c0c4a188f8d31f0",
+              "title": "Colaboração entre áreas"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "c624922692e6b8dd",
+              "title": "Desenvolvimento de carreira"
+            },
+            {
+              "id": "5546c2f8b12bd626",
+              "title": "Métricas de engenharia"
+            },
+            {
+              "id": "d0eb024c3157299a",
+              "title": "Tomada de decisões"
+            },
+            {
+              "id": "1c8dfe0c249e4203",
+              "title": "Saúde e sustentabilidade da equipe"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "devrel": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "9e4ea69758261e23",
+              "title": "Conhecimento do produto e comunidade"
+            },
+            {
+              "id": "cea522fb181da74b",
+              "title": "Documentação para desenvolvedores"
+            },
+            {
+              "id": "13d921d451ff584d",
+              "title": "Exemplos e projetos demonstrativos"
+            },
+            {
+              "id": "94fdcbebd77cbeb7",
+              "title": "Conteúdo técnico"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "783a2ac0243b93da",
+              "title": "Eventos e apresentações"
+            },
+            {
+              "id": "59948651cc118f42",
+              "title": "Suporte à comunidade"
+            },
+            {
+              "id": "869c57f8a4d1c45f",
+              "title": "Programas de contribuição"
+            },
+            {
+              "id": "d814381e48ac3a79",
+              "title": "Coleta de feedback"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "d65f6d01f05e5241",
+              "title": "Métricas de adoção"
+            },
+            {
+              "id": "7122da240297f5d1",
+              "title": "Comunicação em redes técnicas"
+            },
+            {
+              "id": "8594a7eeb4f312ea",
+              "title": "Parcerias com ecossistema"
+            },
+            {
+              "id": "10c8d732afded1b4",
+              "title": "Plano de relações com desenvolvedores"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "bi-analyst": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "70acd74423e82f21",
+              "title": "Perguntas e indicadores de negócio"
+            },
+            {
+              "id": "27327302d08150cd",
+              "title": "SQL analítico"
+            },
+            {
+              "id": "743a67e333fb3ee2",
+              "title": "Modelagem dimensional"
+            },
+            {
+              "id": "77f680ff22262976",
+              "title": "ETL básico"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "72e3fecec8cd9e87",
+              "title": "Ferramentas de BI"
+            },
+            {
+              "id": "3aa95ce2f495f6e0",
+              "title": "Medidas e cálculos"
+            },
+            {
+              "id": "71b749ec52049cd6",
+              "title": "Dashboards úteis"
+            },
+            {
+              "id": "3a6293c00fb8a320",
+              "title": "Governança de métricas"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "23925989c9d56054",
+              "title": "Controle de acesso a dados"
+            },
+            {
+              "id": "27010376e1c9c488",
+              "title": "Validação com stakeholders"
+            },
+            {
+              "id": "f35833dfb5d6a83d",
+              "title": "Storytelling com dados"
+            },
+            {
+              "id": "c9bb6b1e9123b59f",
+              "title": "Manutenção de painéis"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "ai-red-teaming": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "a3b07b40a6906545",
+              "title": "Fundamentos de modelos generativos"
+            },
+            {
+              "id": "659c5903173b4706",
+              "title": "Categorias de riscos de IA"
+            },
+            {
+              "id": "daad5cfcb7ec0bc8",
+              "title": "Definição de escopo autorizado"
+            },
+            {
+              "id": "16b7f73abdbbd22b",
+              "title": "Desenho de casos adversariais"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "dacb19e574093f2c",
+              "title": "Ataques de prompt injection"
+            },
+            {
+              "id": "a15c073fe1cd24e5",
+              "title": "Vazamento de informações"
+            },
+            {
+              "id": "fc8d7736f298c5df",
+              "title": "Uso indevido de ferramentas"
+            },
+            {
+              "id": "a2f9574bc399118e",
+              "title": "Avaliação sistemática"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "e9cf5fbb45624403",
+              "title": "Registro de evidências"
+            },
+            {
+              "id": "43842ba5ae1a29f2",
+              "title": "Priorização de falhas"
+            },
+            {
+              "id": "3cdaa9038c63c556",
+              "title": "Recomendações de mitigação"
+            },
+            {
+              "id": "4ee73f29a4abea31",
+              "title": "Reteste e relatório"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "network-engineer": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "896d7c277aff1fb1",
+              "title": "Modelo TCP/IP"
+            },
+            {
+              "id": "d67ed84e7e352b4e",
+              "title": "Endereçamento e sub-redes"
+            },
+            {
+              "id": "fb11e272d42695aa",
+              "title": "Roteamento e switching"
+            },
+            {
+              "id": "e0285635c011037a",
+              "title": "DNS e DHCP"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "ea6497772fa57026",
+              "title": "Redes sem fio"
+            },
+            {
+              "id": "0066f127f92b5604",
+              "title": "Firewalls e VPN"
+            },
+            {
+              "id": "2b5a2e1e0e7dd8ec",
+              "title": "Balanceamento de carga"
+            },
+            {
+              "id": "af43b13e30f32dad",
+              "title": "Automação de rede"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "0c0f83eb832c8a06",
+              "title": "Monitoramento de tráfego"
+            },
+            {
+              "id": "1c2896db804d00d3",
+              "title": "Diagnóstico de falhas"
+            },
+            {
+              "id": "c3968aa854fb8593",
+              "title": "Segurança de rede"
+            },
+            {
+              "id": "c403af118970b2d6",
+              "title": "Projeto de topologia"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "forward-deployed-engineer": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "f4206e0506ba31fb",
+              "title": "Descoberta do contexto do cliente"
+            },
+            {
+              "id": "70ff66fb55ab11a1",
+              "title": "Levantamento de requisitos"
+            },
+            {
+              "id": "3fa7271ff8464f60",
+              "title": "Arquitetura de integração"
+            },
+            {
+              "id": "dc665190b335be0f",
+              "title": "APIs e transformação de dados"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "7afd55d3419809e7",
+              "title": "Protótipos rápidos"
+            },
+            {
+              "id": "f14fc0e0fd7441e7",
+              "title": "Segurança e acesso"
+            },
+            {
+              "id": "35549c6a5263cb97",
+              "title": "Implantação no ambiente do cliente"
+            },
+            {
+              "id": "b0c0e3c8e867fb93",
+              "title": "Observabilidade"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "48663cb44608d33b",
+              "title": "Treinamento de usuários"
+            },
+            {
+              "id": "3660d40a96d3216f",
+              "title": "Suporte a incidentes"
+            },
+            {
+              "id": "ffc072279a93995a",
+              "title": "Medição de impacto"
+            },
+            {
+              "id": "d499dbc108895046",
+              "title": "Plano de manutenção"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "claude-code": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "6ba5888a48b9cfba",
+              "title": "Instalação e ambiente de trabalho"
+            },
+            {
+              "id": "af4f37063524943a",
+              "title": "Contexto do repositório"
+            },
+            {
+              "id": "bb478e04cc262b52",
+              "title": "Instruções para tarefas de código"
+            },
+            {
+              "id": "07ef6faeb6430ccd",
+              "title": "Leitura e navegação de arquivos"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "d3f42cd37a15ea86",
+              "title": "Edição assistida"
+            },
+            {
+              "id": "b2772d724db48d2d",
+              "title": "Execução de testes"
+            },
+            {
+              "id": "be0a100b240b684b",
+              "title": "Revisão de alterações"
+            },
+            {
+              "id": "f3674c90c32ca466",
+              "title": "Uso responsável de ferramentas"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "30e156871bc6b04d",
+              "title": "Integração com Git"
+            },
+            {
+              "id": "87d8a55c1085bcc9",
+              "title": "Depuração iterativa"
+            },
+            {
+              "id": "2fc8cf6ae9b596f2",
+              "title": "Proteção de segredos"
+            },
+            {
+              "id": "fe0b5e65642913e3",
+              "title": "Fluxo completo de desenvolvimento"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "python-data-analysis": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "0617da1951195a73",
+              "title": "Sintaxe e estruturas em Python"
+            },
+            {
+              "id": "0903243aa109b527",
+              "title": "Ambientes virtuais e pacotes"
+            },
+            {
+              "id": "cbc4784a2dc16de7",
+              "title": "NumPy para arrays"
+            },
+            {
+              "id": "7eaa74b83d6bfbf3",
+              "title": "Pandas para tabelas"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "a43e736385b7226b",
+              "title": "Leitura de arquivos"
+            },
+            {
+              "id": "2977d31a0dc990a1",
+              "title": "Limpeza e valores ausentes"
+            },
+            {
+              "id": "abb8d0d75c9d456b",
+              "title": "Agrupamentos e junções"
+            },
+            {
+              "id": "95e341def92148c2",
+              "title": "Visualização com Matplotlib"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "3b403415a393bdf3",
+              "title": "Estatística aplicada"
+            },
+            {
+              "id": "f173d96516e0ad57",
+              "title": "Análise exploratória"
+            },
+            {
+              "id": "83518c083da7f5bd",
+              "title": "Notebooks reproduzíveis"
+            },
+            {
+              "id": "bfc75bf95dbfd7ab",
+              "title": "Projeto de análise de dados"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "vibe-coding": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "f3bdbaae07ff1297",
+              "title": "Definição clara do problema"
+            },
+            {
+              "id": "5aa3c6d68f7991eb",
+              "title": "Divisão em tarefas pequenas"
+            },
+            {
+              "id": "3a006e042d6eb38f",
+              "title": "Contexto e requisitos para IA"
+            },
+            {
+              "id": "4c99901e9e2c0d40",
+              "title": "Criação de protótipo"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "4e1c473d9376ce9c",
+              "title": "Leitura do código gerado"
+            },
+            {
+              "id": "f37dd9e9c65d751b",
+              "title": "Testes de comportamento"
+            },
+            {
+              "id": "9b4a6ba0b2738f5a",
+              "title": "Depuração orientada por evidências"
+            },
+            {
+              "id": "9a4c2fd8d481882d",
+              "title": "Revisão de segurança"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "298364aab01396c3",
+              "title": "Controle de versões"
+            },
+            {
+              "id": "64018ac2713ff12c",
+              "title": "Refatoração"
+            },
+            {
+              "id": "a52246d292999e5c",
+              "title": "Documentação"
+            },
+            {
+              "id": "4ab440db8300a372",
+              "title": "Entrega e monitoramento"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "power-bi": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "8e46883ba20005a4",
+              "title": "Conexão com fontes de dados"
+            },
+            {
+              "id": "9c3befe872392ef9",
+              "title": "Power Query"
+            },
+            {
+              "id": "9c49c3c4b941c508",
+              "title": "Modelagem relacional"
+            },
+            {
+              "id": "800297c42eea7276",
+              "title": "Relacionamentos e granularidade"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "acf19d60be00c276",
+              "title": "Fundamentos de DAX"
+            },
+            {
+              "id": "0afb75c8e011d192",
+              "title": "Medidas e contexto de filtro"
+            },
+            {
+              "id": "865c97aa51052704",
+              "title": "Visualizações e interação"
+            },
+            {
+              "id": "8b408712fd552905",
+              "title": "Design de dashboards"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "149254871a4d0829",
+              "title": "Atualização de dados"
+            },
+            {
+              "id": "8503c6552fdfd5d0",
+              "title": "Segurança por linha"
+            },
+            {
+              "id": "3dfff2177c5ac826",
+              "title": "Publicação e compartilhamento"
+            },
+            {
+              "id": "7d4a1f2636c0de65",
+              "title": "Otimização de relatórios"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "leetcode": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "61378decbc2ab35d",
+              "title": "Complexidade de tempo e espaço"
+            },
+            {
+              "id": "a562cf4a8b96515a",
+              "title": "Arrays e strings"
+            },
+            {
+              "id": "1249f00d6cf1bedb",
+              "title": "Hash maps e conjuntos"
+            },
+            {
+              "id": "0d79758b8795eacf",
+              "title": "Ponteiros e janelas deslizantes"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "0f302696e595ce45",
+              "title": "Pilhas e filas"
+            },
+            {
+              "id": "971b18431d4e1a9c",
+              "title": "Listas ligadas"
+            },
+            {
+              "id": "9e404973776525e2",
+              "title": "Árvores e grafos"
+            },
+            {
+              "id": "4ab014d017c285be",
+              "title": "Busca e ordenação"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "7ddb5736598eb0b4",
+              "title": "Programação dinâmica"
+            },
+            {
+              "id": "c67ba81da816af6b",
+              "title": "Backtracking"
+            },
+            {
+              "id": "d172240dfd595527",
+              "title": "Explicação de soluções"
+            },
+            {
+              "id": "4ce76f6ad6828cb8",
+              "title": "Simulados com tempo"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "python": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "5dcff18ee7705407",
+              "title": "Sintaxe, tipos e operadores"
+            },
+            {
+              "id": "97f434aeb34749dd",
+              "title": "Controle de fluxo"
+            },
+            {
+              "id": "3c16ac16d360d042",
+              "title": "Funções e módulos"
+            },
+            {
+              "id": "f3dd5c2171a8e223",
+              "title": "Coleções e compreensão"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "5d1a21beadac3e45",
+              "title": "Arquivos e exceções"
+            },
+            {
+              "id": "60301c898b1a9109",
+              "title": "Orientação a objetos"
+            },
+            {
+              "id": "bce89958e23ed486",
+              "title": "Ambientes virtuais e pacotes"
+            },
+            {
+              "id": "81aa59ed47f61567",
+              "title": "Tipagem e ferramentas"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "b45e2993cf1c5be4",
+              "title": "Testes com pytest"
+            },
+            {
+              "id": "c94277a5d0a5bd49",
+              "title": "Concorrência e async"
+            },
+            {
+              "id": "d4e732882b15ac20",
+              "title": "APIs com Python"
+            },
+            {
+              "id": "8c8f51ec43cd5c89",
+              "title": "Projeto e publicação"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "computer-science": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "548413d85cd78f93",
+              "title": "Lógica e matemática discreta"
+            },
+            {
+              "id": "c299f9fd4a02fdbd",
+              "title": "Representação de dados"
+            },
+            {
+              "id": "95f3d6f8199e9d3f",
+              "title": "Arquitetura de computadores"
+            },
+            {
+              "id": "e594680422ff639f",
+              "title": "Sistemas operacionais"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "9835baecebcb3459",
+              "title": "Estruturas de dados"
+            },
+            {
+              "id": "a1176d74edd5d4f2",
+              "title": "Algoritmos e complexidade"
+            },
+            {
+              "id": "5dbe0b6c15589811",
+              "title": "Redes de computadores"
+            },
+            {
+              "id": "2285306b0f047157",
+              "title": "Bancos de dados"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "75826bbd20576bc9",
+              "title": "Linguagens e compiladores"
+            },
+            {
+              "id": "44c030e84f6590d1",
+              "title": "Segurança computacional"
+            },
+            {
+              "id": "20e0b543fd8afd8f",
+              "title": "Sistemas distribuídos"
+            },
+            {
+              "id": "e81b5f18532529ea",
+              "title": "Projeto integrador"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "sql": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "d1dd06394d254f56",
+              "title": "Tabelas, tipos e chaves"
+            },
+            {
+              "id": "48e48b15f327024b",
+              "title": "SELECT e filtros"
+            },
+            {
+              "id": "09930ce775704b64",
+              "title": "JOINs"
+            },
+            {
+              "id": "56feb5dbe3c515a3",
+              "title": "Agregação e GROUP BY"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "4a76a235b4c5238b",
+              "title": "Subconsultas e CTEs"
+            },
+            {
+              "id": "f8d24ddcee09ddde",
+              "title": "Funções de janela"
+            },
+            {
+              "id": "4478b1104067852e",
+              "title": "Modelagem relacional"
+            },
+            {
+              "id": "e087020877bee2b3",
+              "title": "Transações"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "2efe970c0bca5892",
+              "title": "Índices e planos"
+            },
+            {
+              "id": "e06f1578f365d3bf",
+              "title": "Permissões"
+            },
+            {
+              "id": "9c988a2f2f2e2b9c",
+              "title": "Migrações de esquema"
+            },
+            {
+              "id": "194690dbdde3dab5",
+              "title": "Consultas analíticas reais"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "openclaw": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "0a924689a1e6cd48",
+              "title": "Instalação e configuração"
+            },
+            {
+              "id": "cfd916e2adcf87a7",
+              "title": "Arquitetura e componentes"
+            },
+            {
+              "id": "7fe4b78bc9001eb5",
+              "title": "Provedores de modelos"
+            },
+            {
+              "id": "4928722a8d9ae82a",
+              "title": "Canais e mensagens"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "ef93d1a5221a04ae",
+              "title": "Ferramentas disponíveis"
+            },
+            {
+              "id": "febacd1221d3c90f",
+              "title": "Memória e contexto"
+            },
+            {
+              "id": "359fff3851be0ca4",
+              "title": "Automações e agendamento"
+            },
+            {
+              "id": "7b48db8e29bdea8d",
+              "title": "Permissões e segredos"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "39e8d956f173e102",
+              "title": "Extensões e integrações"
+            },
+            {
+              "id": "d71416443be91cc6",
+              "title": "Monitoramento"
+            },
+            {
+              "id": "42d4e64b23f016e0",
+              "title": "Testes de tarefas"
+            },
+            {
+              "id": "c03ea57825ffb3b9",
+              "title": "Operação segura"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "react": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "a6b613acef62df61",
+              "title": "JSX e componentes"
+            },
+            {
+              "id": "4f52b0aa8c2eb60d",
+              "title": "Props e composição"
+            },
+            {
+              "id": "a4c2a2963c8c162a",
+              "title": "Estado e eventos"
+            },
+            {
+              "id": "9b8c491b148c612c",
+              "title": "Efeitos e ciclo de renderização"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "376ebcc460bab40b",
+              "title": "Formulários controlados"
+            },
+            {
+              "id": "4e861c82e185e4e1",
+              "title": "Contexto e compartilhamento de estado"
+            },
+            {
+              "id": "00b8d6e336b30dd8",
+              "title": "Roteamento"
+            },
+            {
+              "id": "acb9118818b4fb75",
+              "title": "Consumo de APIs"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "57056d5e2c60b5df",
+              "title": "Testes de componentes"
+            },
+            {
+              "id": "3f854d1b851554bd",
+              "title": "Acessibilidade"
+            },
+            {
+              "id": "35cb2cd5796a72d1",
+              "title": "Desempenho"
+            },
+            {
+              "id": "3000b17885f458d2",
+              "title": "Aplicação publicada"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "vue": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "b6fab007eacf8eaf",
+              "title": "Template e reatividade"
+            },
+            {
+              "id": "ffb11b9361d4b3ff",
+              "title": "Componentes e props"
+            },
+            {
+              "id": "85b98b0906d7bad7",
+              "title": "Estado e eventos"
+            },
+            {
+              "id": "cf7b42b50a3bd123",
+              "title": "Computed e watchers"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "012c08410dddf3f1",
+              "title": "Composables"
+            },
+            {
+              "id": "849169e04397a4d8",
+              "title": "Formulários"
+            },
+            {
+              "id": "1a7b04afd01d1a46",
+              "title": "Vue Router"
+            },
+            {
+              "id": "447638713c2ad48d",
+              "title": "Gerenciamento de estado"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "b68c7cd164464375",
+              "title": "Consumo de APIs"
+            },
+            {
+              "id": "2477bfcee152137d",
+              "title": "Testes de componentes"
+            },
+            {
+              "id": "c77ff65d8db3855e",
+              "title": "Acessibilidade"
+            },
+            {
+              "id": "37544362b8bcfcbc",
+              "title": "Aplicação publicada"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "angular": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "c8b230a6a334c211",
+              "title": "TypeScript e estrutura Angular"
+            },
+            {
+              "id": "6fd8834f98546842",
+              "title": "Componentes e templates"
+            },
+            {
+              "id": "cb4703871f9ca081",
+              "title": "Diretivas e pipes"
+            },
+            {
+              "id": "90987ae0b27faa46",
+              "title": "Injeção de dependência"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "28c1874edfc8090a",
+              "title": "Signals e estado"
+            },
+            {
+              "id": "956eaa05a53128a7",
+              "title": "Formulários"
+            },
+            {
+              "id": "83fb8e41436614ca",
+              "title": "Roteamento"
+            },
+            {
+              "id": "3841daea50999eea",
+              "title": "HttpClient e APIs"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "d2caf96a90df3381",
+              "title": "Testes de componentes"
+            },
+            {
+              "id": "ea70499313e3e3ff",
+              "title": "Acessibilidade"
+            },
+            {
+              "id": "8db7c62b911ea609",
+              "title": "Otimização de builds"
+            },
+            {
+              "id": "f94a11607ab9485d",
+              "title": "Aplicação publicada"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "javascript": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "3f4400feba14719c",
+              "title": "Tipos e operadores"
+            },
+            {
+              "id": "b9cf40bc657f5286",
+              "title": "Funções e escopo"
+            },
+            {
+              "id": "4ea8f94feee05681",
+              "title": "Objetos e arrays"
+            },
+            {
+              "id": "d7f51fdc7ba849a5",
+              "title": "DOM e eventos"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "4dddeae4c3baec20",
+              "title": "Promises e async/await"
+            },
+            {
+              "id": "3c5e8dac37c1d09e",
+              "title": "Módulos"
+            },
+            {
+              "id": "18aa3850f973b364",
+              "title": "Fetch e HTTP"
+            },
+            {
+              "id": "70ea3fad140ec911",
+              "title": "Tratamento de erros"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "a6790a171136f89e",
+              "title": "Testes automatizados"
+            },
+            {
+              "id": "944035722898205a",
+              "title": "Segurança no navegador"
+            },
+            {
+              "id": "b5511fff7d07e985",
+              "title": "Desempenho"
+            },
+            {
+              "id": "319ebd95eb4fda31",
+              "title": "Projeto interativo"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "typescript": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "16a688da848b4e26",
+              "title": "Tipos básicos e inferência"
+            },
+            {
+              "id": "0544e34fad1b1700",
+              "title": "Interfaces e aliases"
+            },
+            {
+              "id": "0c3f735da4fc3e01",
+              "title": "Uniões e narrowing"
+            },
+            {
+              "id": "06338604e4e9c656",
+              "title": "Generics"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "4768c9de064dca43",
+              "title": "Funções tipadas"
+            },
+            {
+              "id": "ddf610a028113965",
+              "title": "Classes e modificadores"
+            },
+            {
+              "id": "a10358595ae3f083",
+              "title": "Configuração do compilador"
+            },
+            {
+              "id": "a3b5b6cabe6999d8",
+              "title": "Tipos utilitários"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "e80a81527a35357b",
+              "title": "Integração com bibliotecas JS"
+            },
+            {
+              "id": "dfe5b50ca9226cac",
+              "title": "Tipagem de APIs"
+            },
+            {
+              "id": "72ed4bf5b8e0640b",
+              "title": "Testes e lint"
+            },
+            {
+              "id": "3c6a3299663948c0",
+              "title": "Projeto tipado"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "nodejs": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "84d920c73dfcecd4",
+              "title": "Runtime e módulos"
+            },
+            {
+              "id": "e2f1c119b1ff66c3",
+              "title": "npm e gerenciamento de pacotes"
+            },
+            {
+              "id": "3a9fddb5960a0eb7",
+              "title": "Sistema de arquivos"
+            },
+            {
+              "id": "6adb2d5ede04a65c",
+              "title": "Event loop e assincronismo"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "8cd4a85c8f4475ff",
+              "title": "HTTP e servidores"
+            },
+            {
+              "id": "afa0d0a7bc03dacc",
+              "title": "Framework de APIs"
+            },
+            {
+              "id": "6d4a3330754bf553",
+              "title": "Bancos de dados"
+            },
+            {
+              "id": "afd931722ed1e639",
+              "title": "Autenticação"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "90eeded000945bb1",
+              "title": "Validação e erros"
+            },
+            {
+              "id": "6cd071c16941bfb1",
+              "title": "Testes"
+            },
+            {
+              "id": "dfc8de1d5c7eb0ae",
+              "title": "Segurança e desempenho"
+            },
+            {
+              "id": "48f4723c4caddbca",
+              "title": "Deploy de serviço"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "system-design": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "ba9ffe7115b00145",
+              "title": "Requisitos e estimativas"
+            },
+            {
+              "id": "64b63420a88bb8e2",
+              "title": "Latência e throughput"
+            },
+            {
+              "id": "909a431f9c9f98f8",
+              "title": "Balanceamento de carga"
+            },
+            {
+              "id": "344caf6093eaacf0",
+              "title": "Cache"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "68c948f55b3363a5",
+              "title": "Bancos SQL e NoSQL"
+            },
+            {
+              "id": "b5d3efc26e608f42",
+              "title": "Filas e eventos"
+            },
+            {
+              "id": "ec641f07b16d91db",
+              "title": "Particionamento e replicação"
+            },
+            {
+              "id": "ce3428085b8d2b10",
+              "title": "Consistência e disponibilidade"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "8182af31c221d83d",
+              "title": "Arquitetura de APIs"
+            },
+            {
+              "id": "47b1b46401943497",
+              "title": "Observabilidade"
+            },
+            {
+              "id": "2a635b233c9f9c2f",
+              "title": "Resiliência"
+            },
+            {
+              "id": "76bba6580a5355e8",
+              "title": "Desenho de sistema completo"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "java": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "efdc2875484c3d9d",
+              "title": "Sintaxe e tipos"
+            },
+            {
+              "id": "20c90a0d78d121e3",
+              "title": "Orientação a objetos"
+            },
+            {
+              "id": "98918310814fa653",
+              "title": "Coleções e generics"
+            },
+            {
+              "id": "38ba6c66d41ca85b",
+              "title": "Exceções"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "023548ce8c7f6e62",
+              "title": "Streams e lambdas"
+            },
+            {
+              "id": "c421f24e4711a2b3",
+              "title": "Concorrência"
+            },
+            {
+              "id": "4e7273845cfe985b",
+              "title": "JVM e memória"
+            },
+            {
+              "id": "f8f41c1dda8a8c1c",
+              "title": "I/O e redes"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "afb0d37e0f437359",
+              "title": "Banco de dados com JDBC"
+            },
+            {
+              "id": "9a547d1e41309aca",
+              "title": "Testes com JUnit"
+            },
+            {
+              "id": "0f6a76bbe947cabc",
+              "title": "Build com Maven ou Gradle"
+            },
+            {
+              "id": "4a2b850793f54e94",
+              "title": "Aplicação publicada"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "aspnet-core": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "10ce4a27c4c66f67",
+              "title": "C# e .NET"
+            },
+            {
+              "id": "2b4bf319ae63ca9a",
+              "title": "Estrutura do ASP.NET Core"
+            },
+            {
+              "id": "c11c36a03f4e4112",
+              "title": "Controllers e Minimal APIs"
+            },
+            {
+              "id": "3faf6c430534b937",
+              "title": "Injeção de dependência"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "e472e25b34288649",
+              "title": "Configuração e ambientes"
+            },
+            {
+              "id": "a36d50b34522d246",
+              "title": "Entity Framework Core"
+            },
+            {
+              "id": "be1205e8e7a22400",
+              "title": "Autenticação e autorização"
+            },
+            {
+              "id": "c8ee04f25cc27e6d",
+              "title": "Validação de modelos"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "713cc014eaa1f368",
+              "title": "Testes de API"
+            },
+            {
+              "id": "f9416c7312ee3ceb",
+              "title": "Logs e observabilidade"
+            },
+            {
+              "id": "d811ac748c9bdcfd",
+              "title": "Segurança"
+            },
+            {
+              "id": "615e1c9d33e5ad96",
+              "title": "Deploy de aplicação"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "spring-boot": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "45bce3d47fb4679b",
+              "title": "Java e Maven ou Gradle"
+            },
+            {
+              "id": "275d0c722855a573",
+              "title": "Estrutura do Spring Boot"
+            },
+            {
+              "id": "7317ae0b5a83a763",
+              "title": "Controllers REST"
+            },
+            {
+              "id": "c667a428ec3451df",
+              "title": "Injeção de dependência"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "723801dc332e6516",
+              "title": "Persistência com JPA"
+            },
+            {
+              "id": "f160b5c4536467ed",
+              "title": "Validação e erros"
+            },
+            {
+              "id": "0ffafc30ae4f72a4",
+              "title": "Spring Security"
+            },
+            {
+              "id": "bae963155c4d72a6",
+              "title": "Mensageria"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "7fc37e27ec025f52",
+              "title": "Testes com Spring"
+            },
+            {
+              "id": "1a9284c29cf924ce",
+              "title": "Observabilidade"
+            },
+            {
+              "id": "fc086a04ff97ca9b",
+              "title": "Configuração de produção"
+            },
+            {
+              "id": "e26550afc73777fb",
+              "title": "Deploy de serviço"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "flutter": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "da79c90dda6ba83d",
+              "title": "Dart e tipos"
+            },
+            {
+              "id": "ed0099d505aa68ce",
+              "title": "Widgets e layout"
+            },
+            {
+              "id": "719ba26b4eb62f83",
+              "title": "Estado e ciclo de vida"
+            },
+            {
+              "id": "5e056d03fa61f3f1",
+              "title": "Navegação"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "7e75aa271862fbd5",
+              "title": "Formulários"
+            },
+            {
+              "id": "c1a0610ac400d377",
+              "title": "Persistência local"
+            },
+            {
+              "id": "93dd875620abf0ed",
+              "title": "APIs e serialização"
+            },
+            {
+              "id": "843cba1f10cfa6b5",
+              "title": "Gerenciamento de estado"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "872016e17ffbf690",
+              "title": "Testes de widgets"
+            },
+            {
+              "id": "9b1d5e656b3d013d",
+              "title": "Acessibilidade"
+            },
+            {
+              "id": "6773734e44310b7c",
+              "title": "Performance móvel"
+            },
+            {
+              "id": "e753556dee109d23",
+              "title": "Publicação de aplicativo"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "c": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "1c814d8c5c34a22f",
+              "title": "Sintaxe e tipos primitivos"
+            },
+            {
+              "id": "dc05ae7052633a5f",
+              "title": "Ponteiros e memória"
+            },
+            {
+              "id": "c763ae977bee424d",
+              "title": "Arrays e strings"
+            },
+            {
+              "id": "01944c0c9db762b3",
+              "title": "Funções e cabeçalhos"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "ae72a9930ded080a",
+              "title": "Structs e enums"
+            },
+            {
+              "id": "ff48c99a4d2b96b4",
+              "title": "Alocação dinâmica"
+            },
+            {
+              "id": "789582d846ba4ed9",
+              "title": "Arquivos e I/O"
+            },
+            {
+              "id": "2386665f7879621d",
+              "title": "Compilação e linking"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "423522a0364cbdd4",
+              "title": "Depuração"
+            },
+            {
+              "id": "23f7a9ad233ff785",
+              "title": "Testes e sanitizers"
+            },
+            {
+              "id": "e682ff4ca4ed3cef",
+              "title": "Segurança de memória"
+            },
+            {
+              "id": "1a385333ebadf6ba",
+              "title": "Projeto em C"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "cpp": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "e9baf313acb29a60",
+              "title": "Sintaxe e tipos em C++"
+            },
+            {
+              "id": "c0eef6d5a27f2b18",
+              "title": "Referências e ponteiros"
+            },
+            {
+              "id": "89d18b8ce4878444",
+              "title": "Classes e objetos"
+            },
+            {
+              "id": "803f58a04c3435c4",
+              "title": "RAII e gerenciamento de memória"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "59eaaaaaaced0fbd",
+              "title": "STL e containers"
+            },
+            {
+              "id": "9ef371547c7f1940",
+              "title": "Templates"
+            },
+            {
+              "id": "dd77063e237d6fb2",
+              "title": "Movimentação e cópia"
+            },
+            {
+              "id": "840e9d597f149691",
+              "title": "Concorrência"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "da238ecb78f572cd",
+              "title": "Build com CMake"
+            },
+            {
+              "id": "9091ed833fd85795",
+              "title": "Testes"
+            },
+            {
+              "id": "87a010e50df6b25d",
+              "title": "Profiling"
+            },
+            {
+              "id": "a80929611d68fd0a",
+              "title": "Projeto em C++"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "rust": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "465049f5a8f7ba21",
+              "title": "Ownership e borrowing"
+            },
+            {
+              "id": "0c5f4201227ab9ff",
+              "title": "Tipos e pattern matching"
+            },
+            {
+              "id": "7c120c6a723c8e11",
+              "title": "Structs e enums"
+            },
+            {
+              "id": "5bbec01f655c00cf",
+              "title": "Traits e generics"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "269080de26159b17",
+              "title": "Result e tratamento de erros"
+            },
+            {
+              "id": "4f2c9cc8e5e4d590",
+              "title": "Coleções e iteradores"
+            },
+            {
+              "id": "b9f2f3ef6bc7989f",
+              "title": "Lifetimes"
+            },
+            {
+              "id": "4a0b2f9734fa3510",
+              "title": "Módulos e crates"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "de7ce87a52f0e61f",
+              "title": "Concorrência segura"
+            },
+            {
+              "id": "610c72d5a5c2da15",
+              "title": "Testes"
+            },
+            {
+              "id": "2d2fa26a2694ea19",
+              "title": "Ferramentas Cargo e Clippy"
+            },
+            {
+              "id": "0048e43f81099010",
+              "title": "Projeto em Rust"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "golang": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "489b4ae1bf16c971",
+              "title": "Sintaxe e tipos"
+            },
+            {
+              "id": "b264a32292c20dbf",
+              "title": "Funções e pacotes"
+            },
+            {
+              "id": "73ce80ad6b3a14d5",
+              "title": "Structs e interfaces"
+            },
+            {
+              "id": "077ed797cf9acf66",
+              "title": "Tratamento de erros"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "2f675bb70653f78e",
+              "title": "Slices e maps"
+            },
+            {
+              "id": "5c649f0871696860",
+              "title": "Goroutines e canais"
+            },
+            {
+              "id": "98061e84a1fdeeb2",
+              "title": "Context e cancelamento"
+            },
+            {
+              "id": "31d9a74f0262f86a",
+              "title": "HTTP e APIs"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "2c14d03670374059",
+              "title": "Acesso a banco de dados"
+            },
+            {
+              "id": "5e8ec98dada48b36",
+              "title": "Testes e benchmark"
+            },
+            {
+              "id": "d43d314457d56ae3",
+              "title": "Observabilidade"
+            },
+            {
+              "id": "240acae04f5ea66f",
+              "title": "Serviço publicado"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "ai-product-builder": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "0122912e5d31be91",
+              "title": "Identificação do problema"
+            },
+            {
+              "id": "d0091180178d53c3",
+              "title": "Pesquisa com usuários"
+            },
+            {
+              "id": "abe4edc419fcbf52",
+              "title": "Definição de valor da IA"
+            },
+            {
+              "id": "1068232cc6fd05d0",
+              "title": "Seleção de modelos"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "15002e2aa3cfae30",
+              "title": "Protótipo com API"
+            },
+            {
+              "id": "39d4bda78c229fa4",
+              "title": "Experiência de revisão humana"
+            },
+            {
+              "id": "fbe31f3bb78f79cb",
+              "title": "Medição de qualidade"
+            },
+            {
+              "id": "c221aef56616d7d2",
+              "title": "Privacidade dos dados"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "91139d7a05043357",
+              "title": "Custos e latência"
+            },
+            {
+              "id": "0b0a4cf3d721ff5f",
+              "title": "Experimentos de produto"
+            },
+            {
+              "id": "cd9d2d24b7a165b3",
+              "title": "Lançamento"
+            },
+            {
+              "id": "61806d0a727a4dc8",
+              "title": "Melhoria contínua"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "software-design-architecture": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "c562431cdc45315d",
+              "title": "Princípios de design de software"
+            },
+            {
+              "id": "c72c7185d4006daf",
+              "title": "Coesão e acoplamento"
+            },
+            {
+              "id": "74ad6e3d6ed5e5b1",
+              "title": "Abstrações e interfaces"
+            },
+            {
+              "id": "ba2b7bbf23dbcaa9",
+              "title": "Padrões de projeto"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "eba5f4dc959becc7",
+              "title": "Arquitetura em camadas"
+            },
+            {
+              "id": "89fd28e2e63f9e50",
+              "title": "Modelagem de domínio"
+            },
+            {
+              "id": "1197f9474cc78b39",
+              "title": "Comunicação entre componentes"
+            },
+            {
+              "id": "3aa37abd58123092",
+              "title": "Persistência"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "74a6a40eeb88b6d2",
+              "title": "Testabilidade"
+            },
+            {
+              "id": "b1682ac2101e8bcd",
+              "title": "Decisões arquiteturais"
+            },
+            {
+              "id": "90b2347a0e62cdd6",
+              "title": "Refatoração incremental"
+            },
+            {
+              "id": "bcae412cf977b802",
+              "title": "Estudo de caso"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "react-native": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "3ac2d306a71ab15e",
+              "title": "React e JavaScript"
+            },
+            {
+              "id": "691b1e6f6b6c40ef",
+              "title": "Componentes nativos"
+            },
+            {
+              "id": "c08183c0be3c5124",
+              "title": "Layout e estilos"
+            },
+            {
+              "id": "7f71ee883a2f07fc",
+              "title": "Navegação"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "c3ca42b9a0d2c5bd",
+              "title": "Estado e formulários"
+            },
+            {
+              "id": "a3f0e43efa331bc9",
+              "title": "Acesso a recursos do aparelho"
+            },
+            {
+              "id": "60fbf382868c3654",
+              "title": "Persistência local"
+            },
+            {
+              "id": "779b33a1837d25cd",
+              "title": "Integração com APIs"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "d9c1783f2faa6922",
+              "title": "Testes móveis"
+            },
+            {
+              "id": "47a10dc3a20622cd",
+              "title": "Acessibilidade"
+            },
+            {
+              "id": "171a3e0f98bfc6fb",
+              "title": "Desempenho"
+            },
+            {
+              "id": "521b58e656191bfd",
+              "title": "Publicação em lojas"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "design-system": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "5c031ce9d9d249b7",
+              "title": "Princípios visuais e acessibilidade"
+            },
+            {
+              "id": "3cb3a942f73b4fb1",
+              "title": "Tokens de cor e tipografia"
+            },
+            {
+              "id": "fedc0051f5eaa44e",
+              "title": "Espaçamento e layout"
+            },
+            {
+              "id": "f4aaa301e3f5ea87",
+              "title": "Componentes básicos"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "390d8c3aba7872e6",
+              "title": "Estados e interações"
+            },
+            {
+              "id": "ab956168d08b871e",
+              "title": "Padrões de formulários"
+            },
+            {
+              "id": "d21a246ced18a98f",
+              "title": "Documentação de uso"
+            },
+            {
+              "id": "78c8ce78b665be29",
+              "title": "Biblioteca de componentes"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "9983b1fe4e9f556a",
+              "title": "Governança e contribuição"
+            },
+            {
+              "id": "ec650013d151c4b2",
+              "title": "Testes visuais"
+            },
+            {
+              "id": "9575db774c96a38e",
+              "title": "Versionamento"
+            },
+            {
+              "id": "09668b12c1816ed6",
+              "title": "Adoção pelo produto"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "prompt-engineering": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "e88b9f7381aedd56",
+              "title": "Objetivos e contexto do prompt"
+            },
+            {
+              "id": "335393b5a637b434",
+              "title": "Instruções claras"
+            },
+            {
+              "id": "ef6ce7e386afe07e",
+              "title": "Exemplos e formatos de saída"
+            },
+            {
+              "id": "f85e21ceac6faf69",
+              "title": "Decomposição de tarefas"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "3ed87f20617c373b",
+              "title": "Uso de ferramentas"
+            },
+            {
+              "id": "a2f8d13f5c311d04",
+              "title": "Recuperação de contexto"
+            },
+            {
+              "id": "372f024d228c91f3",
+              "title": "Avaliação de respostas"
+            },
+            {
+              "id": "11e0c7e1b41d23b2",
+              "title": "Tratamento de incerteza"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "edab7e4cd657d4fe",
+              "title": "Proteção contra prompt injection"
+            },
+            {
+              "id": "86cf07bb9c461473",
+              "title": "Controle de custos"
+            },
+            {
+              "id": "ad1ff2e99edf2142",
+              "title": "Experimentos comparativos"
+            },
+            {
+              "id": "4ebf8d8b5f4faf97",
+              "title": "Biblioteca de prompts"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "mongodb": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "dc815912b2593f7a",
+              "title": "Documentos e coleções"
+            },
+            {
+              "id": "c1837dbdd1deec50",
+              "title": "Modelagem de documentos"
+            },
+            {
+              "id": "d4d1c05edaaa661f",
+              "title": "Consultas e filtros"
+            },
+            {
+              "id": "ac94013ff36f0140",
+              "title": "Índices"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "98dc2bc0ae6396dd",
+              "title": "Agregações"
+            },
+            {
+              "id": "b63b5367d26cf5c9",
+              "title": "Relacionamentos e referências"
+            },
+            {
+              "id": "09f4591db217e044",
+              "title": "Transações"
+            },
+            {
+              "id": "d71289d1114c05f2",
+              "title": "Replicação"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "d03cd055ae47c605",
+              "title": "Sharding"
+            },
+            {
+              "id": "b403020c782e95b1",
+              "title": "Segurança e permissões"
+            },
+            {
+              "id": "caa265a195d062e7",
+              "title": "Backup e restore"
+            },
+            {
+              "id": "01f59e98033a03ca",
+              "title": "Otimização de consultas"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "linux": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "b416c7677434058f",
+              "title": "Sistema de arquivos"
+            },
+            {
+              "id": "4927e89ba4f7fef7",
+              "title": "Shell e comandos básicos"
+            },
+            {
+              "id": "dd62f1b9706adb2b",
+              "title": "Usuários e permissões"
+            },
+            {
+              "id": "e231633e4aec5af9",
+              "title": "Processos e sinais"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "d0dff7ffd2c86098",
+              "title": "Pacotes e serviços"
+            },
+            {
+              "id": "40a8afe655f5b23d",
+              "title": "Redes e SSH"
+            },
+            {
+              "id": "b093f241b529203b",
+              "title": "Logs do sistema"
+            },
+            {
+              "id": "0174137836db8f9b",
+              "title": "Armazenamento e montagens"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "240149a475c44999",
+              "title": "Scripts de automação"
+            },
+            {
+              "id": "91f9929b5750efcb",
+              "title": "Segurança do host"
+            },
+            {
+              "id": "c0160c556f7a8d2a",
+              "title": "Monitoramento"
+            },
+            {
+              "id": "f0efae8cd926feab",
+              "title": "Administração de servidor"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "kubernetes": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "0b5e6d96974c0cb1",
+              "title": "Pods e contêineres"
+            },
+            {
+              "id": "4294c6d8d90e7fca",
+              "title": "Deployments e ReplicaSets"
+            },
+            {
+              "id": "9629fea0f9116382",
+              "title": "Services e DNS"
+            },
+            {
+              "id": "e01300027a696f3f",
+              "title": "ConfigMaps e Secrets"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "4e54f260e47c1bb4",
+              "title": "Volumes persistentes"
+            },
+            {
+              "id": "a54d340b2a0c16ae",
+              "title": "Ingress e rede"
+            },
+            {
+              "id": "eda4dc6aae4db6e5",
+              "title": "Namespaces e RBAC"
+            },
+            {
+              "id": "eadda6a176db291c",
+              "title": "Helm e manifests"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "b8972715ce5cb6b6",
+              "title": "Escalonamento"
+            },
+            {
+              "id": "25e8e0341483afea",
+              "title": "Observabilidade"
+            },
+            {
+              "id": "b47fd1a3d6797a8a",
+              "title": "Segurança e políticas"
+            },
+            {
+              "id": "86c14885f5c9cfdd",
+              "title": "Operação de cluster"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "docker": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "e3ef21393b9d1bdb",
+              "title": "Imagens e contêineres"
+            },
+            {
+              "id": "5b425a3e3a8f4de0",
+              "title": "Dockerfile"
+            },
+            {
+              "id": "6d834f9d8f4d613b",
+              "title": "Volumes"
+            },
+            {
+              "id": "7ec07cfeea2524ed",
+              "title": "Redes de contêineres"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "ed1e4e22a580cfa2",
+              "title": "Variáveis e segredos"
+            },
+            {
+              "id": "500ba296ac63aa7d",
+              "title": "Docker Compose"
+            },
+            {
+              "id": "b07c52fb78e6fbe9",
+              "title": "Build em múltiplos estágios"
+            },
+            {
+              "id": "8575f5cde708a420",
+              "title": "Registro de imagens"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "ee56b3df661444da",
+              "title": "Segurança de imagens"
+            },
+            {
+              "id": "71dbb24b263c9691",
+              "title": "Logs e diagnóstico"
+            },
+            {
+              "id": "8fcf61bf8533969e",
+              "title": "Otimização de tamanho"
+            },
+            {
+              "id": "db00d989ca487094",
+              "title": "Deploy containerizado"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "aws": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "94e3db84adeecc20",
+              "title": "Regiões e contas"
+            },
+            {
+              "id": "db007cac590bf23f",
+              "title": "IAM e permissões"
+            },
+            {
+              "id": "0a61967ec7edea01",
+              "title": "VPC e redes"
+            },
+            {
+              "id": "c5ddec2ef6bfe019",
+              "title": "EC2 e computação"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "29474a2ed21caa6a",
+              "title": "S3 e armazenamento"
+            },
+            {
+              "id": "688a50acba08046f",
+              "title": "RDS e bancos"
+            },
+            {
+              "id": "0e98d10b3e0f4698",
+              "title": "Lambda e serviços sem servidor"
+            },
+            {
+              "id": "64e6e3d9d0cdca29",
+              "title": "Balanceamento e DNS"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "6a551f6550a0276e",
+              "title": "Monitoramento com CloudWatch"
+            },
+            {
+              "id": "c48aa419677b61e8",
+              "title": "Segurança e custos"
+            },
+            {
+              "id": "5987f05fcd304419",
+              "title": "Infraestrutura como código"
+            },
+            {
+              "id": "f174a360db8535f2",
+              "title": "Aplicação publicada"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "terraform": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "923c864476733f3a",
+              "title": "HCL e providers"
+            },
+            {
+              "id": "f68afef00db85545",
+              "title": "Recursos e data sources"
+            },
+            {
+              "id": "48dfba5ae623562d",
+              "title": "Variáveis e outputs"
+            },
+            {
+              "id": "602c59a88d1058d6",
+              "title": "Estado remoto"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "434e9c8869e331c3",
+              "title": "Módulos"
+            },
+            {
+              "id": "a0e510cd163adf68",
+              "title": "Planos e aplicação"
+            },
+            {
+              "id": "6904cc3032e3c5a7",
+              "title": "Dependências"
+            },
+            {
+              "id": "5024ca27e5f2c292",
+              "title": "Workspaces e ambientes"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "200d93ffeecfed9b",
+              "title": "Segredos e permissões"
+            },
+            {
+              "id": "098d4e9bbabdd970",
+              "title": "Testes e validação"
+            },
+            {
+              "id": "461b8277210fac3e",
+              "title": "CI para infraestrutura"
+            },
+            {
+              "id": "5706a03436ed8ec8",
+              "title": "Projeto de infraestrutura"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "datastructures-and-algorithms": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "95170a200a0238c7",
+              "title": "Complexidade assintótica"
+            },
+            {
+              "id": "9f72374a0a19a4b5",
+              "title": "Arrays e listas"
+            },
+            {
+              "id": "de96647d42082f63",
+              "title": "Pilhas e filas"
+            },
+            {
+              "id": "01ed6a978b44202a",
+              "title": "Hash tables"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "4460fded46291663",
+              "title": "Árvores"
+            },
+            {
+              "id": "dac886d26b889819",
+              "title": "Grafos"
+            },
+            {
+              "id": "61c95fcfa51b2ec7",
+              "title": "Busca e ordenação"
+            },
+            {
+              "id": "7a0a5918751a78c1",
+              "title": "Recursão"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "237031229df87549",
+              "title": "Programação dinâmica"
+            },
+            {
+              "id": "d1ce838498e8cb6e",
+              "title": "Algoritmos gulosos"
+            },
+            {
+              "id": "381e3443d049b4ba",
+              "title": "Análise de soluções"
+            },
+            {
+              "id": "06565b5263ecc9d5",
+              "title": "Implementação prática"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "redis": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "fe30a5f49161c8f5",
+              "title": "Tipos de dados"
+            },
+            {
+              "id": "ce2dd7b5ffb148c3",
+              "title": "Comandos básicos"
+            },
+            {
+              "id": "6600988693956acf",
+              "title": "Expiração e TTL"
+            },
+            {
+              "id": "fafb352f48074f2d",
+              "title": "Cache de aplicação"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "52b36e86705c2899",
+              "title": "Pub/Sub"
+            },
+            {
+              "id": "194e0ebb49b25de6",
+              "title": "Streams"
+            },
+            {
+              "id": "15b7d85132fd9521",
+              "title": "Transações e scripts"
+            },
+            {
+              "id": "c054984801628caa",
+              "title": "Persistência"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "16865cb68f58f6be",
+              "title": "Replicação"
+            },
+            {
+              "id": "2fa2a5871b2f1e39",
+              "title": "Cluster e particionamento"
+            },
+            {
+              "id": "54e453015b50eae2",
+              "title": "Segurança"
+            },
+            {
+              "id": "d8a08b9c776c89fb",
+              "title": "Monitoramento e tuning"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "git-github": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "93dc6865f2de9426",
+              "title": "Repositórios e commits"
+            },
+            {
+              "id": "f15286dcb8c3c649",
+              "title": "Branches e merge"
+            },
+            {
+              "id": "5599d88ed70bf37c",
+              "title": "Remotos e clone"
+            },
+            {
+              "id": "09a459d81e6ae620",
+              "title": "Pull requests"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "a1764bf48f73b292",
+              "title": "Resolução de conflitos"
+            },
+            {
+              "id": "b50b34866fba509e",
+              "title": "Rebase"
+            },
+            {
+              "id": "d91896ee71166b6f",
+              "title": "Tags e releases"
+            },
+            {
+              "id": "660a4ea169c1eaa3",
+              "title": "GitHub Issues"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "3c36a25c72750d0c",
+              "title": "Code review"
+            },
+            {
+              "id": "1c5ddf648ecd81b4",
+              "title": "GitHub Actions"
+            },
+            {
+              "id": "1a4a5ec8dc5efa52",
+              "title": "Proteção de branches"
+            },
+            {
+              "id": "b5e5621462916887",
+              "title": "Fluxo colaborativo"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "php": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "ab0a5304b130f2f0",
+              "title": "Sintaxe e tipos"
+            },
+            {
+              "id": "8c0cd2a7aee42d18",
+              "title": "Funções e arrays"
+            },
+            {
+              "id": "3b76ec18349f0966",
+              "title": "Orientação a objetos"
+            },
+            {
+              "id": "06ba5771830cefe2",
+              "title": "Composer"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "60f7befaadece82b",
+              "title": "HTTP e formulários"
+            },
+            {
+              "id": "88a57c31d08ac526",
+              "title": "Banco de dados com PDO"
+            },
+            {
+              "id": "587d4111fabda8c3",
+              "title": "Sessões e autenticação"
+            },
+            {
+              "id": "251d3dbfbd0ba23d",
+              "title": "APIs em PHP"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "4d4953b19c3bcae2",
+              "title": "Tratamento de erros"
+            },
+            {
+              "id": "43ea91d7698f3d19",
+              "title": "Testes"
+            },
+            {
+              "id": "e210ed6d0e328e0b",
+              "title": "Segurança web"
+            },
+            {
+              "id": "c1f37ec9ddb6d0a6",
+              "title": "Deploy de aplicação"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "cloudflare": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "7c23d269e98df49b",
+              "title": "DNS e zonas"
+            },
+            {
+              "id": "09085066149f84bc",
+              "title": "Proxy e CDN"
+            },
+            {
+              "id": "ce6dc2046441387e",
+              "title": "Regras de cache"
+            },
+            {
+              "id": "3b96ea4002d2b9bd",
+              "title": "TLS e certificados"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "e5eb7f6259a211f3",
+              "title": "Workers"
+            },
+            {
+              "id": "c2e442f8a020c348",
+              "title": "Pages"
+            },
+            {
+              "id": "1d368cfbba1bbb54",
+              "title": "Armazenamento de borda"
+            },
+            {
+              "id": "cea238caaf24c808",
+              "title": "Proteção WAF"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "95fb7a2652af9566",
+              "title": "Rate limiting"
+            },
+            {
+              "id": "038595ddcf086c7e",
+              "title": "Observabilidade"
+            },
+            {
+              "id": "e523fbd09c715c8c",
+              "title": "Custos e limites"
+            },
+            {
+              "id": "491f33f21b447188",
+              "title": "Deploy de aplicação"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "ai-agents": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "fb2c60428f3df585",
+              "title": "Modelos de linguagem e contexto"
+            },
+            {
+              "id": "0ef1f705995c5200",
+              "title": "Ferramentas e chamadas de função"
+            },
+            {
+              "id": "35440e970b2fccf8",
+              "title": "Planejamento de tarefas"
+            },
+            {
+              "id": "632538de0ac90238",
+              "title": "Estado e memória"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "fc3692bd30c5bf2d",
+              "title": "Recuperação de conhecimento"
+            },
+            {
+              "id": "300abb48f3b416be",
+              "title": "Fluxos multi-etapa"
+            },
+            {
+              "id": "3f01be77566c53ab",
+              "title": "Validação de ações"
+            },
+            {
+              "id": "81c42325bd9d83ce",
+              "title": "Intervenção humana"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "ca0bc69d086f629e",
+              "title": "Avaliação de agentes"
+            },
+            {
+              "id": "d60b57443f88e81d",
+              "title": "Segurança de ferramentas"
+            },
+            {
+              "id": "0a9683331e10c80f",
+              "title": "Observabilidade"
+            },
+            {
+              "id": "07c3886ced41c32b",
+              "title": "Deploy de agente"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "nextjs": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "614c1faeb51a021d",
+              "title": "React e componentes"
+            },
+            {
+              "id": "0141e30177a61f51",
+              "title": "Roteamento por arquivos"
+            },
+            {
+              "id": "12ebe8180d6aab77",
+              "title": "Server e Client Components"
+            },
+            {
+              "id": "945f729b3c5c0012",
+              "title": "Busca de dados"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "4f0f6f970e51b00b",
+              "title": "Renderização e cache"
+            },
+            {
+              "id": "fba7b1d19c181eb7",
+              "title": "Formulários e Server Actions"
+            },
+            {
+              "id": "c2160068fee253c0",
+              "title": "APIs e route handlers"
+            },
+            {
+              "id": "ebb1b9be98d211a7",
+              "title": "Autenticação"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "48d22bf0dad71a23",
+              "title": "Metadados e SEO"
+            },
+            {
+              "id": "7dcfa45ffeaf5d3b",
+              "title": "Testes"
+            },
+            {
+              "id": "efad8973f6e4db95",
+              "title": "Desempenho"
+            },
+            {
+              "id": "9371df6df73e21fa",
+              "title": "Deploy de aplicação"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "kotlin": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "c8c2ee7e606e553d",
+              "title": "Sintaxe e null safety"
+            },
+            {
+              "id": "a5ed6f99a2ff467c",
+              "title": "Funções e lambdas"
+            },
+            {
+              "id": "ddd1d5d694427989",
+              "title": "Classes e data classes"
+            },
+            {
+              "id": "7f3dd38d08c40a94",
+              "title": "Coleções"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "0556974d87a01b8c",
+              "title": "Generics"
+            },
+            {
+              "id": "1a7bfe497b97c718",
+              "title": "Coroutines"
+            },
+            {
+              "id": "995d454f4a230fc3",
+              "title": "Flows"
+            },
+            {
+              "id": "d05fce845569a78f",
+              "title": "Tratamento de erros"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "f6487c746b2b5e0c",
+              "title": "Interoperabilidade com Java"
+            },
+            {
+              "id": "0f690e6cc447023d",
+              "title": "Testes"
+            },
+            {
+              "id": "e9dd8c40df5fc6f3",
+              "title": "Build com Gradle"
+            },
+            {
+              "id": "912e64f9ac5c4239",
+              "title": "Projeto em Kotlin"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "html": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "76fccc9b9d5d40d7",
+              "title": "Estrutura de documento"
+            },
+            {
+              "id": "fda92a48bce928f3",
+              "title": "Elementos semânticos"
+            },
+            {
+              "id": "580e98c1adcfd137",
+              "title": "Texto e links"
+            },
+            {
+              "id": "ad01a4344694c087",
+              "title": "Imagens e mídia"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "5403d0468634edc6",
+              "title": "Listas e tabelas"
+            },
+            {
+              "id": "5cc179c471c86b2a",
+              "title": "Formulários"
+            },
+            {
+              "id": "3aa7cdc110c0f35b",
+              "title": "Atributos e validação"
+            },
+            {
+              "id": "82d5785f5b2fa52d",
+              "title": "Metadados"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "9756c01e882f92d3",
+              "title": "Acessibilidade"
+            },
+            {
+              "id": "6fd631365ca9c625",
+              "title": "SEO básico"
+            },
+            {
+              "id": "3fddde80391c7030",
+              "title": "Inspeção do DOM"
+            },
+            {
+              "id": "a0c173664a7acebc",
+              "title": "Página completa"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "css": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "7f03c6eb0a65b9b0",
+              "title": "Seletores e cascata"
+            },
+            {
+              "id": "45b4e06378eed13e",
+              "title": "Box model"
+            },
+            {
+              "id": "e1df9f0ddc740b91",
+              "title": "Unidades e cores"
+            },
+            {
+              "id": "fec21bced534da16",
+              "title": "Flexbox"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "677a5aa2f7a514a6",
+              "title": "CSS Grid"
+            },
+            {
+              "id": "2bfd196a1bc0872b",
+              "title": "Tipografia"
+            },
+            {
+              "id": "98745311b0efaf9c",
+              "title": "Responsividade"
+            },
+            {
+              "id": "296faf551d78c7ca",
+              "title": "Transições e animações"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "6b26f7a9444294ba",
+              "title": "Variáveis CSS"
+            },
+            {
+              "id": "32bf2f8320f5e504",
+              "title": "Acessibilidade visual"
+            },
+            {
+              "id": "f81a2bf032e5e11e",
+              "title": "Organização de estilos"
+            },
+            {
+              "id": "1527d7d146d27e99",
+              "title": "Layout completo"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "swift-ui": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "6bdd541209792059",
+              "title": "Swift básico"
+            },
+            {
+              "id": "ff720dd6ca65ee8a",
+              "title": "Tipos e optionals"
+            },
+            {
+              "id": "ed31a132487359c7",
+              "title": "Views e modificadores"
+            },
+            {
+              "id": "a90703dc1dcbfcce",
+              "title": "Stacks e layout"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "5624fabe41d32864",
+              "title": "State e Binding"
+            },
+            {
+              "id": "492b793d0b753caa",
+              "title": "Navegação"
+            },
+            {
+              "id": "01af9263d6e0085c",
+              "title": "Listas e formulários"
+            },
+            {
+              "id": "7f8573c54050d240",
+              "title": "Concorrência em Swift"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "11021e0f4b57c77b",
+              "title": "Integração com APIs"
+            },
+            {
+              "id": "b0c0e46570127537",
+              "title": "Persistência"
+            },
+            {
+              "id": "2f387ad0fb97dac9",
+              "title": "Testes de interface"
+            },
+            {
+              "id": "0dfc7c2a2f3a98a1",
+              "title": "Aplicativo publicado"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "shell-bash": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "449f397b1e5e7eb0",
+              "title": "Terminal e sistema de arquivos"
+            },
+            {
+              "id": "8e2674f17f608880",
+              "title": "Variáveis e expansão"
+            },
+            {
+              "id": "47097349ca9717bf",
+              "title": "Pipes e redirecionamento"
+            },
+            {
+              "id": "8b817d338556e707",
+              "title": "Condicionais"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "3f0d8e483dbfa6f4",
+              "title": "Loops"
+            },
+            {
+              "id": "587d955474b44e05",
+              "title": "Funções"
+            },
+            {
+              "id": "d3dff75893ba79fc",
+              "title": "Processos e sinais"
+            },
+            {
+              "id": "a61c2323e1cf96c8",
+              "title": "Arquivos e permissões"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "b795cdb74b5fe61c",
+              "title": "Tratamento de erros"
+            },
+            {
+              "id": "4d6bb29413f55457",
+              "title": "Scripts portáveis"
+            },
+            {
+              "id": "a52d5a3276ea52aa",
+              "title": "Testes de scripts"
+            },
+            {
+              "id": "0d10e67bfef6ec2b",
+              "title": "Automação real"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "laravel": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "ba0df6f4e98954c3",
+              "title": "PHP e Composer"
+            },
+            {
+              "id": "fc2b6c5eded3e0a0",
+              "title": "Rotas e controllers"
+            },
+            {
+              "id": "d1005862201410d5",
+              "title": "Blade e views"
+            },
+            {
+              "id": "0cc0f9d85a9cae00",
+              "title": "Eloquent ORM"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "c99267f666a9606b",
+              "title": "Migrations e seeders"
+            },
+            {
+              "id": "25bfebedb0524a07",
+              "title": "Validação"
+            },
+            {
+              "id": "f40249a8db094e98",
+              "title": "Autenticação e autorização"
+            },
+            {
+              "id": "711beafefaa190e2",
+              "title": "Filas e jobs"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "c414152aae00eea9",
+              "title": "APIs"
+            },
+            {
+              "id": "a15e53832f981fa9",
+              "title": "Testes"
+            },
+            {
+              "id": "f0e8a40706725429",
+              "title": "Segurança"
+            },
+            {
+              "id": "d667bf98330dd32c",
+              "title": "Deploy de aplicação"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "elasticsearch": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "b444f1fa84d532a2",
+              "title": "Índices e documentos"
+            },
+            {
+              "id": "ad167283afd7b7c6",
+              "title": "Mapeamento de campos"
+            },
+            {
+              "id": "a8622747df6f4b0b",
+              "title": "Análise de texto"
+            },
+            {
+              "id": "7b80251f1097fd1f",
+              "title": "Consultas full-text"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "4dfd1b5a6485b635",
+              "title": "Filtros e agregações"
+            },
+            {
+              "id": "b5451aa92061cbd2",
+              "title": "Relevância e scoring"
+            },
+            {
+              "id": "e85955a803861006",
+              "title": "Ingestão de dados"
+            },
+            {
+              "id": "43c9a9a618e3472c",
+              "title": "Shards e replicas"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "d577c9156ee6d498",
+              "title": "Segurança"
+            },
+            {
+              "id": "170db9ab9f33b0e9",
+              "title": "Monitoramento"
+            },
+            {
+              "id": "7a433f8a2bc7a477",
+              "title": "Otimização de buscas"
+            },
+            {
+              "id": "3d06248abe8dfb32",
+              "title": "Projeto de pesquisa"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "wordpress": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "9fc3d49f38a5bbd9",
+              "title": "Instalação e configuração"
+            },
+            {
+              "id": "70458fb24c3576f8",
+              "title": "Temas e templates"
+            },
+            {
+              "id": "33e2f0f0f1f0c684",
+              "title": "Editor de blocos"
+            },
+            {
+              "id": "edcfdce58974e291",
+              "title": "Plugins"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "cc076dd68de18e43",
+              "title": "Tipos de conteúdo"
+            },
+            {
+              "id": "8f77c340752e9ad0",
+              "title": "Usuários e permissões"
+            },
+            {
+              "id": "e6a263d4ee0843b2",
+              "title": "SEO"
+            },
+            {
+              "id": "0752c2157f343742",
+              "title": "Performance e cache"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "6a661bc0acba174f",
+              "title": "Segurança e atualizações"
+            },
+            {
+              "id": "8ff62b9d37fefb5d",
+              "title": "Backup e restauração"
+            },
+            {
+              "id": "7494998f2a221c87",
+              "title": "Acessibilidade"
+            },
+            {
+              "id": "29d2878613cdbf3d",
+              "title": "Publicação de site"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "django": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "6f4857046c7aa119",
+              "title": "Projeto e apps"
+            },
+            {
+              "id": "41d5a462b47e118c",
+              "title": "Models e migrations"
+            },
+            {
+              "id": "8f9b884531977084",
+              "title": "Views e URLs"
+            },
+            {
+              "id": "586bc92ac2325ece",
+              "title": "Templates"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "9be97efa11da74e9",
+              "title": "Formulários e validação"
+            },
+            {
+              "id": "bdf1578c89d1494e",
+              "title": "Admin"
+            },
+            {
+              "id": "0bfc5d02bdeaa062",
+              "title": "Autenticação"
+            },
+            {
+              "id": "9942e569fb5c5e9f",
+              "title": "Django REST Framework"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "4faa6322ba9674be",
+              "title": "Testes"
+            },
+            {
+              "id": "54fb04db172dee8d",
+              "title": "Segurança"
+            },
+            {
+              "id": "e4fbf8d51c7c9459",
+              "title": "Cache e tarefas"
+            },
+            {
+              "id": "9b996722f5f1ad06",
+              "title": "Deploy de aplicação"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "ruby": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "9e13e0d57333f2a1",
+              "title": "Sintaxe e tipos"
+            },
+            {
+              "id": "407a0e4b99f824ae",
+              "title": "Métodos e blocos"
+            },
+            {
+              "id": "5ce7b266048a1ada",
+              "title": "Arrays e hashes"
+            },
+            {
+              "id": "8fe0a57db66f1745",
+              "title": "Classes e módulos"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "3c9cbb5a9d037564",
+              "title": "Mixins"
+            },
+            {
+              "id": "e4371869f9c491bc",
+              "title": "Exceções"
+            },
+            {
+              "id": "5372a568afe993ad",
+              "title": "Gems e Bundler"
+            },
+            {
+              "id": "3431ea3c27ba7299",
+              "title": "Arquivos e I/O"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "69d38e111002a9a7",
+              "title": "Metaprogramação básica"
+            },
+            {
+              "id": "fbc0175c77ec73bf",
+              "title": "Testes"
+            },
+            {
+              "id": "31faf850b289b3f8",
+              "title": "Style e lint"
+            },
+            {
+              "id": "97f1a1a593968c01",
+              "title": "Projeto em Ruby"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "ruby-on-rails": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "6853a490255d109a",
+              "title": "Ruby e Bundler"
+            },
+            {
+              "id": "5b4eda66aad241b6",
+              "title": "MVC em Rails"
+            },
+            {
+              "id": "d4226890cadea62d",
+              "title": "Rotas e controllers"
+            },
+            {
+              "id": "86014d639f3ead45",
+              "title": "Active Record"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "75f173f3c2e96e98",
+              "title": "Migrations"
+            },
+            {
+              "id": "a195c14fe21dd9ef",
+              "title": "Views e Hotwire"
+            },
+            {
+              "id": "1bbecb4d78c0c4a8",
+              "title": "Formulários e validação"
+            },
+            {
+              "id": "c58a3b015188da67",
+              "title": "Autenticação"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "9785e1e6222ca82e",
+              "title": "Jobs e filas"
+            },
+            {
+              "id": "92eb1a5221ac4394",
+              "title": "Testes"
+            },
+            {
+              "id": "c405cbd0d45f9601",
+              "title": "Segurança"
+            },
+            {
+              "id": "f7c242a1028882e3",
+              "title": "Deploy de aplicação"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "scala": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "b9f191fca76b62fa",
+              "title": "Sintaxe e tipos"
+            },
+            {
+              "id": "6279d53432a1e295",
+              "title": "Funções e coleções"
+            },
+            {
+              "id": "5f793db2943bec70",
+              "title": "Classes e traits"
+            },
+            {
+              "id": "47446b378048c756",
+              "title": "Pattern matching"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "a50bb770c59e7c3f",
+              "title": "Option e Either"
+            },
+            {
+              "id": "6de8d946ccf74f7f",
+              "title": "Imutabilidade"
+            },
+            {
+              "id": "c32a9904b38ab900",
+              "title": "Programação funcional"
+            },
+            {
+              "id": "e7d8e83a1f737fe4",
+              "title": "Futures e concorrência"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "5d4e53074242e955",
+              "title": "Build com sbt"
+            },
+            {
+              "id": "aae347bf5190c57a",
+              "title": "Testes"
+            },
+            {
+              "id": "a65a1ff365488af2",
+              "title": "Ecossistema de dados"
+            },
+            {
+              "id": "9c784cd500ce5323",
+              "title": "Projeto em Scala"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "frontend-beginner": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "ef8287184a8cc87e",
+              "title": "Como funciona a web"
+            },
+            {
+              "id": "c62989751c4823f8",
+              "title": "HTML básico"
+            },
+            {
+              "id": "724940f96dc0cf7c",
+              "title": "Links, imagens e formulários"
+            },
+            {
+              "id": "47ccdd55e8bd481f",
+              "title": "CSS básico"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "1d3bc93dd277a595",
+              "title": "Flexbox e layouts"
+            },
+            {
+              "id": "679d5e40fb3e64ab",
+              "title": "Responsividade"
+            },
+            {
+              "id": "3d3ed67b741f7969",
+              "title": "JavaScript básico"
+            },
+            {
+              "id": "afabc2b089f48a17",
+              "title": "DOM e eventos"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "11eb49e5506c2ab7",
+              "title": "Git e GitHub"
+            },
+            {
+              "id": "257550af8b7ede60",
+              "title": "Acessibilidade inicial"
+            },
+            {
+              "id": "fecf066866441777",
+              "title": "Publicação de página"
+            },
+            {
+              "id": "0a1bb5fb86a4ee7e",
+              "title": "Projeto de portfólio"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "backend-beginner": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "c4e4da2e6978c719",
+              "title": "Lógica de programação"
+            },
+            {
+              "id": "87e03dd9e37cd8c0",
+              "title": "Uma linguagem de backend"
+            },
+            {
+              "id": "12a3524c6f0916c1",
+              "title": "Terminal e Git"
+            },
+            {
+              "id": "f44b01e8655b3651",
+              "title": "HTTP e requisições"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "aa0bcb3efb2fee6b",
+              "title": "Rotas de uma API"
+            },
+            {
+              "id": "f0f20292b1c9780c",
+              "title": "JSON e validação"
+            },
+            {
+              "id": "3f7139c77a618118",
+              "title": "SQL básico"
+            },
+            {
+              "id": "6b4fcac07ec8cac2",
+              "title": "Banco de dados"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "5e9a2273982ff8b4",
+              "title": "Autenticação básica"
+            },
+            {
+              "id": "7252637dedc115bf",
+              "title": "Testes de API"
+            },
+            {
+              "id": "02fbc923efad1325",
+              "title": "Deploy inicial"
+            },
+            {
+              "id": "0316a769407c7c20",
+              "title": "Projeto de API"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "devops-beginner": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "0e3d01847fac3818",
+              "title": "Terminal e comandos Linux"
+            },
+            {
+              "id": "d575324b1a8d3b17",
+              "title": "Git básico"
+            },
+            {
+              "id": "e31a25977d18e53a",
+              "title": "Redes e HTTP"
+            },
+            {
+              "id": "20490ff8d3370e2e",
+              "title": "Scripts simples"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "3a3378ceb1fe007c",
+              "title": "Docker básico"
+            },
+            {
+              "id": "0384828873aeb685",
+              "title": "Ambientes e variáveis"
+            },
+            {
+              "id": "594e6b43bf824f41",
+              "title": "CI inicial"
+            },
+            {
+              "id": "fee6422f70e135e7",
+              "title": "Deploy simples"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "2028f380a3742561",
+              "title": "Logs e monitoramento"
+            },
+            {
+              "id": "ca82af61a8435775",
+              "title": "Segredos"
+            },
+            {
+              "id": "ab78653f8a4d7bbc",
+              "title": "Backup básico"
+            },
+            {
+              "id": "9d1f38afce9c59e8",
+              "title": "Projeto automatizado"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "git-github-beginner": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "05a5c0ead64da0e2",
+              "title": "Instalar e configurar Git"
+            },
+            {
+              "id": "570a35ecb2623a3b",
+              "title": "Criar repositório"
+            },
+            {
+              "id": "e0f0593996bcd794",
+              "title": "Stage e commit"
+            },
+            {
+              "id": "d9bb38438533c4de",
+              "title": "Histórico e diff"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "9c62342824f4500c",
+              "title": "Branches"
+            },
+            {
+              "id": "b76749121948cc84",
+              "title": "Merge básico"
+            },
+            {
+              "id": "43cd0b8f0e41da95",
+              "title": "Conectar ao GitHub"
+            },
+            {
+              "id": "1129fd3c72cc6b24",
+              "title": "Push e pull"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "08d2acf17cbfde24",
+              "title": "Pull request"
+            },
+            {
+              "id": "9b4b54d035034f69",
+              "title": "Conflitos simples"
+            },
+            {
+              "id": "14e6d992413777c5",
+              "title": "README"
+            },
+            {
+              "id": "a3d04f85d6c19698",
+              "title": "Projeto colaborativo"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "aws-best-practices": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "60a53e81f53640d7",
+              "title": "Estrutura de contas e ambientes"
+            },
+            {
+              "id": "3db16521de91064f",
+              "title": "Menor privilégio IAM"
+            },
+            {
+              "id": "2f27762c0478c1b0",
+              "title": "Proteção de credenciais"
+            },
+            {
+              "id": "186c6cf72707bc8f",
+              "title": "Rede privada"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "62de48b7f76b4256",
+              "title": "Criptografia em trânsito"
+            },
+            {
+              "id": "016d2502b5e42fe3",
+              "title": "Criptografia em repouso"
+            },
+            {
+              "id": "1e643766789ea9a5",
+              "title": "Backups e recuperação"
+            },
+            {
+              "id": "a9760942d257731b",
+              "title": "Alta disponibilidade"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "d16aa3b7b8f1d05c",
+              "title": "Observabilidade"
+            },
+            {
+              "id": "22c25593e1465c96",
+              "title": "Controle de custos"
+            },
+            {
+              "id": "b6abd44a7a2cf976",
+              "title": "Automação com IaC"
+            },
+            {
+              "id": "623a7809fdc06ba1",
+              "title": "Revisão de arquitetura"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "api-security-best-practices": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "166b084e28b28958",
+              "title": "Inventário de endpoints"
+            },
+            {
+              "id": "d29a12d266e35a12",
+              "title": "Autenticação robusta"
+            },
+            {
+              "id": "3d3198de10cdd3c5",
+              "title": "Autorização por recurso"
+            },
+            {
+              "id": "8f031a5d316e72e1",
+              "title": "Validação de entrada"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "e83428c52fbcd013",
+              "title": "Proteção de dados sensíveis"
+            },
+            {
+              "id": "e4deeba7fe020e86",
+              "title": "Rate limiting"
+            },
+            {
+              "id": "5397bf0e5ee9acc9",
+              "title": "Gestão de segredos"
+            },
+            {
+              "id": "0f99c91391c240af",
+              "title": "CORS e cabeçalhos"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "74f2b487d983424a",
+              "title": "Logs seguros"
+            },
+            {
+              "id": "00a49519b0abd04b",
+              "title": "Testes de segurança"
+            },
+            {
+              "id": "e10e0dec6917d8cc",
+              "title": "Atualização de dependências"
+            },
+            {
+              "id": "ad9693fbcda39073",
+              "title": "Resposta a incidentes"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "backend-performance-best-practices": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "f2a3738f42aa4d7a",
+              "title": "Definir métricas e metas"
+            },
+            {
+              "id": "86175cd27a83e1c8",
+              "title": "Profiling de CPU e memória"
+            },
+            {
+              "id": "929c49c6f3081901",
+              "title": "Otimização de consultas SQL"
+            },
+            {
+              "id": "777dc3e1ead686d3",
+              "title": "Índices adequados"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "b163e041e862a6c9",
+              "title": "Cache"
+            },
+            {
+              "id": "3fe5b34f16ef1969",
+              "title": "Paginação"
+            },
+            {
+              "id": "f18fffe6c48867e5",
+              "title": "Processamento assíncrono"
+            },
+            {
+              "id": "068842fce13e68ce",
+              "title": "Pooling de conexões"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "c98cf3e843a1a90d",
+              "title": "Teste de carga"
+            },
+            {
+              "id": "736fb8c268f1920b",
+              "title": "Observabilidade"
+            },
+            {
+              "id": "40f20bb7e3698492",
+              "title": "Escalabilidade horizontal"
+            },
+            {
+              "id": "56fcb1e77d3e224e",
+              "title": "Reavaliação após mudanças"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "frontend-performance-best-practices": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "79a21631ebd585ac",
+              "title": "Core Web Vitals"
+            },
+            {
+              "id": "4dbd7affa7ebc621",
+              "title": "Medição com ferramentas"
+            },
+            {
+              "id": "17bcca85d2381752",
+              "title": "Otimização de imagens"
+            },
+            {
+              "id": "40e7a80a39696812",
+              "title": "Carregamento de fontes"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "836846a93e092943",
+              "title": "Code splitting"
+            },
+            {
+              "id": "37b698013f9396f0",
+              "title": "Lazy loading"
+            },
+            {
+              "id": "04c6708abdb45b38",
+              "title": "Cache de recursos"
+            },
+            {
+              "id": "9e83f9f8c7619dc2",
+              "title": "Redução de JavaScript"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "2729a56bb70026a6",
+              "title": "Renderização eficiente"
+            },
+            {
+              "id": "86b0f501719985a9",
+              "title": "Estabilidade visual"
+            },
+            {
+              "id": "57bd414cc9626c75",
+              "title": "Teste em rede lenta"
+            },
+            {
+              "id": "edb21a830d1f6057",
+              "title": "Monitoramento real"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    },
+    "code-review-best-practices": {
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "topics": [
+            {
+              "id": "a55fe32e8510946d",
+              "title": "Objetivo e escopo da revisão"
+            },
+            {
+              "id": "e833a74bc1ecfe28",
+              "title": "Mudanças pequenas"
+            },
+            {
+              "id": "79d159d2170e8050",
+              "title": "Correção funcional"
+            },
+            {
+              "id": "4ae1a53a929fa925",
+              "title": "Legibilidade"
+            }
+          ]
+        },
+        {
+          "title": "Construção",
+          "topics": [
+            {
+              "id": "3d497854d2c094f9",
+              "title": "Testabilidade"
+            },
+            {
+              "id": "183a264c07cd138d",
+              "title": "Segurança"
+            },
+            {
+              "id": "bcfe3c9d5c5919cb",
+              "title": "Desempenho"
+            },
+            {
+              "id": "9420741b11c8b178",
+              "title": "Acessibilidade quando aplicável"
+            }
+          ]
+        },
+        {
+          "title": "Prática e qualidade",
+          "topics": [
+            {
+              "id": "bc774d3cc4f8f9d7",
+              "title": "Comentários claros"
+            },
+            {
+              "id": "f767e95939de1be5",
+              "title": "Discussão respeitosa"
+            },
+            {
+              "id": "9f2e81b219601999",
+              "title": "Acompanhamento de correções"
+            },
+            {
+              "id": "2070f965e75a9143",
+              "title": "Registro de aprendizados"
+            }
+          ]
+        }
+      ],
+      "total": 12
+    }
+  }
+}

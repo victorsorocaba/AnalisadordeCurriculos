@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101827" />
+    <meta name="description" content="Explore 95 rotas de estudo do roadmap.sh e acompanhe seu planejamento." />
+    <title>Rotas de estudo — Alinha</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <script src="/assets/storage.js?v=study-topics-1" defer></script>
+    <script src="/assets/roadmaps.js?v=study-topics-1" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegação">
+        <a class="brand" href="/" aria-label="Alinha, início">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>alinha<span class="brand-dot">.</span></span>
+        </a>
+        <div class="sidebar-label">ESPAÇO DE TRABALHO</div>
+        <nav class="side-nav">
+          <a class="nav-link" href="/#nova-analise"><span class="nav-icon">✦</span> Nova análise</a>
+          <a class="nav-link" href="/#como-funciona"><span class="nav-icon">◫</span> Como funciona</a>
+          <a class="nav-link" href="/#vagas"><span class="nav-icon">⌕</span> Vagas para você</a>
+          <a class="nav-link active" href="/rotas-estudo" aria-current="page"><span class="nav-icon">◇</span> Rotas de estudo</a>
+          <a class="nav-link" href="/certificacoes"><span class="nav-icon">✧</span> Certificações</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="side-note"><span class="note-spark">✳</span><strong>Aprenda em seu ritmo.</strong><p>Escolha uma rota e acompanhe seu próximo passo.</p></div>
+          <p class="sidebar-footer">Feito para dar direção à sua carreira.</p>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar"><span class="topbar-title">Área de desenvolvimento <span>/ Rotas de estudo</span></span><span class="topbar-badge"><span></span> Seu plano de estudos</span></header>
+        <div class="page-content study-page">
+          <section id="rotas-estudo" class="roadmaps-section" aria-labelledby="roadmaps-title">
+            <div class="section-heading"><div><div class="section-kicker">DESENVOLVIMENTO PROFISSIONAL</div><h1 id="roadmaps-title">Rotas de estudo</h1><p>Escolha uma rota e marque os assuntos conforme aprende.</p></div><span id="roadmaps-total" class="roadmaps-total"></span></div>
+            <div class="roadmaps-intro"><div><strong>Escolha o próximo passo da sua carreira</strong><p>Pesquise por área ou tecnologia. Abra uma rota para ver os assuntos e registrar seu progresso.</p></div><a href="https://roadmap.sh/roadmaps/" target="_blank" rel="noopener noreferrer">Ver catálogo original ↗</a></div>
+            <div class="roadmaps-toolbar"><label for="roadmaps-search">Buscar rota<input id="roadmaps-search" type="search" placeholder="Ex.: Frontend, Python, segurança..." autocomplete="off" /></label><label for="roadmaps-category">Categoria<select id="roadmaps-category"><option value="all">Todas as categorias</option><option value="Carreiras">Carreiras</option><option value="Habilidades">Habilidades</option><option value="Iniciantes">Iniciantes</option><option value="Práticas">Boas práticas</option></select></label><label for="roadmaps-progress-filter">Meu planejamento<select id="roadmaps-progress-filter"><option value="all">Todas as situações</option><option value="saved">Quero estudar</option><option value="studying">Estudando</option><option value="completed">Concluídas</option></select></label></div>
+            <div class="roadmaps-summary"><p id="roadmaps-results" role="status" aria-live="polite">Carregando rotas...</p><p id="roadmaps-progress-summary"></p></div>
+            <div id="roadmaps-list" class="roadmaps-list"></div>
+            <button id="roadmaps-more" class="outline-button roadmaps-more" type="button" hidden>Mostrar mais rotas</button>
+            <p class="roadmaps-credit">Checklists de estudo originais do Alinha. Consulte o roadmap.sh para os mapas e recursos oficiais. Catálogo de rotas consultado em 29/09/2026.</p>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

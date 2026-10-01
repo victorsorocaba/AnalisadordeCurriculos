@@ -1,16 +1,18 @@
 # Unified dependency list for the resume-analyzer-latex application.
 # Every dependency is pinned with == for reproducible installs (Requirements 10.4, 10.5).
 # Installing this file into a clean Python environment provides everything
-# needed to run both the FastAPI backend and the Streamlit frontend.
+# needed to run the API and the frontend served by FastAPI.
 
 # --- Backend: web framework + server ---
 fastapi==0.136.3
 uvicorn[standard]==0.48.0
 python-multipart==0.0.29
+httpx==0.28.1
 
 # --- Backend: PDF text extraction (pdfminer.six pinned to match pdfplumber 0.11.9) ---
 pdfplumber==0.11.9
 pdfminer.six==20251230
+pypdfium2==5.8.0
 
 # --- Backend: AI provider SDKs (OpenAI default, Google GenAI alternative) ---
 openai==2.38.0
@@ -19,12 +21,11 @@ google-genai==2.7.0
 # --- Backend: validation (Pydantic v2) ---
 pydantic==2.13.4
 
-# --- Frontend: Streamlit UI + HTTP client ---
-streamlit==1.58.0
-requests==2.34.2
-
 # --- Shared: environment configuration ---
 python-dotenv==1.2.2
+
+# --- Persistent storage ---
+psycopg[binary]==3.3.6
 
 # --- Testing: unit + property-based tests, in-memory test PDFs ---
 pytest==9.0.3

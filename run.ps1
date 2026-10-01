@@ -1,16 +1,19 @@
 <#
 .SYNOPSIS
-    Sobe o backend (FastAPI/Uvicorn) e o frontend (Streamlit) da aplicacao
-    Resume Analyzer + LaTeX Generator.
+    Sobe a API e a interface web no mesmo servidor.
 
 .DESCRIPTION
     - Usa o Python do ambiente virtual (.venv) se existir; senao usa o python do PATH.
-    - Inicia o backend em uma nova janela do PowerShell na porta 8000.
-    - Inicia o frontend em uma nova janela do PowerShell na porta 8501.
+    - Inicia o servidor na porta 8000; pressione Ctrl+C para encerrar.
 
 .EXAMPLE
     .\run.ps1
 #>
+
+param(
+    [ValidateRange(1, 65535)][int]$Port = 8000,
+    [ValidateSet("127.0.0.1", "::1")][string]$BindAddress = "127.0.0.1"
+)
 
 $ErrorActionPreference = "Stop"
 
@@ -34,19 +37,11 @@ if (-not (Test-Path (Join-Path $Root ".env"))) {
     Write-Host "Aviso: arquivo .env nao encontrado. Copie .env.example para .env e configure a chave de API." -ForegroundColor Yellow
 }
 
-Write-Host "Iniciando backend em http://localhost:8000 ..." -ForegroundColor Cyan
-Start-Process powershell -ArgumentList @(
-    "-NoExit", "-Command",
-    "Set-Location -LiteralPath '$Root'; & '$Python' -m uvicorn backend.main:app --reload --port 8000"
-)
-
-Write-Host "Iniciando frontend em http://localhost:8501 ..." -ForegroundColor Cyan
-Start-Process powershell -ArgumentList @(
-    "-NoExit", "-Command",
-    "Set-Location -LiteralPath '$Root'; & '$Python' -m streamlit run frontend/app.py"
-)
-
+Write-Host "Iniciando Alinha em http://localhost:$Port ..." -ForegroundColor Cyan
 Write-Host ""
-Write-Host "Backend:  http://localhost:8000  (docs em /docs)" -ForegroundColor Green
-Write-Host "Frontend: http://localhost:8501" -ForegroundColor Green
-Write-Host "Feche as janelas abertas para encerrar os processos." -ForegroundColor Green
+Write-Host "Aplicacao: http://localhost:$Port  (API em /docs)" -ForegroundColor Green
+Set-Location -LiteralPath $Root
+& (Join-Path $Root "start-postgres.ps1")
+& $Python -m backend.migrate
+if ($LASTEXITCODE -ne 0) { throw "Falha ao aplicar as migrações do PostgreSQL." }
+& $Python -m uvicorn backend.main:app --reload --host $BindAddress --port $Port

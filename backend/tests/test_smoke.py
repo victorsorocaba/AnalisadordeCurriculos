@@ -82,27 +82,33 @@ def test_main_exposes_app_and_analyze_route() -> None:
     )
 
 
-def test_frontend_helpers_import_without_launching_ui() -> None:
-    """Frontend pure helpers + ``BACKEND_URL`` import cleanly from ``frontend.app`` (Req 10.3).
+def test_frontend_is_served_by_api() -> None:
+    """The main page and its local assets are available from one server."""
+    from fastapi.testclient import TestClient
+    from backend.main import app
 
-    Importing ``frontend.app`` must NOT launch the Streamlit UI; the UI flow is
-    guarded behind ``if __name__ == "__main__"`` and lives in ``main()``.
-    """
-    from frontend.app import (
-        BACKEND_URL,
-        extract_error_message,
-        format_improvements,
-        post_analysis,
-        render_results,
-        should_submit,
-    )
+    client = TestClient(app)
+    page = client.get("/")
+    assert page.status_code == 200
+    assert 'id="analysis-form"' in page.text
+    assert client.get("/assets/styles.css").status_code == 200
+    assert client.get("/assets/app.js").status_code == 200
 
-    assert callable(should_submit)
-    assert callable(post_analysis)
-    assert callable(extract_error_message)
-    assert callable(format_improvements)
-    assert callable(render_results)
-    assert isinstance(BACKEND_URL, str) and BACKEND_URL
+
+def test_study_routes_have_a_separate_page() -> None:
+    from fastapi.testclient import TestClient
+    from backend.main import app
+
+    client = TestClient(app)
+    home = client.get("/")
+    study = client.get("/rotas-estudo")
+    assert home.status_code == 200
+    assert study.status_code == 200
+    assert 'href="/rotas-estudo"' in home.text
+    assert 'id="roadmaps-list"' not in home.text
+    assert 'id="roadmaps-list"' in study.text
+    assert client.get("/assets/roadmaps.js").status_code == 200
+    assert client.get("/assets/roadmaps.json").status_code == 200
 
 
 def _iter_requirement_specifiers(raw_text: str):

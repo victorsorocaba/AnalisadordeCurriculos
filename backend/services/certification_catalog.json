@@ -1,0 +1,300 @@
+{
+  "checked_at": "2026-09-29",
+  "certifications": [
+    {
+      "id": "az-900",
+      "title": "Microsoft Certified: Azure Fundamentals",
+      "provider": "Microsoft",
+      "level": "Fundamentos",
+      "area": "Nuvem",
+      "focus": "Fundamentos de computação em nuvem e serviços Azure.",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/",
+      "keywords": [
+        "azure",
+        "nuvem",
+        "cloud",
+        "infraestrutura",
+        "devops",
+        "administracao de sistemas"
+      ]
+    },
+    {
+      "id": "ai-901",
+      "title": "Microsoft Certified: Azure AI Fundamentals",
+      "provider": "Microsoft",
+      "level": "Fundamentos",
+      "area": "IA",
+      "focus": "Conceitos de inteligência artificial e soluções de IA no Azure.",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/",
+      "keywords": [
+        "inteligencia artificial",
+        "ai engineer",
+        "machine learning",
+        "ia generativa",
+        "llm",
+        "azure ai"
+      ]
+    },
+    {
+      "id": "dp-900",
+      "title": "Microsoft Certified: Azure Data Fundamentals",
+      "provider": "Microsoft",
+      "level": "Fundamentos",
+      "area": "Dados",
+      "focus": "Conceitos de dados relacionais, não relacionais e análise no Azure.",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/",
+      "keywords": [
+        "analista de dados",
+        "engenharia de dados",
+        "dados",
+        "sql",
+        "banco de dados",
+        "analytics"
+      ]
+    },
+    {
+      "id": "pl-300",
+      "title": "Microsoft Certified: Power BI Data Analyst Associate",
+      "provider": "Microsoft",
+      "level": "Intermediário",
+      "area": "Dados",
+      "focus": "Modelagem, análise e visualização de dados no Power BI.",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/",
+      "keywords": [
+        "power bi",
+        "dax",
+        "power query",
+        "business intelligence",
+        "analista de dados",
+        "dashboard"
+      ]
+    },
+    {
+      "id": "sc-900",
+      "title": "Microsoft Certified: Security, Compliance, and Identity Fundamentals",
+      "provider": "Microsoft",
+      "level": "Fundamentos",
+      "area": "Segurança",
+      "focus": "Fundamentos de segurança, conformidade e identidade em serviços Microsoft.",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/security-compliance-and-identity-fundamentals/",
+      "keywords": [
+        "seguranca",
+        "ciberseguranca",
+        "cybersecurity",
+        "compliance",
+        "identidade",
+        "microsoft entra"
+      ]
+    },
+    {
+      "id": "aws-clf",
+      "title": "AWS Certified Cloud Practitioner",
+      "provider": "AWS",
+      "level": "Fundamentos",
+      "area": "Nuvem",
+      "focus": "Conhecimento geral de computação em nuvem e serviços AWS.",
+      "url": "https://aws.amazon.com/certification/certified-cloud-practitioner/",
+      "keywords": [
+        "aws",
+        "nuvem",
+        "cloud",
+        "infraestrutura",
+        "devops"
+      ]
+    },
+    {
+      "id": "aws-saa",
+      "title": "AWS Certified Solutions Architect – Associate",
+      "provider": "AWS",
+      "level": "Intermediário",
+      "area": "Nuvem",
+      "focus": "Desenho de soluções AWS com foco em custo, desempenho e resiliência.",
+      "url": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+      "keywords": [
+        "aws",
+        "arquiteto de solucoes",
+        "arquitetura de software",
+        "infraestrutura",
+        "cloud"
+      ]
+    },
+    {
+      "id": "gcp-cdl",
+      "title": "Cloud Digital Leader",
+      "provider": "Google Cloud",
+      "level": "Fundamentos",
+      "area": "Nuvem",
+      "focus": "Conceitos de nuvem e uso de produtos Google Cloud no negócio.",
+      "url": "https://cloud.google.com/learn/certification/cloud-digital-leader",
+      "keywords": [
+        "google cloud",
+        "gcp",
+        "nuvem",
+        "cloud",
+        "transformacao digital"
+      ]
+    },
+    {
+      "id": "gcp-ace",
+      "title": "Associate Cloud Engineer",
+      "provider": "Google Cloud",
+      "level": "Intermediário",
+      "area": "Nuvem",
+      "focus": "Implantação e operação de soluções no Google Cloud.",
+      "url": "https://cloud.google.com/learn/certification/cloud-engineer",
+      "keywords": [
+        "google cloud",
+        "gcp",
+        "infraestrutura",
+        "cloud",
+        "devops"
+      ]
+    },
+    {
+      "id": "gcp-pde",
+      "title": "Professional Data Engineer",
+      "provider": "Google Cloud",
+      "level": "Avançado",
+      "area": "Dados",
+      "focus": "Projeto e operação de sistemas de processamento de dados no Google Cloud.",
+      "url": "https://cloud.google.com/learn/certification/data-engineer",
+      "keywords": [
+        "engenharia de dados",
+        "data engineer",
+        "pipeline de dados",
+        "bigquery",
+        "etl",
+        "google cloud"
+      ]
+    },
+    {
+      "id": "psm-i",
+      "title": "Professional Scrum Master I",
+      "provider": "Scrum.org",
+      "level": "Fundamentos",
+      "area": "Gestão",
+      "focus": "Conhecimento do framework Scrum e das responsabilidades de Scrum Master.",
+      "url": "https://www.scrum.org/assessments/professional-scrum-master-i-certification",
+      "keywords": [
+        "scrum",
+        "agile",
+        "metodologias ageis",
+        "scrum master",
+        "sprint",
+        "gestao de produtos"
+      ]
+    },
+    {
+      "id": "capm",
+      "title": "Certified Associate in Project Management (CAPM)",
+      "provider": "PMI",
+      "level": "Fundamentos",
+      "area": "Gestão",
+      "focus": "Fundamentos de gestão de projetos para funções iniciais e de apoio.",
+      "url": "https://www.pmi.org/certifications/certified-associate-capm",
+      "keywords": [
+        "gestao de projetos",
+        "project manager",
+        "coordenador de projetos",
+        "pmo",
+        "gerenciamento de projetos"
+      ]
+    },
+    {
+      "id": "istqb-ctfl",
+      "title": "Certified Tester Foundation Level (CTFL)",
+      "provider": "ISTQB",
+      "level": "Fundamentos",
+      "area": "Qualidade",
+      "focus": "Conceitos e práticas fundamentais de teste de software.",
+      "url": "https://www.istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/",
+      "keywords": [
+        "qa",
+        "teste de software",
+        "testes automatizados",
+        "quality assurance",
+        "selenium",
+        "testador"
+      ]
+    },
+    {
+      "id": "ccna",
+      "title": "Cisco Certified Network Associate (CCNA)",
+      "provider": "Cisco",
+      "level": "Intermediário",
+      "area": "Redes",
+      "focus": "Fundamentos de redes, acesso, conectividade e segurança de rede.",
+      "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/associate/index.html",
+      "keywords": [
+        "redes",
+        "network",
+        "cisco",
+        "tcp/ip",
+        "infraestrutura de redes"
+      ]
+    },
+    {
+      "id": "cka",
+      "title": "Certified Kubernetes Administrator (CKA)",
+      "provider": "Linux Foundation",
+      "level": "Avançado",
+      "area": "DevOps",
+      "focus": "Administração prática de clusters Kubernetes.",
+      "url": "https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/",
+      "keywords": [
+        "kubernetes",
+        "k8s",
+        "containers",
+        "devops",
+        "sre",
+        "cloud native"
+      ]
+    },
+    {
+      "id": "salesforce-admin",
+      "title": "Salesforce Certified Platform Administrator",
+      "provider": "Salesforce",
+      "level": "Intermediário",
+      "area": "Negócios",
+      "focus": "Configuração e administração da plataforma Salesforce.",
+      "url": "https://trailhead.salesforce.com/credentials/administratoroverview",
+      "keywords": [
+        "salesforce",
+        "crm",
+        "vendas",
+        "atendimento ao cliente",
+        "customer success"
+      ]
+    },
+    {
+      "id": "pcep",
+      "title": "PCEP – Certified Entry-Level Python Programmer",
+      "provider": "Python Institute",
+      "level": "Fundamentos",
+      "area": "Desenvolvimento",
+      "focus": "Fundamentos de programação com Python.",
+      "url": "https://pythoninstitute.org/pcep",
+      "keywords": ["python", "desenvolvimento de software", "programacao", "backend"]
+    },
+    {
+      "id": "pcap",
+      "title": "PCAP – Certified Associate Python Programmer",
+      "provider": "Python Institute",
+      "level": "Intermediário",
+      "area": "Desenvolvimento",
+      "focus": "Programação Python orientada a objetos e aplicações modulares.",
+      "url": "https://pythoninstitute.org/pcap",
+      "keywords": ["python", "desenvolvimento de software", "programacao orientada a objetos", "backend"]
+    },
+    {
+      "id": "aws-developer",
+      "title": "AWS Certified Developer – Associate",
+      "provider": "AWS",
+      "level": "Intermediário",
+      "area": "Desenvolvimento",
+      "focus": "Desenvolvimento, implantação e operação de aplicações na AWS.",
+      "url": "https://aws.amazon.com/certification/certified-developer-associate/",
+      "keywords": ["aws", "lambda", "backend", "api", "desenvolvimento de software", "devops"]
+    }
+  ]
+}

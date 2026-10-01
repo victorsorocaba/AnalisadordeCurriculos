@@ -57,7 +57,7 @@ _VALID_RESULT = AnalysisResult(
 # ---------------------------------------------------------------------------
 
 
-async def _fake_ai_ok(resume_text: str, job_description: str) -> AnalysisResult:
+async def _fake_ai_ok(resume_text: str, job_description: str, projects: str = "") -> AnalysisResult:
     """Stand-in for the AI service that returns a fixed, valid result."""
     return _VALID_RESULT
 
@@ -66,11 +66,35 @@ def _make_spy() -> tuple[list, "object"]:
     """Return ``(calls, fake)`` where ``fake`` records every invocation in ``calls``."""
     calls: list = []
 
-    async def spy(resume_text: str, job_description: str) -> AnalysisResult:
+    async def spy(resume_text: str, job_description: str, projects: str = "") -> AnalysisResult:
         calls.append((resume_text, job_description))
         return _VALID_RESULT
 
     return calls, spy
+
+
+def test_blank_resume_text_does_not_call_ai() -> None:
+    calls, spy = _make_spy()
+    with patch("backend.main.analyze_resume", new=spy):
+        response = client.post(
+            ANALYZE_URL,
+            files={"resume": ("resume.txt", b"   ", "text/plain")},
+            data={"job_description": "Developer"},
+        )
+    assert response.status_code == 422
+    assert calls == []
+
+
+def test_oversized_projects_rejected_before_ai() -> None:
+    calls, spy = _make_spy()
+    with patch("backend.main.analyze_resume", new=spy):
+        response = client.post(
+            ANALYZE_URL,
+            files={"resume": ("resume.txt", b"Experience", "text/plain")},
+            data={"job_description": "Developer", "projects": "x" * 20_001},
+        )
+    assert response.status_code == 422
+    assert calls == []
 
 
 # ---------------------------------------------------------------------------
@@ -99,7 +123,7 @@ _valid_resume_bytes = st.text(
     alphabet=st.characters(codec="utf-8"),
     min_size=1,
     max_size=200,
-).map(lambda s: s.encode("utf-8"))
+).map(lambda s: ("X" + s).encode("utf-8"))
 
 # Whitespace-only job descriptions, including the empty string.
 _whitespace_job_description = st.one_of(
@@ -367,7 +391,7 @@ def test_property_17_invalid_ai_output_returns_502_no_result(
     Analysis_Result body.
     """
 
-    async def raise_validation(resume_text: str, jd: str) -> AnalysisResult:
+    async def raise_validation(resume_text: str, jd: str, projects: str = "") -> AnalysisResult:
         raise AIValidationError(message or "schema violation")
 
     with patch("backend.main.analyze_resume", new=raise_validation):
@@ -457,7 +481,7 @@ def test_missing_api_key_returns_500() -> None:
     ``AIKeyMissingError``), the endpoint responds 500.
     """
 
-    async def raise_key_missing(resume_text: str, job_description: str) -> AnalysisResult:
+    async def raise_key_missing(resume_text: str, job_description: str, projects: str = "") -> AnalysisResult:
         raise AIKeyMissingError("The AI provider API key is not configured.")
 
     with patch("backend.main.analyze_resume", new=raise_key_missing):
@@ -478,7 +502,7 @@ def test_ai_error_or_timeout_returns_502() -> None:
     ``AICallError``), the endpoint responds 502.
     """
 
-    async def raise_call_error(resume_text: str, job_description: str) -> AnalysisResult:
+    async def raise_call_error(resume_text: str, job_description: str, projects: str = "") -> AnalysisResult:
         raise AICallError("The AI model call did not complete successfully: timeout.")
 
     with patch("backend.main.analyze_resume", new=raise_call_error):

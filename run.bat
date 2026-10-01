@@ -1,6 +1,5 @@
 @echo off
-REM Sobe o backend (FastAPI/Uvicorn) e o frontend (Streamlit) da aplicacao
-REM Resume Analyzer + LaTeX Generator.
+REM Sobe a API e a interface web no mesmo servidor.
 
 setlocal
 set "ROOT=%~dp0"
@@ -20,14 +19,12 @@ if not exist "%ROOT%.env" (
     echo Aviso: arquivo .env nao encontrado. Copie .env.example para .env e configure a chave de API.
 )
 
-echo Iniciando backend em http://localhost:8000 ...
-start "Backend - FastAPI" cmd /k "cd /d "%ROOT%" && "%PYTHON%" -m uvicorn backend.main:app --reload --port 8000"
-
-echo Iniciando frontend em http://localhost:8501 ...
-start "Frontend - Streamlit" cmd /k "cd /d "%ROOT%" && "%PYTHON%" -m streamlit run frontend/app.py"
-
-echo.
-echo Backend:  http://localhost:8000  (docs em /docs)
-echo Frontend: http://localhost:8501
-echo Feche as janelas abertas para encerrar os processos.
+echo Aplicacao: http://localhost:8000  (API em /docs)
+echo Pressione Ctrl+C para encerrar.
+cd /d "%ROOT%"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%ROOT%start-postgres.ps1"
+if errorlevel 1 exit /b 1
+"%PYTHON%" -m backend.migrate
+if errorlevel 1 exit /b 1
+"%PYTHON%" -m uvicorn backend.main:app --reload --port 8000
 endlocal

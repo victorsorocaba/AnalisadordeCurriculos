@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101827" />
+    <meta name="description" content="Acompanhe os assuntos da sua rota de estudo com um checklist de progresso." />
+    <title>Minha rota de estudo — Alinha</title>
+    <link rel="stylesheet" href="/assets/styles.css?v=study-topics-1" />
+    <script src="/assets/storage.js?v=study-topics-1" defer></script>
+    <script src="/assets/roadmap-detail.js?v=study-topics-1" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegação">
+        <a class="brand" href="/" aria-label="Alinha, início"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>alinha<span class="brand-dot">.</span></span></a>
+        <div class="sidebar-label">ESPAÇO DE TRABALHO</div>
+        <nav class="side-nav">
+          <a class="nav-link" href="/#nova-analise"><span class="nav-icon">✦</span> Nova análise</a>
+          <a class="nav-link" href="/#como-funciona"><span class="nav-icon">◫</span> Como funciona</a>
+          <a class="nav-link" href="/#vagas"><span class="nav-icon">⌕</span> Vagas para você</a>
+          <a class="nav-link active" href="/rotas-estudo" aria-current="page"><span class="nav-icon">◇</span> Rotas de estudo</a>
+          <a class="nav-link" href="/certificacoes"><span class="nav-icon">✧</span> Certificações</a>
+        </nav>
+        <div class="sidebar-bottom"><div class="side-note"><span class="note-spark">✳</span><strong>Um assunto de cada vez.</strong><p>Marque o que aprendeu e acompanhe sua evolução.</p></div><p class="sidebar-footer">Feito para dar direção à sua carreira.</p></div>
+      </aside>
+      <main class="main-content">
+        <header class="topbar"><span class="topbar-title">Área de desenvolvimento <span>/ Rotas de estudo / <span id="breadcrumb-title">Carregando...</span></span></span><span class="topbar-badge"><span></span> Seu plano de estudos</span></header>
+        <div class="page-content study-detail-page">
+          <a class="study-back" href="/rotas-estudo">← Todas as rotas</a>
+          <section class="study-detail-hero" aria-labelledby="study-title">
+            <div class="section-kicker" id="study-category">ROTA DE ESTUDO</div>
+            <h1 id="study-title">Carregando rota...</h1>
+            <p>Estude no seu ritmo. Marque cada assunto quando se sentir seguro sobre ele.</p>
+            <div class="study-progress-line"><strong id="study-count">0 de 12 assuntos concluídos</strong><span id="study-percent">0%</span></div>
+            <div class="study-progress-track" role="progressbar" aria-label="Progresso da rota" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="study-progress"><span id="study-progress-fill"></span></div>
+            <a id="study-original" href="https://roadmap.sh/roadmaps/" target="_blank" rel="noopener noreferrer">Consultar mapa e recursos no roadmap.sh ↗</a>
+          </section>
+          <p id="study-message" class="study-message" role="status" aria-live="polite">Carregando assuntos...</p>
+          <div id="study-sections" class="study-sections"></div>
+          <p class="roadmaps-credit">Este checklist foi criado pelo Alinha para organizar seus estudos. Consulte o mapa original para aprofundar cada assunto e encontrar recursos atualizados.</p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101827" />
+    <meta name="description" content="Analise seu currículo para uma vaga e gere uma versão em LaTeX com melhorias direcionadas." />
+    <title>Alinha — seu currículo para a próxima oportunidade</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <script src="/assets/storage.js?v=postgres-1" defer></script>
+    <script src="/assets/app.js?v=postgres-2" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegação">
+        <a class="brand" href="/" aria-label="Alinha, início">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>alinha<span class="brand-dot">.</span></span>
+        </a>
+        <div class="sidebar-label">ESPAÇO DE TRABALHO</div>
+        <nav class="side-nav">
+          <a class="nav-link active" href="#nova-analise" aria-current="page"><span class="nav-icon">✦</span> Nova análise</a>
+          <a class="nav-link" href="#como-funciona"><span class="nav-icon">◫</span> Como funciona</a>
+          <a class="nav-link" href="#vagas"><span class="nav-icon">⌕</span> Vagas para você</a>
+          <a class="nav-link" href="/rotas-estudo"><span class="nav-icon">◇</span> Rotas de estudo</a>
+          <a class="nav-link" href="/certificacoes"><span class="nav-icon">✧</span> Certificações</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="side-note"><span class="note-spark">✳</span><strong>Uma candidatura melhor começa aqui.</strong><p>Transforme experiência em uma apresentação mais clara para cada vaga.</p></div>
+          <p class="sidebar-footer">Feito para dar direção à sua carreira.</p>
+        </div>
+      </aside>
+
+      <main class="main-content" id="nova-analise">
+        <header class="topbar"><span class="topbar-title">Área de análise <span>/ Nova análise</span></span><span class="topbar-badge"><span></span> Pronto para começar</span></header>
+        <div class="page-content">
+          <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy"><div class="eyebrow"><span class="eyebrow-line"></span> SUA PRÓXIMA OPORTUNIDADE</div><h1 id="hero-title">Seu currículo,<br /><em>mais alinhado</em> à vaga.</h1><p>Descubra onde você se destaca, o que pode melhorar e crie uma nova versão do seu currículo com mais intenção.</p><div class="hero-points"><span><b>01</b> Analise</span><i></i><span><b>02</b> Melhore</span><i></i><span><b>03</b> Destaque-se</span></div></div>
+            <div class="hero-art" aria-hidden="true"><div class="art-circle art-circle-one"></div><div class="art-circle art-circle-two"></div><div class="art-document"><div class="art-doc-top"><div class="art-avatar"></div><div><div class="art-line short"></div><div class="art-line tiny"></div></div></div><div class="art-rule"></div><div class="art-line wide"></div><div class="art-line medium"></div><div class="art-line wide"></div><div class="art-rule"></div><div class="art-line medium"></div><div class="art-line short"></div></div><div class="art-check">✓</div><div class="art-spark">✦</div></div>
+          </section>
+
+          <section class="workspace" aria-labelledby="workspace-title">
+            <div class="section-heading"><div><div class="section-kicker">VAMOS COMEÇAR</div><h2 id="workspace-title">Prepare sua análise</h2><p>Preencha os campos abaixo. Quanto mais contexto você incluir, mais útil será o resultado.</p></div><span class="step-count">01 <span>/ 03</span></span></div>
+            <div class="workspace-grid">
+              <form id="analysis-form" class="form-card" novalidate>
+                <div class="field-heading"><span class="field-number">01</span><div><h3>Seu currículo</h3><p>Envie seu documento atual em PDF ou TXT.</p></div></div>
+                <input id="resume" name="resume" type="file" accept=".pdf,.txt,application/pdf,text/plain" class="visually-hidden" aria-describedby="file-hint" />
+                <div id="drop-zone" class="drop-zone" role="button" tabindex="0" aria-label="Selecionar currículo em PDF ou TXT"><div class="upload-icon" aria-hidden="true">↑</div><strong id="file-title">Arraste seu arquivo ou <span>clique para escolher</span></strong><p id="file-hint">PDF ou TXT · até 10 MB</p><div id="file-meta" class="file-meta" hidden></div></div>
+                <div class="field-divider"></div>
+                <div class="field-heading"><span class="field-number">02</span><div><h3>Descrição da vaga</h3><p>Cole o texto da oportunidade que você deseja conquistar.</p></div></div>
+                <label class="visually-hidden" for="job-description">Descrição da vaga</label><textarea id="job-description" name="job_description" maxlength="20000" placeholder="Ex.: Buscamos uma pessoa desenvolvedora com experiência em Python, APIs e colaboração com equipes multidisciplinares..."></textarea><div class="field-foot"><span>Inclua responsabilidades e requisitos, se possível.</span><span id="job-count">0 / 20.000</span></div>
+                <div class="field-divider"></div>
+                <div class="field-heading"><span class="field-number">03</span><div><h3>Projetos <span class="optional">opcional</span></h3><p>Conte sobre projetos relevantes que ainda não estão no currículo.</p></div></div>
+                <label class="visually-hidden" for="projects">Projetos</label><textarea id="projects" name="projects" maxlength="20000" class="projects-input" placeholder="Ex.: Criei uma API para automatizar relatórios e reduzir tarefas manuais da equipe."></textarea><div class="field-foot"><span>Incluiremos apenas informações que você fornecer.</span><span id="projects-count">0 / 20.000</span></div>
+                <div id="access-field" class="access-field" hidden><label for="access-token">Código de acesso</label><input id="access-token" type="password" autocomplete="off" placeholder="Informe o código configurado pelo administrador" /><p>Necessário para usar a análise neste servidor.</p></div>
+                <div id="form-error" class="form-error" role="alert" hidden></div>
+                <button id="submit-button" class="primary-button" type="submit"><span class="button-spark">✦</span><span id="submit-label">Analisar meu currículo</span><span class="button-arrow">↗</span></button>
+                <p class="privacy-note">Seu currículo e a vaga são enviados ao provedor de IA configurado para gerar a análise. Revise o conteúdo antes de usá-lo em uma candidatura.</p>
+              </form>
+              <aside class="guide-card" id="como-funciona"><div class="guide-top"><div class="guide-icon">✳</div><span>SEU GUIA</span></div><h3>Uma análise que vai além do óbvio.</h3><p>Em poucos passos, você entende como apresentar melhor sua trajetória para esta oportunidade.</p><div class="guide-steps"><div><span>01</span><div><strong>Encontre a conexão</strong><p>Veja o quanto seu perfil conversa com os requisitos da vaga.</p></div></div><div><span>02</span><div><strong>Saiba o que ajustar</strong><p>Receba sugestões específicas para deixar sua experiência mais clara.</p></div></div><div><span>03</span><div><strong>Crie uma nova versão</strong><p>Copie ou baixe o currículo gerado em LaTeX para editar e compilar.</p></div></div></div><div class="guide-bottom"><span>✧</span> Seu próximo passo começa com clareza.</div></aside>
+            </div>
+          </section>
+
+          <section id="results" class="results" aria-labelledby="results-title" hidden><div class="section-heading results-heading"><div><div class="section-kicker">ANÁLISE CONCLUÍDA</div><h2 id="results-title">Seu próximo passo, mais claro.</h2><p>Use estas sugestões como ponto de partida e revise cada informação antes de enviar.</p></div><button id="new-analysis" type="button" class="text-button">Nova análise ↗</button></div><div class="results-grid"><article class="score-card"><div class="card-overline">COMPATIBILIDADE</div><div id="score-ring" class="score-ring"><div><strong id="score-value">0%</strong><span>de alinhamento</span></div></div><p>Uma estimativa baseada no currículo e na descrição da vaga. Não representa uma decisão de recrutamento.</p></article><article class="improvements-card"><div class="card-overline">OPORTUNIDADES DE MELHORIA</div><h3>Onde você pode evoluir</h3><ol id="improvements-list"></ol></article></div><article class="latex-card"><div class="latex-heading"><div><div class="card-overline">SUA NOVA VERSÃO</div><h3>Currículo em LaTeX</h3><p>Edite e compile o código no editor LaTeX de sua preferência.</p></div><div class="result-actions"><button id="copy-latex" type="button" class="outline-button">Copiar código</button><button id="download-latex" type="button" class="download-button">↓ Baixar .tex</button></div></div><pre><code id="latex-code"></code></pre></article></section>
+          <section id="details" class="details-section" hidden>
+            <div class="section-heading"><div><div class="section-kicker">ANÁLISE EXPLICADA</div><h2>Por que este resultado?</h2><p>Trechos confirmados no currículo e pontos da vaga sem evidência.</p></div></div>
+            <div class="evidence-grid"><article class="detail-card"><h3>O que já combina</h3><ul id="matches-list"></ul></article><article class="detail-card"><h3>O que falta demonstrar</h3><ul id="gaps-list"></ul></article></div>
+            <div class="section-heading editor-heading"><div><div class="section-kicker">EDIÇÃO</div><h2>Ajuste sua versão</h2><p>Edite o conteúdo abaixo e atualize a prévia. O PDF e o LaTeX usam estes mesmos dados.</p></div></div>
+            <div class="editor-grid"><article class="detail-card editor-card"><div id="draft-fields"></div><div class="editor-actions"><button id="tailor-resume" class="primary-button" type="button">Deixar currículo pronto pra vaga</button><button id="refresh-preview" class="outline-button" type="button">Atualizar prévia em PDF</button><button id="save-version" class="outline-button" type="button">Salvar versão neste navegador</button><a href="/certificacoes" class="outline-button">Ver certificações para este perfil ↗</a></div><p id="tailor-status" class="editor-status" role="status" aria-live="polite"></p><p id="render-error" class="form-error" role="alert" hidden></p><p class="privacy-note">A IA prioriza informações do currículo e palavras-chave com evidência. Revise o texto antes de se candidatar; nenhum currículo garante aprovação em filtros ATS. O histórico fica neste navegador. Evite salvá-lo em um computador compartilhado.</p></article><article class="detail-card preview-card"><div class="preview-heading"><h3>Prévia do currículo</h3><button id="download-pdf" class="download-button" type="button" disabled>↓ Baixar PDF</button></div><div id="pdf-preview" class="pdf-pages" role="region" aria-label="Prévia do currículo em PDF"></div><p id="preview-status">A prévia será gerada após a análise.</p></article></div>
+          </section>
+          <section id="vagas" class="jobs-section" aria-labelledby="jobs-title">
+            <div class="section-heading"><div><div class="section-kicker">OPORTUNIDADES</div><h2 id="jobs-title">Vagas para você</h2><p>Busque vagas com base nas habilidades do currículo atual ou da última versão salva.</p></div></div>
+            <form id="jobs-form" class="jobs-search-card">
+              <div class="jobs-controls"><label>Palavra-chave ou cargo<input id="jobs-query" type="text" maxlength="120" placeholder="Ex.: Python, estágio em desenvolvimento" /></label><label>Cidade ou região<input id="jobs-location" type="text" maxlength="120" value="Sorocaba, SP" /></label><label>Modalidade<select id="jobs-mode"><option value="all">Todas</option><option value="remote">Remotas</option><option value="local">Presenciais e híbridas</option></select></label></div>
+              <div class="jobs-search-footer"><button id="jobs-submit" type="submit" class="primary-button">Buscar vagas alinhadas</button><button id="jobs-linkedin" type="button" class="outline-button">Buscar no LinkedIn ↗</button><p id="jobs-profile">Abra uma versão salva ou faça uma análise para buscar vagas.</p></div>
+            </form>
+            <p id="jobs-status" class="jobs-status" role="status" aria-live="polite"></p>
+            <div id="jobs-list" class="jobs-list"></div>
+            <p id="jobs-notices" class="jobs-notices"></p>
+          </section>
+          <section id="history-section" class="history-section"><div class="section-heading"><div><div class="section-kicker">NESTE NAVEGADOR</div><h2>Suas versões salvas</h2><p>Recupere versões anteriores ou compare duas análises.</p></div></div><div id="history-list" class="history-list"></div><div id="comparison" class="comparison" hidden></div></section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

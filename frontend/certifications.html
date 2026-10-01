@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101827" />
+    <meta name="description" content="Descubra certificações alinhadas às habilidades do seu currículo." />
+    <title>Certificações — Alinha</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <script src="/assets/certifications.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegação">
+        <a class="brand" href="/" aria-label="Alinha, início">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>alinha<span class="brand-dot">.</span></span>
+        </a>
+        <div class="sidebar-label">ESPAÇO DE TRABALHO</div>
+        <nav class="side-nav">
+          <a class="nav-link" href="/#nova-analise"><span class="nav-icon">✦</span> Nova análise</a>
+          <a class="nav-link" href="/#como-funciona"><span class="nav-icon">◫</span> Como funciona</a>
+          <a class="nav-link" href="/#vagas"><span class="nav-icon">⌕</span> Vagas para você</a>
+          <a class="nav-link" href="/rotas-estudo"><span class="nav-icon">◇</span> Rotas de estudo</a>
+          <a class="nav-link active" href="/certificacoes" aria-current="page"><span class="nav-icon">✧</span> Certificações</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="side-note"><span class="note-spark">✳</span><strong>Seu próximo diferencial.</strong><p>Encontre credenciais coerentes com suas habilidades e seu objetivo.</p></div>
+          <p class="sidebar-footer">Feito para dar direção à sua carreira.</p>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar"><span class="topbar-title">Área de desenvolvimento <span>/ Certificações</span></span><span class="topbar-badge"><span></span> Recomendações para você</span></header>
+        <div class="page-content certification-page">
+          <section class="certification-hero" aria-labelledby="certification-title">
+            <div class="section-kicker">PRÓXIMO PASSO PROFISSIONAL</div>
+            <h1 id="certification-title">Certificações que combinam com seu perfil.</h1>
+            <p>Veja credenciais oficiais relacionadas ao que você já faz e ao cargo que deseja alcançar.</p>
+          </section>
+          <div class="certification-layout">
+            <form id="certification-form" class="detail-card certification-form">
+              <h2>Seu ponto de partida</h2>
+              <p id="certification-profile-source" class="certification-profile-source">Verificando seu currículo...</p>
+              <label for="certification-goal">Cargo ou área que você quer alcançar <span class="optional">opcional</span></label>
+              <input id="certification-goal" name="goal" type="text" maxlength="200" placeholder="Ex.: Analista de dados, DevOps, gestão de projetos" />
+              <label for="certification-resume">Enviar currículo em PDF ou TXT <span class="optional">opcional</span></label>
+              <input id="certification-resume" name="resume" type="file" accept=".pdf,.txt,application/pdf,text/plain" />
+              <p class="certification-help">Se você já fez uma análise nesta sessão ou salvou uma versão, podemos usar as habilidades dela. Ao enviar outro arquivo, consideraremos também esse currículo. O arquivo não é salvo.</p>
+              <button id="certification-submit" type="submit" class="primary-button">Encontrar certificações</button>
+              <p id="certification-error" class="form-error" role="alert" hidden></p>
+            </form>
+            <aside class="detail-card certification-explainer">
+              <span class="card-overline">COMO ESCOLHEMOS</span>
+              <h2>Um diferencial com contexto</h2>
+              <p>Comparamos habilidades e objetivo com as áreas cobertas por certificações de emissores oficiais. A lista é uma sugestão de estudo, não uma previsão de contratação.</p>
+              <div class="certification-explainer-steps"><div><b>01</b><span>Identificamos termos do perfil</span></div><div><b>02</b><span>Priorizamos áreas relacionadas</span></div><div><b>03</b><span>Mostramos o motivo e a fonte oficial</span></div></div>
+              <p>Confira requisitos, idioma, custos e validade no site do emissor antes de se inscrever.</p>
+            </aside>
+          </div>
+          <section class="certification-results" aria-labelledby="certification-results-title">
+            <div class="section-heading"><div><div class="section-kicker">PARA CONSIDERAR</div><h2 id="certification-results-title">Sugestões para o seu perfil</h2><p id="certification-status" role="status" aria-live="polite">Envie um currículo ou faça uma análise para começar.</p></div></div>
+            <div id="certification-list" class="certification-list"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
