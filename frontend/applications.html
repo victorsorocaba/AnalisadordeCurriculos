@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101827" />
+    <meta name="description" content="Registre suas candidaturas e acompanhe os envios e retornos por mês e por dia." />
+    <title>Minhas candidaturas — Alinha</title>
+    <link rel="stylesheet" href="/assets/styles.css?v=applications-1" />
+    <script src="/assets/storage.js?v=applications-1" defer></script>
+    <script src="/assets/application-metrics.js?v=applications-1" defer></script>
+    <script src="/assets/applications.js?v=applications-1" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegação">
+        <a class="brand" href="/" aria-label="Alinha, início"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>alinha<span class="brand-dot">.</span></span></a>
+        <div class="sidebar-label">ESPAÇO DE TRABALHO</div>
+        <nav class="side-nav">
+          <a class="nav-link" href="/#nova-analise"><span class="nav-icon">✦</span> Nova análise</a>
+          <a class="nav-link" href="/#como-funciona"><span class="nav-icon">◫</span> Como funciona</a>
+          <a class="nav-link" href="/#vagas"><span class="nav-icon">⌕</span> Vagas para você</a>
+          <a class="nav-link active" href="/candidaturas" aria-current="page"><span class="nav-icon">▣</span> Minhas candidaturas</a>
+          <a class="nav-link" href="/rotas-estudo"><span class="nav-icon">◇</span> Rotas de estudo</a>
+          <a class="nav-link" href="/certificacoes"><span class="nav-icon">✧</span> Certificações</a>
+        </nav>
+        <div class="sidebar-bottom"><div class="side-note"><span class="note-spark">✳</span><strong>Seu histórico de oportunidades.</strong><p>Registre cada candidatura e acompanhe os retornos em um só lugar.</p></div><p class="sidebar-footer">Feito para dar direção à sua carreira.</p></div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar"><span class="topbar-title">Área de desenvolvimento <span>/ Minhas candidaturas</span></span><span class="topbar-badge"><span></span> Acompanhe sua busca</span></header>
+        <div class="page-content applications-page">
+          <section class="applications-hero" aria-labelledby="applications-title">
+            <div class="section-kicker">SUA BUSCA POR TRABALHO</div>
+            <h1 id="applications-title">Suas candidaturas, em um só lugar.</h1>
+            <p>Saiba quando se candidatou, onde encontrou a vaga e se recebeu retorno. Os números se atualizam conforme você registra seu histórico.</p>
+          </section>
+
+          <div class="applications-stat-grid" aria-label="Resumo de candidaturas">
+            <article class="applications-stat"><span>Total de candidaturas</span><strong id="applications-total">0</strong><small>em todo o histórico</small></article>
+            <article class="applications-stat"><span>No período selecionado</span><strong id="applications-period-total">0</strong><small id="applications-period-label">neste mês</small></article>
+            <article class="applications-stat"><span>Com retorno</span><strong id="applications-responses">0</strong><small id="applications-response-rate">0% do período</small></article>
+            <article class="applications-stat"><span>Dias com candidaturas</span><strong id="applications-active-days">0</strong><small>no período selecionado</small></article>
+          </div>
+
+          <div class="applications-layout">
+            <section class="applications-form-card" aria-labelledby="application-form-title">
+              <div class="section-kicker">REGISTRAR</div>
+              <h2 id="application-form-title">Nova candidatura</h2>
+              <p>Inclua os dados essenciais para acompanhar esta vaga depois.</p>
+              <form id="application-form">
+                <label for="application-role">Cargo da vaga</label>
+                <input id="application-role" name="role" type="text" maxlength="160" placeholder="Ex.: Desenvolvedor Backend" required />
+                <label for="application-company">Empresa</label>
+                <input id="application-company" name="company" type="text" maxlength="160" placeholder="Ex.: Empresa ABC" required />
+                <label for="application-date">Dia da candidatura</label>
+                <input id="application-date" name="appliedOn" type="date" required />
+                <label for="application-source">Onde encontrou a vaga</label>
+                <input id="application-source" name="source" type="text" list="application-sources" maxlength="120" placeholder="Ex.: LinkedIn, Gupy ou indicação" required />
+                <datalist id="application-sources"><option value="LinkedIn"></option><option value="Gupy"></option><option value="Indeed"></option><option value="Glassdoor"></option><option value="Catho"></option><option value="Vagas.com.br"></option><option value="Site da empresa"></option><option value="Indicação"></option><option value="Outra plataforma"></option></datalist>
+                <label for="application-url">Link da vaga <span class="optional">opcional</span></label>
+                <input id="application-url" name="vacancyUrl" type="url" maxlength="2000" placeholder="https://..." />
+                <label for="application-notes">Observações <span class="optional">opcional</span></label>
+                <textarea id="application-notes" name="notes" maxlength="1000" rows="3" placeholder="Ex.: Enviada pelo site da empresa"></textarea>
+                <label class="application-response-label" for="application-response"><input id="application-response" name="responseReceived" type="checkbox" /><span>Já tive retorno desta candidatura</span></label>
+                <div class="application-form-actions"><button id="application-submit" class="primary-button" type="submit">Salvar candidatura</button><button id="application-cancel" class="outline-button" type="button" hidden>Cancelar edição</button></div>
+                <p id="application-form-message" role="status" aria-live="polite"></p>
+              </form>
+            </section>
+
+            <div class="applications-insights">
+              <section class="applications-panel" aria-labelledby="applications-daily-title">
+                <div class="applications-panel-heading"><div><div class="section-kicker">POR DIA</div><h2 id="applications-daily-title">Quando você se candidatou</h2></div><label for="applications-month">Mês<input id="applications-month" type="month" /></label></div>
+                <div class="applications-filter-actions"><button id="applications-all-months" type="button" class="text-button">Ver todos os meses</button><span id="applications-filter-description"></span></div>
+                <div id="applications-daily" class="applications-daily"></div>
+              </section>
+              <section class="applications-panel" aria-labelledby="applications-monthly-title">
+                <div class="section-kicker">HISTÓRICO</div><h2 id="applications-monthly-title">Candidaturas por mês</h2>
+                <div id="applications-monthly" class="applications-monthly"></div>
+              </section>
+            </div>
+          </div>
+
+          <section class="applications-records" aria-labelledby="applications-records-title">
+            <div class="section-heading"><div><div class="section-kicker">ACOMPANHAMENTO</div><h2 id="applications-records-title">Vagas registradas</h2><p id="applications-list-summary" role="status" aria-live="polite">Carregando candidaturas...</p></div></div>
+            <p id="applications-error" class="form-error" role="alert" hidden></p>
+            <div id="applications-list" class="applications-list"></div>
+          </section>
+          <p class="roadmaps-credit">Seu histórico é separado por perfil neste navegador. Com PostgreSQL configurado, os registros ficam salvos no banco deste servidor.</p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

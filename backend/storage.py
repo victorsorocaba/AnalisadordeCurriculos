@@ -1,4 +1,4 @@
-"""PostgreSQL persistence for saved resume versions and roadmap progress."""
+"""PostgreSQL persistence for resumes, study progress, and applications."""
 
 from __future__ import annotations
 
@@ -6,13 +6,13 @@ import hashlib
 import json
 import os
 import re
-from datetime import datetime
+from datetime import date, datetime
 from functools import lru_cache
 from pathlib import Path
-from uuid import UUID
+from uuid import UUID, uuid4
 
 from fastapi import APIRouter, Header, HTTPException, Response
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, HttpUrl
 
 from backend.models.detailed import DetailedAnalysis
 
@@ -46,6 +46,22 @@ class SavedVersion(BaseModel):
     jobDescription: str = Field(default="", max_length=20_000)
     percentage: int = Field(ge=0, le=100)
     analysis: DetailedAnalysis
+
+
+class JobApplicationInput(BaseModel):
+    model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
+
+    company: str = Field(min_length=1, max_length=160)
+    role: str = Field(min_length=1, max_length=160)
+    source: str = Field(min_length=1, max_length=120)
+    vacancyUrl: HttpUrl | None = None
+    appliedOn: date
+    responseReceived: bool = False
+    notes: str = Field(default="", max_length=1000)
+
+
+class ImportedJobApplication(JobApplicationInput):
+    id: UUID
 
 
 def _database_url() -> str:
@@ -248,4 +264,90 @@ def uncomplete_topic(roadmap_id: str, topic_id: str, x_profile_key: str | None =
             "DELETE FROM roadmap_topic_progress WHERE owner_hash = %s AND roadmap_id = %s AND topic_id = %s",
             (owner, roadmap_id, topic_id),
         )
+    return Response(status_code=204)
+
+
+def _application_dict(row) -> dict:
+    return {
+        "id": str(row[0]), "company": row[1], "role": row[2], "source": row[3],
+        "vacancyUrl": row[4] or "", "appliedOn": row[5].isoformat(),
+        "responseReceived": row[6], "notes": row[7],
+    }
+
+
+def _application_values(owner: str, application: JobApplicationInput, application_id: UUID) -> tuple:
+    return (
+        application_id, owner, application.company, application.role, application.source,
+        str(application.vacancyUrl or ""), application.appliedOn,
+        application.responseReceived, application.notes,
+    )
+
+
+@router.get("/applications")
+def list_applications(x_profile_key: str | None = Header(default=None)) -> list[dict]:
+    owner = _owner(x_profile_key)
+    with _connect() as conn:
+        rows = conn.execute(
+            "SELECT id, company, role, source, vacancy_url, applied_on, response_received, notes "
+            "FROM job_applications WHERE owner_hash = %s ORDER BY applied_on DESC, created_at DESC",
+            (owner,),
+        ).fetchall()
+    return [_application_dict(row) for row in rows]
+
+
+@router.put("/applications")
+def import_applications(applications: list[ImportedJobApplication], x_profile_key: str | None = Header(default=None)) -> dict[str, int]:
+    owner = _owner(x_profile_key)
+    if len(applications) > 5000:
+        raise HTTPException(422, "Há candidaturas demais para importar de uma vez.")
+    with _connect() as conn:
+        with conn.cursor() as cursor:
+            cursor.executemany(
+                "INSERT INTO job_applications "
+                "(id, owner_hash, company, role, source, vacancy_url, applied_on, response_received, notes) "
+                "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT (id) DO NOTHING",
+                [_application_values(owner, entry, entry.id) for entry in applications],
+            )
+    return {"imported": len(applications)}
+
+
+@router.post("/applications", status_code=201)
+def create_application(application: JobApplicationInput, x_profile_key: str | None = Header(default=None)) -> dict:
+    owner = _owner(x_profile_key)
+    application_id = uuid4()
+    with _connect() as conn:
+        conn.execute(
+            "INSERT INTO job_applications "
+            "(id, owner_hash, company, role, source, vacancy_url, applied_on, response_received, notes) "
+            "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
+            _application_values(owner, application, application_id),
+        )
+    return {"id": str(application_id), **application.model_dump(mode="json", exclude={"vacancyUrl"}),
+            "vacancyUrl": str(application.vacancyUrl or "")}
+
+
+@router.put("/applications/{application_id}")
+def update_application(application_id: UUID, application: JobApplicationInput,
+                       x_profile_key: str | None = Header(default=None)) -> dict:
+    owner = _owner(x_profile_key)
+    with _connect() as conn:
+        updated = conn.execute(
+            "UPDATE job_applications SET company = %s, role = %s, source = %s, vacancy_url = %s, "
+            "applied_on = %s, response_received = %s, notes = %s, updated_at = now() "
+            "WHERE id = %s AND owner_hash = %s RETURNING id",
+            (application.company, application.role, application.source,
+             str(application.vacancyUrl or ""), application.appliedOn, application.responseReceived,
+             application.notes, application_id, owner),
+        ).fetchone()
+    if not updated:
+        raise HTTPException(404, "Candidatura não encontrada neste perfil.")
+    return {"id": str(application_id), **application.model_dump(mode="json", exclude={"vacancyUrl"}),
+            "vacancyUrl": str(application.vacancyUrl or "")}
+
+
+@router.delete("/applications/{application_id}", status_code=204)
+def delete_application(application_id: UUID, x_profile_key: str | None = Header(default=None)) -> Response:
+    owner = _owner(x_profile_key)
+    with _connect() as conn:
+        conn.execute("DELETE FROM job_applications WHERE id = %s AND owner_hash = %s", (application_id, owner))
     return Response(status_code=204)

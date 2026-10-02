@@ -132,6 +132,11 @@ async def certifications_page() -> FileResponse:
     return FileResponse(FRONTEND_DIR / "certifications.html")
 
 
+@app.get("/candidaturas", include_in_schema=False)
+async def applications_page() -> FileResponse:
+    return FileResponse(FRONTEND_DIR / "applications.html")
+
+
 @app.post("/api/certifications/recommend")
 async def certification_recommendations(
     resume: UploadFile | None = File(default=None),

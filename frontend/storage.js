@@ -4,11 +4,13 @@
   const VERSIONS = "alinha-versions-v1";
   const ROADMAPS = "alinha-roadmaps-v1";
   const TOPICS = "alinha-topic-progress-v1";
+  const APPLICATIONS = "alinha-applications-v1";
   let enabled = false;
   let checked = false;
   let versionsPromise;
   let roadmapsPromise;
   let topicsPromise;
+  let applicationsPromise;
 
   function profileKey() {
     let value = localStorage.getItem(KEY);
@@ -130,5 +132,59 @@
     return progress;
   }
 
-  window.AlinhaStorage = { readyVersions, saveVersion, deleteVersion, readyRoadmaps, setRoadmap, readyTopics, setTopic, get enabled() { return enabled; } };
+  function localApplications() {
+    try {
+      const value = JSON.parse(localStorage.getItem(APPLICATIONS) || "[]");
+      return Array.isArray(value) ? value : [];
+    } catch { return []; }
+  }
+
+  async function loadApplications() {
+    if (!await status()) return localApplications();
+    if (localStorage.getItem(`${APPLICATIONS}-imported`) !== "1") {
+      await request("/applications", "PUT", localApplications());
+      localStorage.setItem(`${APPLICATIONS}-imported`, "1");
+    }
+    const applications = await request("/applications");
+    localStorage.setItem(APPLICATIONS, JSON.stringify(applications));
+    return applications;
+  }
+
+  function readyApplications() {
+    return applicationsPromise ||= loadApplications();
+  }
+
+  async function saveApplication(application) {
+    const entries = await readyApplications();
+    const payload = { ...application, vacancyUrl: application.vacancyUrl || null };
+    const created = enabled
+      ? await request("/applications", "POST", payload)
+      : { id: crypto.randomUUID(), ...payload };
+    entries.unshift(created);
+    localStorage.setItem(APPLICATIONS, JSON.stringify(entries));
+    return created;
+  }
+
+  async function updateApplication(id, application) {
+    const entries = await readyApplications();
+    const index = entries.findIndex((item) => item.id === id);
+    if (index < 0) throw new Error("Candidatura não encontrada.");
+    const payload = { ...application, vacancyUrl: application.vacancyUrl || null };
+    const updated = enabled
+      ? await request(`/applications/${encodeURIComponent(id)}`, "PUT", payload)
+      : { id, ...payload };
+    entries[index] = updated;
+    localStorage.setItem(APPLICATIONS, JSON.stringify(entries));
+    return updated;
+  }
+
+  async function deleteApplication(id) {
+    const entries = await readyApplications();
+    if (enabled) await request(`/applications/${encodeURIComponent(id)}`, "DELETE");
+    const index = entries.findIndex((item) => item.id === id);
+    if (index >= 0) entries.splice(index, 1);
+    localStorage.setItem(APPLICATIONS, JSON.stringify(entries));
+  }
+
+  window.AlinhaStorage = { readyVersions, saveVersion, deleteVersion, readyRoadmaps, setRoadmap, readyTopics, setTopic, readyApplications, saveApplication, updateApplication, deleteApplication, get enabled() { return enabled; } };
 }());

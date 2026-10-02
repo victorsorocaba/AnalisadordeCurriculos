@@ -435,6 +435,22 @@ function makeJobCard(job) {
   catch { /* Ignore invalid links from providers. */ }
   card.append(top, title, meta, description, tags);
   if (link.href) card.append(link);
+  const register = document.createElement("button");
+  register.type = "button";
+  register.className = "outline-button job-register-button";
+  register.textContent = "Registrar candidatura →";
+  register.addEventListener("click", () => {
+    try {
+      sessionStorage.setItem("alinha-application-prefill-v1", JSON.stringify({
+        role: String(job.title || "").slice(0, 160),
+        company: String(job.company || "").slice(0, 160),
+        source: String(job.source || "").slice(0, 120),
+        vacancyUrl: link.href || "",
+      }));
+    } catch { /* The form remains available for manual entry. */ }
+    location.href = "/candidaturas";
+  });
+  card.append(register);
   return card;
 }
 $("jobs-form").addEventListener("submit", async (event) => {

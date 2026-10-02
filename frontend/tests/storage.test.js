@@ -85,3 +85,27 @@ test("imports checked topics and saves marking and unmarking", async () => {
   assert.equal(requests.filter(([, method]) => method === "PUT").length, 2);
   assert.equal(requests.at(-1)[1], "DELETE");
 });
+
+test("application history imports once and writes changes to the server", async () => {
+  const old = { id: "old-id", company: "Acme", role: "Dev", source: "LinkedIn", appliedOn: "2026-09-25", vacancyUrl: "", responseReceived: false, notes: "" };
+  const requests = [];
+  const { storage, values } = environment({ "alinha-applications-v1": JSON.stringify([old]) }, async (url, options = {}) => {
+    requests.push([url, options.method || "GET", options.body]);
+    if (url.endsWith("/status")) return response({ enabled: true });
+    if (url === "/api/storage/applications" && options.method === "PUT") return response({ imported: 1 });
+    if (url === "/api/storage/applications" && options.method === "GET") return response([old]);
+    if (url === "/api/storage/applications" && options.method === "POST") return response({ ...JSON.parse(options.body), id: "new-id" }, 201);
+    if (url.endsWith("/old-id") && options.method === "PUT") return response({ ...JSON.parse(options.body), id: "old-id" });
+    return response(null, 204);
+  });
+  assert.equal((await storage.readyApplications()).length, 1);
+  const next = { company: "Beta", role: "QA", source: "Gupy", appliedOn: "2026-10-02", vacancyUrl: "", responseReceived: false, notes: "" };
+  await storage.saveApplication(next);
+  await storage.updateApplication("old-id", { ...old, responseReceived: true });
+  await storage.deleteApplication("new-id");
+  assert.equal(values.get("alinha-applications-v1-imported"), "1");
+  assert.equal(JSON.parse(values.get("alinha-applications-v1")).length, 1);
+  assert.equal(JSON.parse(values.get("alinha-applications-v1"))[0].responseReceived, true);
+  assert.equal(requests.filter(([, method]) => method === "PUT").length, 2);
+  assert.equal(requests.at(-1)[1], "DELETE");
+});

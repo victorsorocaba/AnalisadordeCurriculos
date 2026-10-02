@@ -2,7 +2,7 @@
 
 import base64
 import hashlib
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from uuid import uuid4
 
 from fastapi.testclient import TestClient
@@ -29,8 +29,9 @@ def sample_version() -> dict:
 
 
 class FakeConnection:
-    def __init__(self, rows=()):
+    def __init__(self, rows=(), one=None):
         self.rows = rows
+        self.one = one
         self.calls = []
 
     def __enter__(self):
@@ -45,6 +46,15 @@ class FakeConnection:
 
     def fetchall(self):
         return self.rows
+
+    def fetchone(self):
+        return self.one
+
+    def cursor(self):
+        return self
+
+    def executemany(self, sql, params):
+        self.calls.append((sql, params))
 
 
 def test_storage_is_optional_and_private(monkeypatch):
@@ -122,3 +132,33 @@ def test_every_roadmap_has_an_individual_page_and_unique_checklist():
     assert all(len({topic["id"] for section in route["sections"] for topic in section["topics"]}) == 12 for route in data.values())
     assert client.get("/rotas-estudo/backend").status_code == 200
     assert client.get("/rotas-estudo/unknown-route").status_code == 404
+
+
+def test_job_applications_validate_and_scope_profile(monkeypatch):
+    application_id = uuid4()
+    record = {
+        "company": "Empresa ABC", "role": "Desenvolvedor Backend", "source": "LinkedIn",
+        "vacancyUrl": "https://example.com/vaga", "appliedOn": "2026-10-02",
+        "responseReceived": False, "notes": "",
+    }
+    fake = FakeConnection(rows=[(application_id, "Empresa ABC", "Desenvolvedor Backend", "LinkedIn",
+                                "https://example.com/vaga", date(2026, 10, 2), False, "")], one=(application_id,))
+    monkeypatch.setattr(storage, "_connect", lambda: fake)
+    headers = {"X-Profile-Key": KEY}
+    assert client.get("/api/storage/applications").status_code == 401
+    assert client.post("/api/storage/applications", headers=headers, json={**record, "company": " "}).status_code == 422
+    assert client.post("/api/storage/applications", headers=headers, json={**record, "vacancyUrl": "javascript:alert(1)"}).status_code == 422
+    assert client.get("/candidaturas").status_code == 200
+    assert client.get("/api/storage/applications", headers=headers).json()[0]["appliedOn"] == "2026-10-02"
+    assert fake.calls[-1][1] == (hashlib.sha256(KEY.encode()).hexdigest(),)
+    created = client.post("/api/storage/applications", headers=headers, json=record)
+    assert created.status_code == 201
+    assert fake.calls[-1][1][1] == hashlib.sha256(KEY.encode()).hexdigest()
+    updated = client.put(f"/api/storage/applications/{application_id}", headers=headers,
+                         json={**record, "responseReceived": True})
+    assert updated.status_code == 200
+    assert updated.json()["responseReceived"] is True
+    assert fake.calls[-1][1][-1] == hashlib.sha256(KEY.encode()).hexdigest()
+    deleted = client.delete(f"/api/storage/applications/{application_id}", headers=headers)
+    assert deleted.status_code == 204
+    assert fake.calls[-1][1] == (application_id, hashlib.sha256(KEY.encode()).hexdigest())
