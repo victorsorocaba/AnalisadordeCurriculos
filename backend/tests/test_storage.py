@@ -142,7 +142,8 @@ def test_job_applications_validate_and_scope_profile(monkeypatch):
         "responseReceived": False, "notes": "",
     }
     fake = FakeConnection(rows=[(application_id, "Empresa ABC", "Desenvolvedor Backend", "LinkedIn",
-                                "https://example.com/vaga", date(2026, 10, 2), False, "")], one=(application_id,))
+                                "https://example.com/vaga", date(2026, 10, 2), False, "",
+                                "applied", None, "", "", None, "", "", "", "")], one=(application_id,))
     monkeypatch.setattr(storage, "_connect", lambda: fake)
     headers = {"X-Profile-Key": KEY}
     assert client.get("/api/storage/applications").status_code == 401

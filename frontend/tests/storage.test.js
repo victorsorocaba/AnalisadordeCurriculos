@@ -12,6 +12,7 @@ function environment(initial, fetch) {
   const localStorage = {
     getItem: (key) => values.get(key) ?? null,
     setItem: (key, value) => values.set(key, String(value)),
+    removeItem: (key) => values.delete(key),
   };
   const window = {};
   vm.runInNewContext(source, { window, localStorage, crypto: crypto.webcrypto, btoa, fetch });
@@ -37,6 +38,20 @@ test("imports previous browser versions once and keeps a local copy", async () =
   assert.equal(requests.filter(([, method]) => method === "POST").length, 1);
   assert.equal(requests[1][0], "/api/storage/versions");
   assert.equal(JSON.parse(values.get("alinha-versions-v1"))[0].id, "old-version");
+});
+
+test("account session switches profiles without importing another browser cache", async () => {
+  const requests = [];
+  const { storage, values } = environment({ "alinha-versions-v1": '[{"id":"local"}]' }, async (url, options = {}) => {
+    requests.push([url, options]);
+    if (url.endsWith("/status")) return response({ enabled: true });
+    return response([]);
+  });
+  storage.setSession("session-secret");
+  assert.equal(values.has("alinha-versions-v1"), false);
+  assert.deepEqual(await storage.readyVersions(), []);
+  assert.equal(requests.filter(([, options]) => options.method === "POST").length, 0);
+  assert.equal(requests.at(-1)[1].headers["X-Session-Token"], "session-secret");
 });
 
 test("failed import retains browser data and does not mark it complete", async () => {
@@ -107,5 +122,6 @@ test("application history imports once and writes changes to the server", async 
   assert.equal(JSON.parse(values.get("alinha-applications-v1")).length, 1);
   assert.equal(JSON.parse(values.get("alinha-applications-v1"))[0].responseReceived, true);
   assert.equal(requests.filter(([, method]) => method === "PUT").length, 2);
+  assert.equal(JSON.parse(requests.find(([url, method]) => url === "/api/storage/applications" && method === "PUT")[2])[0].vacancyUrl, null);
   assert.equal(requests.at(-1)[1], "DELETE");
 });

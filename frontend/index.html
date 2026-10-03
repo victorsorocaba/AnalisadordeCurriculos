@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/assets/styles.css?v=applications-1" />
     <script src="/assets/storage.js?v=applications-1" defer></script>
     <script src="/assets/roadmap-keywords.js?v=study-keywords-1" defer></script>
+    <script src="/assets/study-recommendations.js?v=1" defer></script>
     <script src="/assets/app.js?v=applications-1" defer></script>
   </head>
   <body>
@@ -69,6 +70,7 @@
           <section id="details" class="details-section" hidden>
             <div class="section-heading"><div><div class="section-kicker">ANÁLISE EXPLICADA</div><h2>Por que este resultado?</h2><p>Trechos confirmados no currículo e pontos da vaga sem evidência.</p></div></div>
             <div class="evidence-grid"><article class="detail-card"><h3>O que já combina</h3><ul id="matches-list"></ul></article><article class="detail-card"><h3>O que falta demonstrar</h3><ul id="gaps-list"></ul></article></div>
+            <section id="learning-recommendations" class="applications-panel learning-recommendations" hidden><div class="section-kicker">PLANO DE EVOLUÇÃO</div><h3>Do requisito à próxima habilidade</h3><p>Se você já domina um assunto, acrescente uma evidência real ao currículo. Se ainda não domina, use a rota para estudar e marque seu progresso.</p><div id="learning-routes" class="learning-routes"></div><div id="learning-certifications" class="learning-certifications"></div></section>
             <div class="section-heading editor-heading"><div><div class="section-kicker">EDIÇÃO</div><h2>Ajuste sua versão</h2><p>Edite o conteúdo abaixo e atualize a prévia. O PDF e o LaTeX usam estes mesmos dados.</p></div></div>
             <div class="editor-grid"><article class="detail-card editor-card"><div id="draft-fields"></div><div class="editor-actions"><button id="tailor-resume" class="primary-button" type="button">Deixar currículo pronto pra vaga</button><button id="refresh-preview" class="outline-button" type="button">Atualizar prévia em PDF</button><button id="save-version" class="outline-button" type="button">Salvar versão neste navegador</button><a href="/certificacoes" class="outline-button">Ver certificações para este perfil ↗</a></div><p id="tailor-status" class="editor-status" role="status" aria-live="polite"></p><p id="render-error" class="form-error" role="alert" hidden></p><p class="privacy-note">A IA prioriza informações do currículo e palavras-chave com evidência. Revise o texto antes de se candidatar; nenhum currículo garante aprovação em filtros ATS. O histórico fica neste navegador. Evite salvá-lo em um computador compartilhado.</p></article><article class="detail-card preview-card"><div class="preview-heading"><h3>Prévia do currículo</h3><button id="download-pdf" class="download-button" type="button" disabled>↓ Baixar PDF</button></div><div id="pdf-preview" class="pdf-pages" role="region" aria-label="Prévia do currículo em PDF"></div><p id="preview-status">A prévia será gerada após a análise.</p></article></div>
           </section>

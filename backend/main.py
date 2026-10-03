@@ -20,10 +20,8 @@ Validation pipeline (executed in this exact order to honor Requirement 1.8):
     9. AI error/timeout                     -> 502 (Req 4.6)
    10. AI output fails validation           -> 502 (Req 5.5)
 
-SECURITY NOTE: This endpoint is intentionally UNAUTHENTICATED per the design.
-Because each successful request triggers a paid AI provider call, authentication
-and rate limiting MUST be added before any public deployment to prevent abuse
-and uncontrolled cost.
+The optional access code and per-process rate limits protect paid endpoints in
+local operation. Public deployment requires persistent shared rate limiting.
 """
 
 from __future__ import annotations
@@ -41,12 +39,15 @@ from starlette.concurrency import run_in_threadpool
 
 from backend.models.schemas import AnalysisResult
 from backend.storage import router as storage_router
+from backend.accounts import router as account_router
 from backend.models.detailed import DetailedAnalysis, RenderedResume, ResumeDraft, TailorRequest
 from backend.models.jobs import JobSearchRequest, JobSearchResult
 from backend.services.detailed_service import analyze_detailed
 from backend.services.resume_renderer import RenderError, render_resume
 from backend.services.job_search import search_jobs
 from backend.services.certifications import CATALOG as CERTIFICATION_CATALOG, recommend_certifications
+from backend.services.application_materials import MaterialsRequest, MaterialsResult, generate_materials
+from backend.services.job_import import ImportRequest, import_job
 from backend.services.ai_service import (
     AICallError,
     AIKeyMissingError,
@@ -76,6 +77,7 @@ SUPPORTED_CONTENT_TYPES = ("application/pdf", "text/plain")
 
 app = FastAPI(title="Resume Analyzer + LaTeX Generator")
 app.include_router(storage_router)
+app.include_router(account_router)
 FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
 app.mount("/assets", StaticFiles(directory=FRONTEND_DIR), name="assets")
 _rate_lock = threading.Lock()
@@ -84,13 +86,31 @@ _rate_events: dict[tuple[str, str], list[float]] = {}
 
 @app.middleware("http")
 async def protect_paid_endpoints(request: Request, call_next):
-    if request.method == "POST" and request.url.path in {"/api/analyze", "/api/analyze/detailed", "/api/tailor", "/api/render", "/api/jobs/search", "/api/certifications/recommend"}:
+    if request.method == "POST" and request.url.path == "/api/jobs/import":
+        key = (request.client.host if request.client else "unknown", "import")
+        now = time.monotonic()
+        with _rate_lock:
+            recent = [stamp for stamp in _rate_events.get(key, []) if now - stamp < 3600]
+            if len(recent) >= 30:
+                return JSONResponse({"detail": "Limite de importações atingido. Tente mais tarde."}, status_code=429)
+            recent.append(now)
+            _rate_events[key] = recent
+    if request.method == "POST" and request.url.path in {"/api/account/login", "/api/account/register"}:
+        key = (request.client.host if request.client else "unknown", "account")
+        now = time.monotonic()
+        with _rate_lock:
+            recent = [stamp for stamp in _rate_events.get(key, []) if now - stamp < 900]
+            if len(recent) >= 10:
+                return JSONResponse({"detail": "Muitas tentativas de acesso. Aguarde 15 minutos."}, status_code=429)
+            recent.append(now)
+            _rate_events[key] = recent
+    if request.method == "POST" and request.url.path in {"/api/analyze", "/api/analyze/detailed", "/api/tailor", "/api/render", "/api/jobs/search", "/api/jobs/import", "/api/certifications/recommend", "/api/applications/materials"}:
         access_token = os.getenv("APP_ACCESS_TOKEN", "").strip()
         if access_token:
             supplied = request.headers.get("X-Access-Token", "")
             if not secrets.compare_digest(supplied, access_token):
                 return JSONResponse({"detail": "Código de acesso inválido ou ausente."}, status_code=401)
-            kind = "certs" if request.url.path == "/api/certifications/recommend" else "jobs" if request.url.path == "/api/jobs/search" else "render" if request.url.path == "/api/render" else "analysis"
+            kind = "certs" if request.url.path == "/api/certifications/recommend" else "jobs" if request.url.path in {"/api/jobs/search", "/api/jobs/import"} else "render" if request.url.path == "/api/render" else "analysis"
             limit = {"analysis": 10, "render": 60, "jobs": 30, "certs": 30}[kind]
             key = (request.client.host if request.client else "unknown", kind)
             now = time.monotonic()
@@ -135,6 +155,11 @@ async def certifications_page() -> FileResponse:
 @app.get("/candidaturas", include_in_schema=False)
 async def applications_page() -> FileResponse:
     return FileResponse(FRONTEND_DIR / "applications.html")
+
+
+@app.get("/conta", include_in_schema=False)
+async def account_page() -> FileResponse:
+    return FileResponse(FRONTEND_DIR / "account.html")
 
 
 @app.post("/api/certifications/recommend")
@@ -370,3 +395,20 @@ async def tailor_endpoint(request: TailorRequest) -> DetailedAnalysis:
 @app.post("/api/jobs/search", response_model=JobSearchResult)
 async def jobs_search_endpoint(request: JobSearchRequest) -> JobSearchResult:
     return await search_jobs(request)
+
+
+@app.post("/api/jobs/import")
+async def jobs_import_endpoint(request: ImportRequest) -> dict:
+    return await import_job(request.url)
+
+
+@app.post("/api/applications/materials", response_model=MaterialsResult)
+async def application_materials_endpoint(request: MaterialsRequest) -> MaterialsResult:
+    try:
+        return await generate_materials(request)
+    except AIKeyMissingError as exc:
+        raise HTTPException(500, "Configure a chave de API do provedor de IA.") from exc
+    except AICallError as exc:
+        raise HTTPException(502, "O provedor de IA não concluiu a preparação.") from exc
+    except AIValidationError as exc:
+        raise HTTPException(502, "A resposta da IA não passou na validação.") from exc

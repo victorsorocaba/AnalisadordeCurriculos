@@ -5,6 +5,7 @@
   const ROADMAPS = "alinha-roadmaps-v1";
   const TOPICS = "alinha-topic-progress-v1";
   const APPLICATIONS = "alinha-applications-v1";
+  const SESSION = "alinha-session-v1";
   let enabled = false;
   let checked = false;
   let versionsPromise;
@@ -34,7 +35,7 @@
   async function request(path, method = "GET", body) {
     const response = await fetch(`/api/storage${path}`, {
       method,
-      headers: { "X-Profile-Key": profileKey(), ...(body === undefined ? {} : { "Content-Type": "application/json" }) },
+      headers: { "X-Profile-Key": profileKey(), ...(localStorage.getItem(SESSION) ? { "X-Session-Token": localStorage.getItem(SESSION) } : {}), ...(body === undefined ? {} : { "Content-Type": "application/json" }) },
       ...(body === undefined ? {} : { body: JSON.stringify(body) }),
     });
     if (!response.ok) {
@@ -47,7 +48,7 @@
 
   async function loadVersions() {
     if (!await status()) return null;
-    if (localStorage.getItem(`${VERSIONS}-imported`) !== "1") {
+    if (!localStorage.getItem(SESSION) && localStorage.getItem(`${VERSIONS}-imported`) !== "1") {
       const local = JSON.parse(localStorage.getItem(VERSIONS) || "[]");
       if (Array.isArray(local)) for (const entry of local) await request("/versions", "POST", entry);
       localStorage.setItem(`${VERSIONS}-imported`, "1");
@@ -73,7 +74,7 @@
 
   async function loadRoadmaps() {
     if (!await status()) return null;
-    if (localStorage.getItem(`${ROADMAPS}-imported`) !== "1") {
+    if (!localStorage.getItem(SESSION) && localStorage.getItem(`${ROADMAPS}-imported`) !== "1") {
       const local = JSON.parse(localStorage.getItem(ROADMAPS) || "{}");
       await request("/roadmaps", "PUT", local);
       localStorage.setItem(`${ROADMAPS}-imported`, "1");
@@ -104,7 +105,7 @@
 
   async function loadTopics() {
     if (!await status()) return localTopics();
-    if (localStorage.getItem(`${TOPICS}-imported`) !== "1") {
+    if (!localStorage.getItem(SESSION) && localStorage.getItem(`${TOPICS}-imported`) !== "1") {
       await request("/topics", "PUT", localTopics());
       localStorage.setItem(`${TOPICS}-imported`, "1");
     }
@@ -141,8 +142,8 @@
 
   async function loadApplications() {
     if (!await status()) return localApplications();
-    if (localStorage.getItem(`${APPLICATIONS}-imported`) !== "1") {
-      await request("/applications", "PUT", localApplications());
+    if (!localStorage.getItem(SESSION) && localStorage.getItem(`${APPLICATIONS}-imported`) !== "1") {
+      await request("/applications", "PUT", localApplications().map((item) => ({ ...item, vacancyUrl: item.vacancyUrl || null })));
       localStorage.setItem(`${APPLICATIONS}-imported`, "1");
     }
     const applications = await request("/applications");
@@ -186,5 +187,33 @@
     localStorage.setItem(APPLICATIONS, JSON.stringify(entries));
   }
 
-  window.AlinhaStorage = { readyVersions, saveVersion, deleteVersion, readyRoadmaps, setRoadmap, readyTopics, setTopic, readyApplications, saveApplication, updateApplication, deleteApplication, get enabled() { return enabled; } };
+  function setSession(token) {
+    if (token) localStorage.setItem(SESSION, token);
+    else localStorage.removeItem(SESSION);
+    for (const key of [VERSIONS, ROADMAPS, TOPICS, APPLICATIONS]) {
+      localStorage.removeItem(key);
+      localStorage.removeItem(`${key}-imported`);
+    }
+    if (typeof sessionStorage !== "undefined") {
+      for (const key of ["alinha-working-analysis-v1", "alinha-roadmap-keywords-pending-v1", "alinha-cert-profile-v1", "alinha-learning-gaps-v1", "alinha-application-prefill-v1"]) sessionStorage.removeItem(key);
+    }
+    versionsPromise = roadmapsPromise = topicsPromise = applicationsPromise = undefined;
+  }
+
+  function sessionToken() { return localStorage.getItem(SESSION) || ""; }
+
+  window.AlinhaStorage = { readyVersions, saveVersion, deleteVersion, readyRoadmaps, setRoadmap, readyTopics, setTopic, readyApplications, saveApplication, updateApplication, deleteApplication, profileKey, setSession, sessionToken, get enabled() { return enabled; } };
+
+  const nav = typeof document !== "undefined" ? document.querySelector(".side-nav") : null;
+  if (nav && !nav.querySelector('a[href="/conta"]')) {
+    const account = document.createElement("a");
+    account.href = "/conta";
+    account.className = `nav-link${location.pathname === "/conta" ? " active" : ""}`;
+    const icon = document.createElement("span");
+    icon.className = "nav-icon";
+    icon.setAttribute("aria-hidden", "true");
+    icon.textContent = "◎";
+    account.append(icon, document.createTextNode("Minha conta"));
+    nav.append(account);
+  }
 }());

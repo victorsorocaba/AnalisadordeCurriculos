@@ -19,6 +19,46 @@ let analysis = null;
 let generatedLatex = "";
 let pdfUrl = null;
 let lastRenderedDraft = "";
+let learningRequest = 0;
+
+async function updateLearningRecommendations(data) {
+  const sequence = ++learningRequest;
+  const panel = $("learning-recommendations");
+  const routes = $("learning-routes");
+  const certifications = $("learning-certifications");
+  routes.replaceChildren(); certifications.replaceChildren();
+  panel.hidden = !data.gaps.length;
+  if (!data.gaps.length) return;
+  try { sessionStorage.setItem("alinha-learning-gaps-v1", JSON.stringify(data.gaps)); } catch { /* Current analysis remains visible. */ }
+  const waiting = document.createElement("p"); waiting.textContent = "Buscando rotas relacionadas aos requisitos..."; routes.append(waiting);
+  try {
+    const suggestions = await AlinhaStudyRecommendations.load(data.gaps);
+    if (sequence !== learningRequest) return;
+    routes.replaceChildren();
+    if (!suggestions.length) {
+      const fallback = document.createElement("a"); fallback.href = "/rotas-estudo"; fallback.textContent = "Explorar todas as rotas de estudo ↗"; routes.append(fallback);
+    }
+    for (const item of suggestions) {
+      const card = document.createElement("div"); card.className = "learning-card";
+      const link = document.createElement("a"); link.href = `/rotas-estudo/${encodeURIComponent(item.roadmap.id)}`; link.textContent = `${item.roadmap.title} ↗`;
+      const detail = document.createElement("p");
+      detail.textContent = item.topics.length ? `Comece por: ${item.topics.map((topic) => topic.title).join("; ")}` : `Termos relacionados: ${item.matched.join(", ") || item.roadmap.title}`;
+      card.append(link, detail); routes.append(card);
+    }
+  } catch { if (sequence === learningRequest) routes.textContent = "Não foi possível carregar as rotas agora."; }
+  try {
+    const result = await requestJson("/api/certifications/recommend", { method: "POST", body: (() => {
+      const form = new FormData(); form.set("goal", data.gaps.join("; ").slice(0, 200)); return form;
+    })() });
+    if (sequence !== learningRequest) return;
+    if (result.recommendations.length) {
+      const title = document.createElement("h4"); title.textContent = "Certificações relacionadas"; certifications.append(title);
+      for (const item of result.recommendations.slice(0, 3)) {
+        const link = document.createElement("a"); link.href = item.url; link.target = "_blank"; link.rel = "noopener noreferrer"; link.textContent = `${item.title} ↗`; certifications.append(link);
+      }
+    }
+  } catch { /* Routes remain useful without certification suggestions. */ }
+}
 
 function message(id, text) {
   const box = $(id);
@@ -174,6 +214,7 @@ function showAnalysis(data, scrollToResults = true) {
   if (!data.matches.length) appendTextItem(matches, "Nenhum trecho foi confirmado automaticamente.");
   else for (const match of data.matches) appendTextItem(matches, match.requirement, `“${match.excerpt}”`);
   fillList("gaps-list", data.gaps, "Nenhum requisito ausente foi identificado.");
+  void updateLearningRecommendations(data);
   buildEditor();
   const importedKeywords = applyPendingRoadmapKeywords();
   updateJobsProfile();
@@ -394,7 +435,7 @@ AlinhaStorage.readyVersions().then((versions) => {
   $("save-version").textContent = "Salvar versão";
   document.querySelector("#history-section .section-kicker").textContent = "SALVO NO SERVIDOR";
   document.querySelector("#history-section .section-heading p").textContent = "Recupere versões anteriores ou compare duas análises. Os dados ficam no PostgreSQL deste servidor.";
-  document.querySelector(".editor-card .privacy-note").textContent = "A IA usa informações com evidência. Revise o texto antes de se candidatar; filtros ATS não garantem aprovação. As versões salvas ficam no PostgreSQL deste servidor. Guarde o acesso a este navegador.";
+  document.querySelector(".editor-card .privacy-note").textContent = "A IA usa informações com evidência. Revise o texto antes de se candidatar; filtros ATS não garantem aprovação. As versões salvas ficam no PostgreSQL deste servidor. Para acessá-las em outros dispositivos, crie uma conta.";
   restorePendingRoadmapKeywords();
 }).catch((error) => {
   document.querySelector("#history-section .section-heading p").textContent = `Não foi possível sincronizar o PostgreSQL: ${error.message}. As versões anteriores continuam neste navegador.`;
@@ -446,6 +487,7 @@ function makeJobCard(job) {
         company: String(job.company || "").slice(0, 160),
         source: String(job.source || "").slice(0, 120),
         vacancyUrl: link.href || "",
+        jobDescription: String(job.description || "").slice(0, 20000),
       }));
     } catch { /* The form remains available for manual entry. */ }
     location.href = "/candidaturas";

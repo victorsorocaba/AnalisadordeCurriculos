@@ -25,3 +25,14 @@ test("counts applications by selected month and by day", () => {
   assert.deepEqual(Array.from(october.daily, (item) => [item.date, item.count]), [["2026-10-02", 1], ["2026-10-01", 2]]);
   assert.deepEqual(Array.from(october.monthly, (item) => [item.month, item.count]), [["2026-10", 3], ["2026-09", 1]]);
 });
+
+test("saved jobs appear in records but do not inflate application counts", () => {
+  const result = summarize([
+    { appliedOn: "2026-10-02", status: "saved", responseReceived: false },
+    { appliedOn: "2026-10-02", status: "applied", responseReceived: true },
+  ], "2026-10");
+  assert.equal(result.total, 1);
+  assert.equal(result.periodSaved, 1);
+  assert.equal(result.period.length, 2);
+  assert.equal(result.responses, 1);
+});
