@@ -389,7 +389,32 @@ async def tailor_endpoint(request: TailorRequest) -> DetailedAnalysis:
     for field in ("experience", "projects"):
         if not getattr(draft, field).strip():
             setattr(result.draft, field, "")
-    return result
+    # The first score evaluates the input draft. Evaluate the generated version
+    # before showing a new score to the candidate.
+    generated_source = "\n".join(
+        f"{label}: {getattr(result.draft, field)}"
+        for field, label in (
+            ("name", "Nome"), ("contact", "Contato"), ("headline", "Título"),
+            ("summary", "Resumo"), ("experience", "Experiência"),
+            ("education", "Formação"), ("skills", "Habilidades"),
+            ("projects", "Projetos"),
+        )
+    )
+    try:
+        assessment = await analyze_detailed(generated_source, request.job_description)
+    except AIKeyMissingError as exc:
+        raise HTTPException(500, "Configure a chave de API do provedor de IA.") from exc
+    except AICallError as exc:
+        raise HTTPException(502, "O provedor de IA não concluiu a avaliação da nova versão.") from exc
+    except AIValidationError as exc:
+        raise HTTPException(502, "A avaliação da nova versão não passou na validação.") from exc
+    return DetailedAnalysis(
+        percentage=assessment.percentage,
+        improvements=assessment.improvements,
+        matches=assessment.matches,
+        gaps=assessment.gaps,
+        draft=result.draft,
+    )
 
 
 @app.post("/api/jobs/search", response_model=JobSearchResult)

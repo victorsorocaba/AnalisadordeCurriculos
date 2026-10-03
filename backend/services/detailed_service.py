@@ -43,6 +43,9 @@ def _prompt(resume_text: str, job_description: str, projects: str, tailor_mode: 
         "usando termos naturais em resumo, experiência e projetos. Não repita "
         "palavras-chave artificialmente, não acrescente requisitos sem evidência "
         "e não copie a descrição da vaga como experiência do candidato. "
+        "Busque a maior aderência possível, com meta acima de 90%, somente quando "
+        "os fatos comprovados sustentarem essa pontuação. Não aumente o "
+        "percentual apenas para atingir a meta. "
         "Em gaps, mostre requisitos importantes que não são comprovados. "
         if tailor_mode else ""
     )

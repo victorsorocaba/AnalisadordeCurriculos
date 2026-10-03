@@ -197,6 +197,7 @@ function showAnalysis(data, scrollToResults = true) {
   }
   analysis = data;
   $("tailor-status").textContent = "";
+  $("ideal-resume-status").textContent = "";
   lastRenderedDraft = "";
   generatedLatex = "";
   if (pdfUrl) { URL.revokeObjectURL(pdfUrl); pdfUrl = null; }
@@ -219,6 +220,7 @@ function showAnalysis(data, scrollToResults = true) {
   const importedKeywords = applyPendingRoadmapKeywords();
   updateJobsProfile();
   $("results").hidden = false;
+  $("ideal-resume-panel").hidden = false;
   $("details").hidden = false;
   if (importedKeywords) document.querySelector(".editor-heading").scrollIntoView({ behavior: "smooth", block: "start" });
   else if (scrollToResults) $("results").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -274,6 +276,7 @@ form.addEventListener("submit", async (event) => {
   if (!selectedFile) return message("form-error", "Envie seu currículo para continuar.");
   if (!jobInput.value.trim()) return message("form-error", "Cole a descrição da vaga para continuar.");
   $("results").hidden = true;
+  $("ideal-resume-panel").hidden = true;
   $("details").hidden = true;
   const body = new FormData();
   const mime = selectedFile.name.toLowerCase().endsWith(".pdf") ? "application/pdf" : "text/plain";
@@ -290,15 +293,20 @@ form.addEventListener("submit", async (event) => {
 });
 
 $("refresh-preview").addEventListener("click", refreshPreview);
-$("tailor-resume").addEventListener("click", async () => {
+async function tailorResume() {
   message("render-error", "");
   const status = $("tailor-status");
+  const resultStatus = $("ideal-resume-status");
   if (!analysis) return;
   if (!jobInput.value.trim()) return message("render-error", "Informe a descrição da vaga antes de preparar o currículo.");
-  const button = $("tailor-resume");
-  button.disabled = true;
-  button.textContent = "Preparando currículo...";
+  const editorButton = $("tailor-resume");
+  const resultButton = $("generate-ideal-resume");
+  editorButton.disabled = true;
+  resultButton.disabled = true;
+  editorButton.textContent = "Preparando currículo...";
+  resultButton.textContent = "Preparando currículo...";
   status.textContent = "Adaptando o currículo à vaga...";
+  resultStatus.textContent = "Adaptando e reavaliando a nova versão...";
   try {
     const tailored = await requestJson("/api/tailor", {
       method: "POST", headers: { "Content-Type": "application/json" },
@@ -306,15 +314,27 @@ $("tailor-resume").addEventListener("click", async () => {
     });
     showAnalysis(tailored, false);
     const rendered = await refreshPreview();
-    status.textContent = rendered
-      ? "Versão preparada e prévia atualizada. Revise as informações e salve esta versão se desejar."
-      : "Versão preparada. Revise as informações e tente atualizar a prévia novamente.";
+    const scoreMessage = tailored.percentage > 90
+      ? `Nova pontuação estimada: ${tailored.percentage}%. Meta acima de 90% atingida nesta avaliação; isso não garante aprovação na seleção.`
+      : `Nova pontuação estimada: ${tailored.percentage}%. A meta acima de 90% ainda não foi atingida; confira os requisitos sem evidência acima.`;
+    resultStatus.textContent = scoreMessage;
+    status.textContent = `${scoreMessage} ${rendered
+      ? "Prévia atualizada. Revise os dados e salve esta versão se desejar."
+      : "Tente atualizar a prévia novamente."}`;
     document.querySelector(".editor-heading").scrollIntoView({ behavior: "smooth", block: "start" });
   } catch (error) {
     status.textContent = "";
+    resultStatus.textContent = "Não foi possível gerar ou reavaliar a versão. Tente novamente.";
     message("render-error", error.message);
-  } finally { button.disabled = false; button.textContent = "Deixar currículo pronto pra vaga"; }
-});
+  } finally {
+    editorButton.disabled = false;
+    resultButton.disabled = false;
+    editorButton.textContent = "Deixar currículo pronto pra vaga";
+    resultButton.textContent = "Gerar currículo ideal para esta vaga ↗";
+  }
+}
+$("tailor-resume").addEventListener("click", tailorResume);
+$("generate-ideal-resume").addEventListener("click", tailorResume);
 $("download-pdf").addEventListener("click", () => { if (pdfUrl) downloadUrl(pdfUrl, "curriculo-alinhado.pdf"); });
 function downloadUrl(url, name) {
   const link = document.createElement("a"); link.href = url; link.download = name; link.click();
@@ -331,7 +351,7 @@ $("copy-latex").addEventListener("click", async () => {
   catch { message("render-error", "Não foi possível copiar automaticamente. Selecione o código abaixo."); }
 });
 $("new-analysis").addEventListener("click", () => {
-  $("results").hidden = true; $("details").hidden = true;
+  $("results").hidden = true; $("ideal-resume-panel").hidden = true; $("details").hidden = true;
   $("nova-analise").scrollIntoView({ behavior: "smooth" }); jobInput.focus();
 });
 
