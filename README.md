@@ -57,8 +57,8 @@ python -m uvicorn backend.main:app --reload --port 8000
 4. Revise o percentual estimado, os trechos encontrados e os requisitos sem evidência.
 5. Revise as experiências escritas com o método STAR (contexto, tarefa, ação e resultado). Em **Ajuste sua versão**, use **Deixar currículo pronto pra vaga** para adaptar o texto à vaga com palavras-chave sustentadas pelo currículo, ou edite os campos manualmente. Atualize a prévia e baixe o PDF compilado ou o arquivo `.tex`.
 6. Se quiser, salve uma versão. Com PostgreSQL configurado, ela fica no banco; caso contrário, permanece no navegador. É possível recuperar e comparar duas versões salvas.
-7. Em **Vagas para você**, busque oportunidades usando a versão atual ou a última versão salva. Filtre por palavra-chave, região e modalidade; abra cada anúncio na plataforma de origem. Se você se candidatar, use **Registrar candidatura** no cartão da vaga para levar cargo, empresa, origem e link ao formulário de acompanhamento.
-8. Em **Minhas candidaturas** (`/candidaturas`), registre cargo, empresa, data e onde encontrou cada vaga. Filtre por mês, confira quantas candidaturas fez em cada dia e marque **Teve retorno** quando a empresa responder.
+7. Em **Vagas para você**, busque oportunidades usando a versão atual ou a última versão salva. Filtre por palavra-chave, região e modalidade; abra cada anúncio na plataforma de origem. Use **Registrar candidatura** para levar cargo, empresa, origem, link e descrição ao acompanhamento como vaga salva.
+8. Em **Minhas candidaturas** (`/candidaturas`), salve vagas e acompanhe a etapa (preparando, enviada, entrevista, proposta e desfecho), data de acompanhamento, contato do recrutador, versão do currículo enviada, descrição da vaga e retorno. O painel mostra candidaturas por dia e mês e os acompanhamentos pendentes. Com uma versão salva vinculada e a descrição da vaga, gere uma carta de apresentação, mensagem ao recrutador e perguntas de entrevista para revisar e salvar.
 9. Abra **Rotas de estudo** em `/rotas-estudo`, escolha uma das 95 rotas e entre na página individual dela. Marque cada assunto aprendido no checklist; o cartão mostra quantos assuntos foram concluídos e a página da rota mostra o progresso em porcentagem. Você pode desmarcar um assunto a qualquer momento. Quando a rota estiver concluída no planejamento ou todos os assuntos estiverem marcados, selecione as palavras-chave que domina e use **Adicionar selecionadas ao currículo**. Elas entram no campo Habilidades da versão editável para revisão.
 10. Abra **Certificações** em `/certificacoes` para ver credenciais relacionadas às habilidades da análise atual ou da última versão salva. Você também pode enviar um PDF/TXT e informar um objetivo profissional.
 
@@ -66,7 +66,9 @@ O currículo e a descrição da vaga são enviados ao provedor de IA configurado
 
 Para gerar a prévia em PDF, instale **MiKTeX** ou **TeX Live** com `xelatex` ou `pdflatex` disponível no PATH. O servidor retorna uma mensagem clara se o compilador não estiver disponível.
 
-Na primeira visita com PostgreSQL ativo, as versões, o planejamento, os checkboxes de estudo e as candidaturas já salvos no navegador são importados para o banco. A cópia local é preservada até a importação terminar e depois serve como cache. Não limpe os dados do navegador antes de confirmar a importação. O acesso a cada perfil usa uma chave aleatória gerada no navegador; o banco guarda apenas o hash dela. Isso isola perfis locais, mas não substitui contas com login para uma publicação pública ou acesso em outro dispositivo.
+Após a análise, **Plano de evolução** relaciona lacunas da vaga com assuntos das rotas e, quando há correspondência no catálogo, certificações. A recomendação é por termos e não substitui uma avaliação do seu domínio real: se você já domina uma habilidade, demonstre-a com uma evidência verdadeira no currículo.
+
+Na primeira visita com PostgreSQL ativo, as versões, o planejamento, os checkboxes de estudo e as candidaturas já salvos no navegador são importados para o banco. A cópia local é preservada até a importação terminar. Em **Minha conta** (`/conta`), é possível criar uma conta com e-mail e senha; o cadastro transfere os dados deste navegador para a conta. Depois, entre com o mesmo login em outros dispositivos. As senhas são armazenadas com scrypt e as sessões usam tokens aleatórios com validade de 30 dias. Não há recuperação de senha por e-mail nesta versão; guarde sua senha. Ao sair, o cache local do perfil é limpo.
 
 ## Fontes de vagas
 
@@ -78,13 +80,15 @@ A afinidade exibida é uma ordenação por palavras e habilidades encontradas no
 
 O botão **Buscar no LinkedIn** abre a busca de vagas do próprio LinkedIn com o termo e a região preenchidos. Ele não importa anúncios para o Alinha nem exige cookies da sessão. O pacote `@florydev/linkedin-api-voyager` não foi integrado: ele usa endpoints internos do LinkedIn e sua interface documentada não oferece busca de vagas.
 
+Em **Minhas candidaturas**, **Importar dados do link** tenta ler metadados públicos de anúncios da Gupy, LinkedIn, Indeed, Glassdoor, Greenhouse, Lever, Remotive e Himalayas. A importação depende dos dados que a plataforma publica na página, pode retornar só parte do anúncio e não usa sessão privada. Revise os campos; para outros sites ou páginas bloqueadas, cole a descrição manualmente. Links externos são restritos a HTTPS e a essa lista de plataformas.
+
 ## Rotas de estudo
 
 O catálogo local em `frontend/roadmaps.json` contém as 95 rotas listadas em [roadmap.sh/roadmaps](https://roadmap.sh/roadmaps/) em 29/09/2026: 31 de carreiras, 55 de habilidades, 4 para iniciantes e 5 de boas práticas. Cada rota tem uma página própria em `/rotas-estudo/{id}` e um checklist original de 12 assuntos, distribuídos em três etapas. Os assuntos editáveis estão em `frontend/study-topics-source.txt`; execute `python scripts/build_study_topics.py` para atualizar o JSON servido ao navegador. As sugestões para currículo estão em `frontend/study-keywords-source.txt`; gere o JSON com `python scripts/build_study_keywords.py`. A página oferece um link para o mapa oficial e seus recursos. O Alinha não replica os mapas completos nem importa progresso da conta roadmap.sh. O planejamento e os checkboxes são salvos por perfil no PostgreSQL quando configurado, com cópia local no navegador. As palavras selecionadas são levadas ao editor por esta aba do navegador; o usuário deve atualizar a prévia e salvar uma nova versão após revisar.
 
 ## Minhas candidaturas
 
-A página `/candidaturas` mantém um registro por vaga com cargo, empresa, origem, data, link e observações opcionais. O checkbox **Teve retorno** pode ser atualizado na lista. O resumo mostra o total geral, o total e os retornos no mês selecionado, e a quantidade de dias com candidaturas; os painéis detalham os envios por dia e por mês. Os registros podem ser editados ou excluídos. Com PostgreSQL configurado, a tabela `job_applications` é criada pela migração 003 e os dados são isolados pela chave do perfil do navegador.
+A página `/candidaturas` mantém cargo, empresa, origem, data, link, etapa, próximo acompanhamento, contato, versão do currículo, descrição, materiais de preparação e observações. O checkbox **Teve retorno** pode ser atualizado na lista. Os registros podem ser editados ou excluídos. A migração 004 adiciona os novos campos à tabela `job_applications` sem remover registros anteriores. Os dados continuam separados por perfil local ou conta autenticada.
 
 ## Certificações
 
@@ -110,7 +114,8 @@ backend/services/              extração de texto e integração com IA
 backend/models/schemas.py      contrato de resposta
 frontend/index.html            estrutura da interface
 frontend/roadmaps.html         página independente de rotas de estudo
-frontend/applications.html     painel de candidaturas e retornos
+frontend/applications.html     painel de candidaturas, etapas e preparação
+frontend/account.html          cadastro e login para sincronização entre dispositivos
 frontend/roadmap-detail.html   página individual com checklist de assuntos
 frontend/study-topics-source.txt  assuntos originais de todas as rotas
 frontend/study-keywords-source.txt  termos sugeridos para o currículo
@@ -122,4 +127,4 @@ frontend/storage.js            sincronização e importação do cache do navega
 
 ## Publicação
 
-Cada análise bem-sucedida faz uma chamada paga ao provedor de IA. Defina `APP_ACCESS_TOKEN` em `.env` para exigir um código de acesso nas rotas pagas e ativar limites em memória de 10 análises e 60 compilações de PDF por IP a cada hora. Esses limites reiniciam com o processo e não são compartilhados entre instâncias. Para publicação pública com vários usuários, use autenticação por usuário e um limitador persistente no gateway ou em armazenamento compartilhado.
+Cada análise e cada geração de materiais faz uma chamada paga ao provedor de IA. Defina `APP_ACCESS_TOKEN` em `.env` para exigir um código de acesso nas rotas pagas e ativar limites em memória de 10 análises e 60 compilações de PDF por IP a cada hora. Esses limites reiniciam com o processo e não são compartilhados entre instâncias. As contas organizam os dados, mas não substituem o código de acesso das rotas pagas. Para publicação pública, acrescente recuperação de senha, verificação de e-mail e limites persistentes compartilhados entre instâncias.

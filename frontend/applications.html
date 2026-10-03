@@ -33,7 +33,7 @@
           <section class="applications-hero" aria-labelledby="applications-title">
             <div class="section-kicker">SUA BUSCA POR TRABALHO</div>
             <h1 id="applications-title">Suas candidaturas, em um só lugar.</h1>
-            <p>Saiba quando se candidatou, onde encontrou a vaga e se recebeu retorno. Os números se atualizam conforme você registra seu histórico.</p>
+            <p>Salve vagas, prepare cada candidatura e acompanhe etapas, contatos, lembretes e retornos. Os números mostram apenas candidaturas enviadas.</p>
           </section>
 
           <div class="applications-stat-grid" aria-label="Resumo de candidaturas">
@@ -47,19 +47,39 @@
             <section class="applications-form-card" aria-labelledby="application-form-title">
               <div class="section-kicker">REGISTRAR</div>
               <h2 id="application-form-title">Nova candidatura</h2>
-              <p>Inclua os dados essenciais para acompanhar esta vaga depois.</p>
+              <p>Registre a vaga antes ou depois de se candidatar e mantenha o histórico completo.</p>
               <form id="application-form">
                 <label for="application-role">Cargo da vaga</label>
                 <input id="application-role" name="role" type="text" maxlength="160" placeholder="Ex.: Desenvolvedor Backend" required />
                 <label for="application-company">Empresa</label>
                 <input id="application-company" name="company" type="text" maxlength="160" placeholder="Ex.: Empresa ABC" required />
-                <label for="application-date">Dia da candidatura</label>
+                <label for="application-date">Data do registro ou candidatura</label>
                 <input id="application-date" name="appliedOn" type="date" required />
                 <label for="application-source">Onde encontrou a vaga</label>
                 <input id="application-source" name="source" type="text" list="application-sources" maxlength="120" placeholder="Ex.: LinkedIn, Gupy ou indicação" required />
                 <datalist id="application-sources"><option value="LinkedIn"></option><option value="Gupy"></option><option value="Indeed"></option><option value="Glassdoor"></option><option value="Catho"></option><option value="Vagas.com.br"></option><option value="Site da empresa"></option><option value="Indicação"></option><option value="Outra plataforma"></option></datalist>
                 <label for="application-url">Link da vaga <span class="optional">opcional</span></label>
                 <input id="application-url" name="vacancyUrl" type="url" maxlength="2000" placeholder="https://..." />
+                <button id="application-import" class="outline-button" type="button">Importar dados do link</button>
+                <label for="application-status">Etapa do processo</label>
+                <select id="application-status" name="status"><option value="saved">Vaga salva</option><option value="applying">Preparando candidatura</option><option value="applied" selected>Candidatura enviada</option><option value="interviewing">Entrevista</option><option value="offer">Proposta recebida</option><option value="accepted">Contratado</option><option value="rejected">Não selecionado</option><option value="withdrawn">Desisti da vaga</option></select>
+                <label for="application-follow-up">Lembrar de acompanhar em <span class="optional">opcional</span></label>
+                <input id="application-follow-up" type="date" />
+                <label for="application-contact-name">Contato do recrutador <span class="optional">opcional</span></label>
+                <input id="application-contact-name" type="text" maxlength="160" placeholder="Nome" />
+                <label for="application-contact-email">E-mail do contato <span class="optional">opcional</span></label>
+                <input id="application-contact-email" type="email" maxlength="254" placeholder="contato@empresa.com" />
+                <label for="application-resume-version">Versão do currículo enviada <span class="optional">opcional</span></label>
+                <select id="application-resume-version"><option value="">Não vinculada</option></select>
+                <label for="application-job-description">Descrição da vaga <span class="optional">para comparar e preparar</span></label>
+                <textarea id="application-job-description" maxlength="20000" rows="6" placeholder="Cole aqui os requisitos e atividades da vaga."></textarea>
+                <div class="application-material-actions"><button id="application-generate" class="outline-button" type="button">Gerar carta, mensagem e treino de entrevista</button><span id="application-generate-status" role="status"></span></div>
+                <label for="application-cover-letter">Carta de apresentação <span class="optional">revisável</span></label>
+                <textarea id="application-cover-letter" maxlength="10000" rows="6"></textarea>
+                <label for="application-recruiter-message">Mensagem ao recrutador <span class="optional">revisável</span></label>
+                <textarea id="application-recruiter-message" maxlength="3000" rows="4"></textarea>
+                <label for="application-interview-prep">Preparação para entrevista <span class="optional">revisável</span></label>
+                <textarea id="application-interview-prep" maxlength="10000" rows="8"></textarea>
                 <label for="application-notes">Observações <span class="optional">opcional</span></label>
                 <textarea id="application-notes" name="notes" maxlength="1000" rows="3" placeholder="Ex.: Enviada pelo site da empresa"></textarea>
                 <label class="application-response-label" for="application-response"><input id="application-response" name="responseReceived" type="checkbox" /><span>Já tive retorno desta candidatura</span></label>
@@ -86,6 +106,7 @@
             <p id="applications-error" class="form-error" role="alert" hidden></p>
             <div id="applications-list" class="applications-list"></div>
           </section>
+          <section class="applications-panel" aria-labelledby="applications-follow-ups-title"><div class="section-kicker">PRÓXIMOS PASSOS</div><h2 id="applications-follow-ups-title">Acompanhamentos pendentes</h2><div id="applications-follow-ups" class="applications-list"></div></section>
           <p class="roadmaps-credit">Seu histórico é separado por perfil neste navegador. Com PostgreSQL configurado, os registros ficam salvos no banco deste servidor.</p>
         </div>
       </main>

@@ -37,6 +37,8 @@ def test_tailor_prompt_uses_only_supported_job_keywords() -> None:
     assert "palavras-chave da vaga que tenham evidência" in prompt
     assert "não acrescente requisitos sem evidência" in prompt
     assert "Em gaps, mostre requisitos importantes" in prompt
+    assert "meta acima de 90%" in prompt
+    assert "Não aumente o percentual" in prompt
 
 
 def test_tailor_endpoint_preserves_candidate_facts() -> None:
@@ -50,7 +52,12 @@ def test_tailor_endpoint_preserves_candidate_facts() -> None:
     result = DetailedAnalysis(
         percentage=72, improvements=[], matches=[], gaps=["AWS sem evidência"], draft=tailored,
     )
-    with patch("backend.main.analyze_detailed", new=AsyncMock(return_value=result)) as mocked:
+    assessment = DetailedAnalysis(
+        percentage=91, improvements=["Detalhar resultados."],
+        matches=[{"requirement": "Python", "excerpt": "Python"}],
+        gaps=["AWS sem evidência"], draft=sample_draft(),
+    )
+    with patch("backend.main.analyze_detailed", new=AsyncMock(side_effect=[result, assessment])) as mocked:
         response = client.post("/api/tailor", json={
             "draft": original.model_dump(), "job_description": "Python e AWS",
         })
@@ -62,7 +69,28 @@ def test_tailor_endpoint_preserves_candidate_facts() -> None:
     assert output["draft"]["skills"] == original.skills
     assert output["draft"]["summary"] == tailored.summary
     assert output["gaps"] == ["AWS sem evidência"]
-    assert mocked.await_args.kwargs["tailor_mode"] is True
+    assert output["percentage"] == 91
+    assert output["improvements"] == ["Detalhar resultados."]
+    assert mocked.await_count == 2
+    assert mocked.await_args_list[0].kwargs["tailor_mode"] is True
+    assert mocked.await_args_list[1].args[0].find(tailored.summary) >= 0
+
+
+def test_tailor_keeps_honest_score_below_target() -> None:
+    draft = sample_draft()
+    generation = DetailedAnalysis(
+        percentage=95, improvements=[], matches=[], gaps=[], draft=draft,
+    )
+    assessment = DetailedAnalysis(
+        percentage=64, improvements=[], matches=[], gaps=["AWS"], draft=draft,
+    )
+    with patch("backend.main.analyze_detailed", new=AsyncMock(side_effect=[generation, assessment])):
+        response = client.post("/api/tailor", json={
+            "draft": draft.model_dump(), "job_description": "Python e AWS",
+        })
+    assert response.status_code == 200
+    assert response.json()["percentage"] == 64
+    assert response.json()["gaps"] == ["AWS"]
 
 
 def test_tailor_endpoint_validates_job_and_access_token(monkeypatch) -> None:

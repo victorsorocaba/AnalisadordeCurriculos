@@ -19,6 +19,46 @@ let analysis = null;
 let generatedLatex = "";
 let pdfUrl = null;
 let lastRenderedDraft = "";
+let learningRequest = 0;
+
+async function updateLearningRecommendations(data) {
+  const sequence = ++learningRequest;
+  const panel = $("learning-recommendations");
+  const routes = $("learning-routes");
+  const certifications = $("learning-certifications");
+  routes.replaceChildren(); certifications.replaceChildren();
+  panel.hidden = !data.gaps.length;
+  if (!data.gaps.length) return;
+  try { sessionStorage.setItem("alinha-learning-gaps-v1", JSON.stringify(data.gaps)); } catch { /* Current analysis remains visible. */ }
+  const waiting = document.createElement("p"); waiting.textContent = "Buscando rotas relacionadas aos requisitos..."; routes.append(waiting);
+  try {
+    const suggestions = await AlinhaStudyRecommendations.load(data.gaps);
+    if (sequence !== learningRequest) return;
+    routes.replaceChildren();
+    if (!suggestions.length) {
+      const fallback = document.createElement("a"); fallback.href = "/rotas-estudo"; fallback.textContent = "Explorar todas as rotas de estudo ↗"; routes.append(fallback);
+    }
+    for (const item of suggestions) {
+      const card = document.createElement("div"); card.className = "learning-card";
+      const link = document.createElement("a"); link.href = `/rotas-estudo/${encodeURIComponent(item.roadmap.id)}`; link.textContent = `${item.roadmap.title} ↗`;
+      const detail = document.createElement("p");
+      detail.textContent = item.topics.length ? `Comece por: ${item.topics.map((topic) => topic.title).join("; ")}` : `Termos relacionados: ${item.matched.join(", ") || item.roadmap.title}`;
+      card.append(link, detail); routes.append(card);
+    }
+  } catch { if (sequence === learningRequest) routes.textContent = "Não foi possível carregar as rotas agora."; }
+  try {
+    const result = await requestJson("/api/certifications/recommend", { method: "POST", body: (() => {
+      const form = new FormData(); form.set("goal", data.gaps.join("; ").slice(0, 200)); return form;
+    })() });
+    if (sequence !== learningRequest) return;
+    if (result.recommendations.length) {
+      const title = document.createElement("h4"); title.textContent = "Certificações relacionadas"; certifications.append(title);
+      for (const item of result.recommendations.slice(0, 3)) {
+        const link = document.createElement("a"); link.href = item.url; link.target = "_blank"; link.rel = "noopener noreferrer"; link.textContent = `${item.title} ↗`; certifications.append(link);
+      }
+    }
+  } catch { /* Routes remain useful without certification suggestions. */ }
+}
 
 function message(id, text) {
   const box = $(id);
@@ -157,6 +197,7 @@ function showAnalysis(data, scrollToResults = true) {
   }
   analysis = data;
   $("tailor-status").textContent = "";
+  $("ideal-resume-status").textContent = "";
   lastRenderedDraft = "";
   generatedLatex = "";
   if (pdfUrl) { URL.revokeObjectURL(pdfUrl); pdfUrl = null; }
@@ -174,10 +215,12 @@ function showAnalysis(data, scrollToResults = true) {
   if (!data.matches.length) appendTextItem(matches, "Nenhum trecho foi confirmado automaticamente.");
   else for (const match of data.matches) appendTextItem(matches, match.requirement, `“${match.excerpt}”`);
   fillList("gaps-list", data.gaps, "Nenhum requisito ausente foi identificado.");
+  void updateLearningRecommendations(data);
   buildEditor();
   const importedKeywords = applyPendingRoadmapKeywords();
   updateJobsProfile();
   $("results").hidden = false;
+  $("ideal-resume-panel").hidden = false;
   $("details").hidden = false;
   if (importedKeywords) document.querySelector(".editor-heading").scrollIntoView({ behavior: "smooth", block: "start" });
   else if (scrollToResults) $("results").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -233,6 +276,7 @@ form.addEventListener("submit", async (event) => {
   if (!selectedFile) return message("form-error", "Envie seu currículo para continuar.");
   if (!jobInput.value.trim()) return message("form-error", "Cole a descrição da vaga para continuar.");
   $("results").hidden = true;
+  $("ideal-resume-panel").hidden = true;
   $("details").hidden = true;
   const body = new FormData();
   const mime = selectedFile.name.toLowerCase().endsWith(".pdf") ? "application/pdf" : "text/plain";
@@ -249,15 +293,20 @@ form.addEventListener("submit", async (event) => {
 });
 
 $("refresh-preview").addEventListener("click", refreshPreview);
-$("tailor-resume").addEventListener("click", async () => {
+async function tailorResume() {
   message("render-error", "");
   const status = $("tailor-status");
+  const resultStatus = $("ideal-resume-status");
   if (!analysis) return;
   if (!jobInput.value.trim()) return message("render-error", "Informe a descrição da vaga antes de preparar o currículo.");
-  const button = $("tailor-resume");
-  button.disabled = true;
-  button.textContent = "Preparando currículo...";
+  const editorButton = $("tailor-resume");
+  const resultButton = $("generate-ideal-resume");
+  editorButton.disabled = true;
+  resultButton.disabled = true;
+  editorButton.textContent = "Preparando currículo...";
+  resultButton.textContent = "Preparando currículo...";
   status.textContent = "Adaptando o currículo à vaga...";
+  resultStatus.textContent = "Adaptando e reavaliando a nova versão...";
   try {
     const tailored = await requestJson("/api/tailor", {
       method: "POST", headers: { "Content-Type": "application/json" },
@@ -265,15 +314,27 @@ $("tailor-resume").addEventListener("click", async () => {
     });
     showAnalysis(tailored, false);
     const rendered = await refreshPreview();
-    status.textContent = rendered
-      ? "Versão preparada e prévia atualizada. Revise as informações e salve esta versão se desejar."
-      : "Versão preparada. Revise as informações e tente atualizar a prévia novamente.";
+    const scoreMessage = tailored.percentage > 90
+      ? `Nova pontuação estimada: ${tailored.percentage}%. Meta acima de 90% atingida nesta avaliação; isso não garante aprovação na seleção.`
+      : `Nova pontuação estimada: ${tailored.percentage}%. A meta acima de 90% ainda não foi atingida; confira os requisitos sem evidência acima.`;
+    resultStatus.textContent = scoreMessage;
+    status.textContent = `${scoreMessage} ${rendered
+      ? "Prévia atualizada. Revise os dados e salve esta versão se desejar."
+      : "Tente atualizar a prévia novamente."}`;
     document.querySelector(".editor-heading").scrollIntoView({ behavior: "smooth", block: "start" });
   } catch (error) {
     status.textContent = "";
+    resultStatus.textContent = "Não foi possível gerar ou reavaliar a versão. Tente novamente.";
     message("render-error", error.message);
-  } finally { button.disabled = false; button.textContent = "Deixar currículo pronto pra vaga"; }
-});
+  } finally {
+    editorButton.disabled = false;
+    resultButton.disabled = false;
+    editorButton.textContent = "Deixar currículo pronto pra vaga";
+    resultButton.textContent = "Gerar currículo ideal para esta vaga ↗";
+  }
+}
+$("tailor-resume").addEventListener("click", tailorResume);
+$("generate-ideal-resume").addEventListener("click", tailorResume);
 $("download-pdf").addEventListener("click", () => { if (pdfUrl) downloadUrl(pdfUrl, "curriculo-alinhado.pdf"); });
 function downloadUrl(url, name) {
   const link = document.createElement("a"); link.href = url; link.download = name; link.click();
@@ -290,7 +351,7 @@ $("copy-latex").addEventListener("click", async () => {
   catch { message("render-error", "Não foi possível copiar automaticamente. Selecione o código abaixo."); }
 });
 $("new-analysis").addEventListener("click", () => {
-  $("results").hidden = true; $("details").hidden = true;
+  $("results").hidden = true; $("ideal-resume-panel").hidden = true; $("details").hidden = true;
   $("nova-analise").scrollIntoView({ behavior: "smooth" }); jobInput.focus();
 });
 
@@ -394,7 +455,7 @@ AlinhaStorage.readyVersions().then((versions) => {
   $("save-version").textContent = "Salvar versão";
   document.querySelector("#history-section .section-kicker").textContent = "SALVO NO SERVIDOR";
   document.querySelector("#history-section .section-heading p").textContent = "Recupere versões anteriores ou compare duas análises. Os dados ficam no PostgreSQL deste servidor.";
-  document.querySelector(".editor-card .privacy-note").textContent = "A IA usa informações com evidência. Revise o texto antes de se candidatar; filtros ATS não garantem aprovação. As versões salvas ficam no PostgreSQL deste servidor. Guarde o acesso a este navegador.";
+  document.querySelector(".editor-card .privacy-note").textContent = "A IA usa informações com evidência. Revise o texto antes de se candidatar; filtros ATS não garantem aprovação. As versões salvas ficam no PostgreSQL deste servidor. Para acessá-las em outros dispositivos, crie uma conta.";
   restorePendingRoadmapKeywords();
 }).catch((error) => {
   document.querySelector("#history-section .section-heading p").textContent = `Não foi possível sincronizar o PostgreSQL: ${error.message}. As versões anteriores continuam neste navegador.`;
@@ -446,6 +507,7 @@ function makeJobCard(job) {
         company: String(job.company || "").slice(0, 160),
         source: String(job.source || "").slice(0, 120),
         vacancyUrl: link.href || "",
+        jobDescription: String(job.description || "").slice(0, 20000),
       }));
     } catch { /* The form remains available for manual entry. */ }
     location.href = "/candidaturas";

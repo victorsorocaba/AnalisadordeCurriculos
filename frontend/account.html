@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minha conta — Alinha</title>
+  <link rel="stylesheet" href="/assets/styles.css?v=account-1" />
+  <script src="/assets/storage.js?v=account-1" defer></script>
+  <script src="/assets/account.js?v=account-1" defer></script>
+</head>
+<body><div class="app-shell">
+  <aside class="sidebar" aria-label="Navegação">
+    <a class="brand" href="/" aria-label="Alinha, início"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>alinha<span class="brand-dot">.</span></span></a>
+    <div class="sidebar-label">ESPAÇO DE TRABALHO</div>
+    <nav class="side-nav"><a class="nav-link" href="/#nova-analise"><span class="nav-icon">✦</span> Nova análise</a><a class="nav-link" href="/#como-funciona"><span class="nav-icon">◫</span> Como funciona</a><a class="nav-link" href="/#vagas"><span class="nav-icon">⌕</span> Vagas para você</a><a class="nav-link" href="/candidaturas"><span class="nav-icon">▣</span> Minhas candidaturas</a><a class="nav-link" href="/rotas-estudo"><span class="nav-icon">◇</span> Rotas de estudo</a><a class="nav-link" href="/certificacoes"><span class="nav-icon">✧</span> Certificações</a></nav>
+  </aside>
+  <main class="main-content"><header class="topbar"><span class="topbar-title">Área de desenvolvimento <span>/ Minha conta</span></span></header>
+    <div class="page-content account-page"><section class="applications-hero"><div class="section-kicker">ACESSO AOS SEUS DADOS</div><h1>Seu histórico, em outros dispositivos.</h1><p>Crie uma conta para acessar versões do currículo, rotas de estudo e candidaturas com o mesmo login. O cadastro leva os dados deste navegador para sua conta.</p></section>
+      <div class="applications-layout"><section class="applications-form-card"><h2 id="account-title">Criar conta</h2><form id="account-form">
+        <label for="account-email">E-mail</label><input id="account-email" type="email" autocomplete="email" maxlength="254" required />
+        <label for="account-password">Senha</label><input id="account-password" type="password" autocomplete="new-password" minlength="10" maxlength="128" required />
+        <p class="privacy-note">Use pelo menos 10 caracteres. Guarde sua senha: a recuperação por e-mail ainda não está disponível.</p>
+        <div class="application-form-actions"><button id="account-submit" class="primary-button" type="submit">Criar conta</button><button id="account-toggle" class="outline-button" type="button">Já tenho conta</button></div>
+        <p id="account-message" role="status" aria-live="polite"></p>
+      </form></section>
+      <section class="applications-panel"><div class="section-kicker">SESSÃO</div><h2>Perfil atual</h2><p id="account-current">Verificando...</p><button id="account-logout" class="outline-button" type="button" hidden>Sair da conta</button><p class="privacy-note">O banco de dados deve estar ativo para usar contas. Em computadores compartilhados, saia da conta ao terminar.</p></section></div>
+    </div>
+  </main>
+</div></body></html>
